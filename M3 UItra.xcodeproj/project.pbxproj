@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */; };
+		4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CD9728A4C89D000E7443 /* ContentView.swift */; };
+		4932CD9A28A4C89E000E7443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4932CD9928A4C89E000E7443 /* Assets.xcassets */; };
+		4932CD9D28A4C89E000E7443 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4932CD9C28A4C89E000E7443 /* Preview Assets.xcassets */; };
+		4932CDA728A4C89E000E7443 /* M3_UItraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */; };
+		4932CDB128A4C89E000E7443 /* M3_UItraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */; };
+		4932CDB328A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */; };
+		4932CDC028A4DF63000E7443 /* home page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDBF28A4DF63000E7443 /* home page.swift */; };
+		4932CDC228A4E8F2000E7443 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC128A4E8F2000E7443 /* camera.swift */; };
+		4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC328A4E92B000E7443 /* the line and view.swift */; };
+		4932CDC628A4EA5B000E7443 /* frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC528A4EA5B000E7443 /* frame.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4932CDA328A4C89E000E7443 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4932CD8A28A4C89D000E7443 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4932CD9128A4C89D000E7443;
+			remoteInfo = "M3 UItra";
+		};
+		4932CDAD28A4C89E000E7443 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4932CD8A28A4C89D000E7443 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4932CD9128A4C89D000E7443;
+			remoteInfo = "M3 UItra";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4932CD9228A4C89D000E7443 /* M3 UItra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M3 UItra.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraApp.swift; sourceTree = "<group>"; };
+		4932CD9728A4C89D000E7443 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4932CD9928A4C89E000E7443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4932CD9C28A4C89E000E7443 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4932CDA228A4C89E000E7443 /* M3 UItraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "M3 UItraTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraTests.swift; sourceTree = "<group>"; };
+		4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "M3 UItraUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraUITests.swift; sourceTree = "<group>"; };
+		4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4932CDBF28A4DF63000E7443 /* home page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "home page.swift"; sourceTree = "<group>"; };
+		4932CDC128A4E8F2000E7443 /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
+		4932CDC328A4E92B000E7443 /* the line and view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "the line and view.swift"; sourceTree = "<group>"; };
+		4932CDC528A4EA5B000E7443 /* frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frame.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4932CD8F28A4C89D000E7443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932CD9F28A4C89E000E7443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932CDA928A4C89E000E7443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4932CD8928A4C89D000E7443 = {
+			isa = PBXGroup;
+			children = (
+				4932CD9428A4C89D000E7443 /* M3 UItra */,
+				4932CDA528A4C89E000E7443 /* M3 UItraTests */,
+				4932CDAF28A4C89E000E7443 /* M3 UItraUITests */,
+				4932CD9328A4C89D000E7443 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4932CD9328A4C89D000E7443 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4932CD9228A4C89D000E7443 /* M3 UItra.app */,
+				4932CDA228A4C89E000E7443 /* M3 UItraTests.xctest */,
+				4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4932CD9428A4C89D000E7443 /* M3 UItra */ = {
+			isa = PBXGroup;
+			children = (
+				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
+				4932CD9728A4C89D000E7443 /* ContentView.swift */,
+				4932CDC128A4E8F2000E7443 /* camera.swift */,
+				4932CDC328A4E92B000E7443 /* the line and view.swift */,
+				4932CDC528A4EA5B000E7443 /* frame.swift */,
+				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
+				4932CD9B28A4C89E000E7443 /* Preview Content */,
+				4932CDBF28A4DF63000E7443 /* home page.swift */,
+			);
+			path = "M3 UItra";
+			sourceTree = "<group>";
+		};
+		4932CD9B28A4C89E000E7443 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4932CD9C28A4C89E000E7443 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4932CDA528A4C89E000E7443 /* M3 UItraTests */ = {
+			isa = PBXGroup;
+			children = (
+				4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */,
+			);
+			path = "M3 UItraTests";
+			sourceTree = "<group>";
+		};
+		4932CDAF28A4C89E000E7443 /* M3 UItraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */,
+				4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */,
+			);
+			path = "M3 UItraUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4932CD9128A4C89D000E7443 /* M3 UItra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItra" */;
+			buildPhases = (
+				4932CD8E28A4C89D000E7443 /* Sources */,
+				4932CD8F28A4C89D000E7443 /* Frameworks */,
+				4932CD9028A4C89D000E7443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "M3 UItra";
+			productName = "M3 UItra";
+			productReference = 4932CD9228A4C89D000E7443 /* M3 UItra.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4932CDA128A4C89E000E7443 /* M3 UItraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4932CDB928A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraTests" */;
+			buildPhases = (
+				4932CD9E28A4C89E000E7443 /* Sources */,
+				4932CD9F28A4C89E000E7443 /* Frameworks */,
+				4932CDA028A4C89E000E7443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4932CDA428A4C89E000E7443 /* PBXTargetDependency */,
+			);
+			name = "M3 UItraTests";
+			productName = "M3 UItraTests";
+			productReference = 4932CDA228A4C89E000E7443 /* M3 UItraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4932CDAB28A4C89E000E7443 /* M3 UItraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4932CDBC28A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraUITests" */;
+			buildPhases = (
+				4932CDA828A4C89E000E7443 /* Sources */,
+				4932CDA928A4C89E000E7443 /* Frameworks */,
+				4932CDAA28A4C89E000E7443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4932CDAE28A4C89E000E7443 /* PBXTargetDependency */,
+			);
+			name = "M3 UItraUITests";
+			productName = "M3 UItraUITests";
+			productReference = 4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4932CD8A28A4C89D000E7443 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					4932CD9128A4C89D000E7443 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					4932CDA128A4C89E000E7443 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 4932CD9128A4C89D000E7443;
+					};
+					4932CDAB28A4C89E000E7443 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 4932CD9128A4C89D000E7443;
+					};
+				};
+			};
+			buildConfigurationList = 4932CD8D28A4C89D000E7443 /* Build configuration list for PBXProject "M3 UItra" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4932CD8928A4C89D000E7443;
+			productRefGroup = 4932CD9328A4C89D000E7443 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4932CD9128A4C89D000E7443 /* M3 UItra */,
+				4932CDA128A4C89E000E7443 /* M3 UItraTests */,
+				4932CDAB28A4C89E000E7443 /* M3 UItraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4932CD9028A4C89D000E7443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4932CD9D28A4C89E000E7443 /* Preview Assets.xcassets in Resources */,
+				4932CD9A28A4C89E000E7443 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932CDA028A4C89E000E7443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932CDAA28A4C89E000E7443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4932CD8E28A4C89D000E7443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4932CDC228A4E8F2000E7443 /* camera.swift in Sources */,
+				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
+				4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */,
+				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
+				4932CDC028A4DF63000E7443 /* home page.swift in Sources */,
+				4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932CD9E28A4C89E000E7443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4932CDA728A4C89E000E7443 /* M3_UItraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932CDA828A4C89E000E7443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4932CDB328A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift in Sources */,
+				4932CDB128A4C89E000E7443 /* M3_UItraUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4932CDA428A4C89E000E7443 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4932CD9128A4C89D000E7443 /* M3 UItra */;
+			targetProxy = 4932CDA328A4C89E000E7443 /* PBXContainerItemProxy */;
+		};
+		4932CDAE28A4C89E000E7443 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4932CD9128A4C89D000E7443 /* M3 UItra */;
+			targetProxy = 4932CDAD28A4C89E000E7443 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4932CDB428A4C89E000E7443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4932CDB528A4C89E000E7443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4932CDB728A4C89E000E7443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"M3 UItra/Preview Content\"";
+				DEVELOPMENT_TEAM = UGQBX3P3M8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4932CDB828A4C89E000E7443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"M3 UItra/Preview Content\"";
+				DEVELOPMENT_TEAM = UGQBX3P3M8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4932CDBA28A4C89E000E7443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UGQBX3P3M8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/M3 UItra.app/M3 UItra";
+			};
+			name = Debug;
+		};
+		4932CDBB28A4C89E000E7443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UGQBX3P3M8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/M3 UItra.app/M3 UItra";
+			};
+			name = Release;
+		};
+		4932CDBD28A4C89E000E7443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V5NPVP856C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "M3 UItra";
+			};
+			name = Debug;
+		};
+		4932CDBE28A4C89E000E7443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V5NPVP856C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "M3 UItra";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4932CD8D28A4C89D000E7443 /* Build configuration list for PBXProject "M3 UItra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4932CDB428A4C89E000E7443 /* Debug */,
+				4932CDB528A4C89E000E7443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4932CDB728A4C89E000E7443 /* Debug */,
+				4932CDB828A4C89E000E7443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4932CDB928A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4932CDBA28A4C89E000E7443 /* Debug */,
+				4932CDBB28A4C89E000E7443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4932CDBC28A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4932CDBD28A4C89E000E7443 /* Debug */,
+				4932CDBE28A4C89E000E7443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4932CD8A28A4C89D000E7443 /* Project object */;
+}
