@@ -50,14 +50,14 @@ struct StickFigureView: View {
                         .fill(Color.red)
                     
                 }
-                if poseEstimator.rightHipconfidence ?? 0 >= 0.5 {
+                if poseEstimator.rightHipconfidence ?? 0 >= 0.4 {
                     // Root to nose
                     Stick(points: [poseEstimator.bodyParts[.root]!.location,
                                    poseEstimator.bodyParts[.neck]!.location,  poseEstimator.bodyParts[.nose]!.location], size: size)
                         .stroke(lineWidth: 7.0)
                         .fill(Color.yellow)
                 }
-                if poseEstimator.rightAnkleconfidence ?? 0 >= 0.5 {
+                if poseEstimator.rightAnkleconfidence ?? 0 >= 0.4 {
                     // Right arm
                     Stick(points: [poseEstimator.bodyParts[.rightWrist]!.location, poseEstimator.bodyParts[.rightElbow]!.location, poseEstimator.bodyParts[.rightShoulder]!.location, poseEstimator.bodyParts[.neck]!.location], size: size)
                         .stroke(lineWidth: 7.0)
