@@ -90,11 +90,11 @@ struct aiView: View {
             HStack {
                 VStack {
                     if poseEstimator.rightKneeconfidence != nil {
-                         let rightKneeconfidenceString: String = String(format: "%.1f", poseEstimator.rightKneeconfidence!)
-                         let leftKneeconfidenceString: String = String(format: "%.1f", poseEstimator.leftKneeconfidence!)
-                         let rightHipconfidenceString: String = String(format: "%.1f", poseEstimator.rightHipconfidence!)
-                         let rightAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.rightAnkleconfidence!)
-                         let leftAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.leftAnkleconfidence!)
+                      //   let rightKneeconfidenceString: String = String(format: "%.1f", poseEstimator.rightKneeconfidence!)
+                      //   let leftKneeconfidenceString: String = String(format: "%.1f", poseEstimator.leftKneeconfidence!)
+                      //   let rightHipconfidenceString: String = String(format: "%.1f", poseEstimator.rightHipconfidence!)
+//                         let rightAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.rightAnkleconfidence!)
+//                         let leftAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.leftAnkleconfidence!)
                          
                          
                          //Text("rightKneeconfidence:\(rightKneeconfidenceString)").font(.title)
@@ -103,12 +103,12 @@ struct aiView: View {
                         // Text("rightAnkleconfidence:\(rightAnkleconfidenceString)").font(.title)
                         // Text("leftAnkleconfidence:\(leftAnkleconfidenceString)").font(.title)
                         
-                        let qx1 = poseEstimator.rightAnkle.x
-                        let qy1 = poseEstimator.rightAnkle.y
-                        let qx2 = poseEstimator.rightKnee.x
-                        let qy2 = poseEstimator.rightKnee.y
-                        let qx3 = poseEstimator.rightHip.x
-                        let qy3 = poseEstimator.rightHip.y
+//                        let qx1 = poseEstimator.rightAnkle.x
+//                        let qy1 = poseEstimator.rightAnkle.y
+//                        let qx2 = poseEstimator.rightKnee.x
+//                        let qy2 = poseEstimator.rightKnee.y
+//                        let qx3 = poseEstimator.rightHip.x
+//                        let qy3 = poseEstimator.rightHip.y
                         
                         //Text("\(qx1), \(qx2), \(qx3), \(qy1), \(qy2), \(qy3)")
                         //    .font(.largeTitle)
