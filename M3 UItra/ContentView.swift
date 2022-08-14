@@ -218,14 +218,6 @@ struct aiView: View {
         
         
     }
-    func calc() {
-        var input: Double
-        var result: Int
-        let inputint = Int(input)
-        let n = (inputint/Int(5))
-        result = n*5
-
-    }
 }
 
 
