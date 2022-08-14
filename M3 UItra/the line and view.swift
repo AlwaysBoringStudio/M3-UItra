@@ -29,6 +29,7 @@ struct StickFigureView: View {
     @StateObject var poseEstimator = PoseEstimator()
     var size: CGSize
     var body: some View {
+        
         if poseEstimator.bodyParts.isEmpty == false {
             ZStack {
                 
@@ -41,6 +42,11 @@ struct StickFigureView: View {
                     .fill(Color.red)
                 
                         
+                } else {
+                    Image("body")
+                        .resizable()
+                        .scaledToFit()
+                        
                 }
                 if poseEstimator.leftKneeconfidence ?? 0 >= 0.5 {
                     // Left leg
@@ -49,30 +55,55 @@ struct StickFigureView: View {
                         .stroke(lineWidth: 7.0)
                         .fill(Color.red)
                     
+                } else {
+                    Image("body")
+                        .resizable()
+                        .scaledToFit()
+                        
                 }
-                if poseEstimator.rightHipconfidence ?? 0 >= 0.4 {
+                if poseEstimator.rightHipconfidence ?? 0 >= 0.5 {
                     // Root to nose
                     Stick(points: [poseEstimator.bodyParts[.root]!.location,
                                    poseEstimator.bodyParts[.neck]!.location,  poseEstimator.bodyParts[.nose]!.location], size: size)
                         .stroke(lineWidth: 7.0)
                         .fill(Color.yellow)
+                } else {
+                    Image("body")
+                        .resizable()
+                        .scaledToFit()
+                        
                 }
-                if poseEstimator.rightAnkleconfidence ?? 0 >= 0.4 {
+                if poseEstimator.rightAnkleconfidence ?? 0 >= 0.5 {
                     // Right arm
                     Stick(points: [poseEstimator.bodyParts[.rightWrist]!.location, poseEstimator.bodyParts[.rightElbow]!.location, poseEstimator.bodyParts[.rightShoulder]!.location, poseEstimator.bodyParts[.neck]!.location], size: size)
                         .stroke(lineWidth: 7.0)
                         .fill(Color.green)
+                } else {
+                    Image("body")
+                        .resizable()
+                        .scaledToFit()
+                        
                 }
                 if poseEstimator.leftAnkleconfidence ?? 0 >= 0.5 {
                     // Left arm
                     Stick(points: [poseEstimator.bodyParts[.leftWrist]!.location, poseEstimator.bodyParts[.leftElbow]!.location, poseEstimator.bodyParts[.leftShoulder]!.location, poseEstimator.bodyParts[.neck]!.location], size: size)
                         .stroke(lineWidth: 7.0)
                         .fill(Color.green)
+                } else {
+                    Image("body")
+                        .resizable()
+                        .scaledToFit()
+                        
                 }
                 
-
             }
             
+            
+        } else {
+            Image("body")
+                .resizable()
+                .scaledToFit()
+                
         }
     }
 }

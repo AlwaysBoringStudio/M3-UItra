@@ -18,6 +18,7 @@
 		4932CDC228A4E8F2000E7443 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC128A4E8F2000E7443 /* camera.swift */; };
 		4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC328A4E92B000E7443 /* the line and view.swift */; };
 		4932CDC628A4EA5B000E7443 /* frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC528A4EA5B000E7443 /* frame.swift */; };
+		797B83F728A7BC1A00937BDB /* game1view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B83F628A7BC1A00937BDB /* game1view.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4932CDC128A4E8F2000E7443 /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
 		4932CDC328A4E92B000E7443 /* the line and view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "the line and view.swift"; sourceTree = "<group>"; };
 		4932CDC528A4EA5B000E7443 /* frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frame.swift; sourceTree = "<group>"; };
+		797B83F628A7BC1A00937BDB /* game1view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game1view.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				4932CDC128A4E8F2000E7443 /* camera.swift */,
 				4932CDC328A4E92B000E7443 /* the line and view.swift */,
 				4932CDC528A4EA5B000E7443 /* frame.swift */,
+				797B83F628A7BC1A00937BDB /* game1view.swift */,
 				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				4932CD9B28A4C89E000E7443 /* Preview Content */,
 				4932CDBF28A4DF63000E7443 /* home page.swift */,
@@ -272,6 +275,7 @@
 				4932CDC228A4E8F2000E7443 /* camera.swift in Sources */,
 				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
 				4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */,
+				797B83F728A7BC1A00937BDB /* game1view.swift in Sources */,
 				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
 				4932CDC028A4DF63000E7443 /* home page.swift in Sources */,
 				4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */,

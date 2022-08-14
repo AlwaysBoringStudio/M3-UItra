@@ -1,40 +1,14 @@
 //
-//  ContentView.swift
+//  game1view.swift
 //  M3 UItra
 //
-//  Created by M2 Ultra on 11/8/2022.
+//  Created by HingTatTsang on 13/8/2022.
 //
 
 import SwiftUI
-import Foundation
-import AVFoundation
-import Vision
-import Combine
-import UIKit
-
-struct ContentView: View {
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-    var body: some View {
-        NavigationView {
-            List {
-                NavigationLink(destination: aiView()) {
-                    Text("AI")
-                }
-                NavigationLink(destination: game1view()) {
-                    Text("Game1")
-                }
-                .navigationTitle("AI教你做運動")
-                .navigationViewStyle(.stack)
-            }
-        }
-        aiView()
-
-        
-    }
-}
 
 
-struct aiView: View {
+struct game1view: View {
     @StateObject var poseEstimator = PoseEstimator()
     
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
@@ -75,6 +49,8 @@ struct aiView: View {
     @State var no4 = Double(0)
     @State var slope7 = Double(0)
     @State var slope8 = Double(0)
+    
+    @State var action1 = false
     //let the var of formula angle
     
     var body: some View {
@@ -127,6 +103,7 @@ struct aiView: View {
                          
                          
                      }
+                    
                 }
             }
             
@@ -222,10 +199,8 @@ struct aiView: View {
 
 
 
-
-
-struct Previews_ContentView_Previews: PreviewProvider {
+struct game1view_Previews: PreviewProvider {
     static var previews: some View {
-        aiView()
+        game1view()
     }
 }
