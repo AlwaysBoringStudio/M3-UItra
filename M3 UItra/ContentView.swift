@@ -15,18 +15,18 @@ import UIKit
 struct ContentView: View {
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     var body: some View {
-        NavigationView {
-            List {
-                NavigationLink(destination: aiView()) {
-                    Text("AI")
-                }
-                NavigationLink(destination: game1view()) {
-                    Text("Game1")
-                }
-                .navigationTitle("AI教你做運動")
-                .navigationViewStyle(.stack)
-            }
-        }
+//        NavigationView {
+//            List {
+//                NavigationLink(destination: aiView()) {
+//                    Text("AI")
+//                }
+//                NavigationLink(destination: game1view()) {
+//                    Text("Game1")
+//                }
+//                .navigationTitle("AI教你做運動")
+//                .navigationViewStyle(.stack)
+//            }
+//        }
         aiView()
 
         
