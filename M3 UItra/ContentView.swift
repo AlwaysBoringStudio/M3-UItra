@@ -36,6 +36,46 @@ struct ContentView: View {
 }
 
 
+struct circleView: View {
+    var systemname: String
+    var name: String
+    var color: Color
+    @State var buttonpressed = false
+    var body: some View {
+        Button(action: {
+            buttonpressed = true
+        }, label: {
+            Circle()
+                .foregroundColor(color)
+                .frame(width: 90, height: 90)
+                .overlay() {
+                    Image(systemName: systemname)
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.black)
+                        .padding()
+                }
+        })
+        .sheet(isPresented: $buttonpressed) {
+            VStack {
+                Circle()
+                    .foregroundColor(color)
+                    .frame(width: 120, height: 120)
+                    .overlay() {
+                        Image(systemName: name)
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
+                Text(name)
+                    .font(.title)
+            }
+        }
+        
+    }
+}
+
+
 
 struct Previews_ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct practiceView: View {
     @State var view = true
+    @State var size = CGFloat(160)
     var body: some View {
         ZStack {
             NavigationView {
@@ -27,7 +28,7 @@ struct practiceView: View {
                 HStack {
                     if view == true {
                         Rectangle()
-                            .frame(width: 150, height: 35)
+                            .frame(width: size, height: 35)
                             .foregroundColor(.blue)
                             .cornerRadius(25)
                             .overlay() {
@@ -39,7 +40,7 @@ struct practiceView: View {
                             }
                     } else {
                         Rectangle()
-                            .frame(width: 150, height: 35)
+                            .frame(width: size, height: 35)
                             .foregroundColor(.gray)
                             .cornerRadius(25)
                             .overlay() {
@@ -49,9 +50,10 @@ struct practiceView: View {
                                 view = true
                             }
                     }
+                    Spacer()
                     if view == true {
                         Rectangle()
-                            .frame(width: 150, height: 35)
+                            .frame(width: size, height: 35)
                             .foregroundColor(.gray)
                             .cornerRadius(25)
                             .overlay() {
@@ -63,7 +65,7 @@ struct practiceView: View {
                             }
                     } else {
                         Rectangle()
-                            .frame(width: 150, height: 35)
+                            .frame(width: size, height: 35)
                             .foregroundColor(.blue)
                             .cornerRadius(25)
                             .overlay() {
@@ -78,7 +80,7 @@ struct practiceView: View {
                     
                 }
                 Spacer()
-            }
+            }.frame(width: 340)
             
         }
         
@@ -172,6 +174,7 @@ struct praView: View {
                     }
                 }
         }
+        
         .sheet(isPresented: $view1) {
             aiView()
         }
@@ -230,8 +233,26 @@ struct claView: View {
 }
 
 
-struct practiceView_Previews: PreviewProvider {
+struct practiceView_Preview: PreviewProvider {
     static var previews: some View {
         practiceView()
     }
 }
+
+struct practiceView_Preview_2: PreviewProvider {
+    static var previews: some View {
+        ScrollView {
+            praView()
+        }
+    }
+}
+
+
+struct practiceView_Preview_3: PreviewProvider {
+    static var previews: some View {
+        ScrollView {
+            claView()
+        }
+    }
+}
+

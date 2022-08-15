@@ -65,6 +65,7 @@
 		79C8582A28AA384A00A37B5E /* practiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceView.swift; sourceTree = "<group>"; };
 		79C8582C28AA388B00A37B5E /* errorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorView.swift; sourceTree = "<group>"; };
 		79C8582E28AA38B500A37B5E /* scheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleView.swift; sourceTree = "<group>"; };
+		79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "M3-UItra-Info.plist"; sourceTree = SOURCE_ROOT; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +117,7 @@
 		4932CD9428A4C89D000E7443 /* M3 UItra */ = {
 			isa = PBXGroup;
 			children = (
+				79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */,
 				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
 				4932CD9728A4C89D000E7443 /* ContentView.swift */,
 				4932CDC128A4E8F2000E7443 /* camera.swift */,
@@ -464,11 +466,11 @@
 				DEVELOPMENT_TEAM = UGQBX3P3M8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "M3-UItra-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,7 +482,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -495,11 +497,11 @@
 				DEVELOPMENT_TEAM = UGQBX3P3M8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "M3-UItra-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,7 +513,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

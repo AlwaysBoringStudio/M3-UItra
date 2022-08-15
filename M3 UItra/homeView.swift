@@ -15,12 +15,12 @@ struct homeView: View {
                     VStack {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                circleView(name: "heart", color: .pink)
-                                circleView(name: "lungs", color: .green)
-                                circleView(name: "figure.walk", color: .yellow)
-                                circleView(name: "flame.fill", color: .blue)
-                                circleView(name: "bolt.heart.fill", color: .green)
-                                circleView(name: "star",color: .pink)
+                                circleView(systemname: "heart", name: "heart", color: .pink)
+                                circleView(systemname: "lungs", name: "lungs", color: .green)
+                                circleView(systemname: "figure.walk", name: "figure.walk", color: .yellow)
+                                circleView(systemname: "flame.fill", name: "flame.fill", color: .blue)
+                                circleView(systemname: "bolt.heart.fill", name: "bolt.heart.fill", color: .green)
+                                circleView(systemname: "star", name: "star",color: .pink)
                             }
                         }
                         .padding(.horizontal)

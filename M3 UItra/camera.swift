@@ -84,10 +84,6 @@ final class CameraViewController: UIViewController {
     }
 }
 
-
-
-
-
 final class CameraView: UIView {
     
     override class var layerClass: AnyClass {

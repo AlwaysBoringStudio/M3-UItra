@@ -71,25 +71,6 @@ struct scheduleView: View {
 }
 
 
-
-
-struct circleView: View {
-    var name: String
-    var color: Color
-    var body: some View {
-        Circle()
-            .foregroundColor(color)
-            .frame(width: 90, height: 90)
-            .overlay() {
-                Image(systemName: name)
-                    .resizable()
-                    .scaledToFit()
-                    .padding()
-            }
-    }
-}
-
-
 struct scheduleView_Previews: PreviewProvider {
     static var previews: some View {
         scheduleView()
