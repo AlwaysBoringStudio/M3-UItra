@@ -60,7 +60,7 @@ struct aboutView: View {
             HStack {
                 Text("Version:")
                 Spacer()
-                Text("0.0.1")
+                Text("1.0.0")
             }
         }
     }
