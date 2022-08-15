@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct settingsView: View {
+    @State var developermode = 10
+    @State var showAlert = false
+    @State var showAlert2 = false
     var body: some View {
         NavigationView {
             List {
@@ -47,24 +50,49 @@ struct settingsView: View {
                         }
                     }
                 }
-                aboutView()
+                Button(action: {
+                    if developermode == 0 {
+                        showAlert2 = true
+                    } else if developermode == 1 {
+                        showAlert = true
+                        developermode = developermode - 1
+                    } else {
+                        developermode = developermode - 1
+                    }
+                }, label: {
+                    HStack {
+                        Text("Version:")
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text("1.0.0")
+                            .foregroundColor(.black)
+                    }
+                })
+                Section {
+                    if developermode == 0 {
+                        NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra")!).navigationTitle("GitHub").navigationBarTitleDisplayMode(.inline)) {
+                            Text("GitHub")
+                        }
+                    }
+                    
+                }
             }
             .navigationTitle("設定")
         }
+        .alert("You are developer now !", isPresented: $showAlert, actions: {
+                    Button("OK") { }
+        })
+        .alert("You are developer already !", isPresented: $showAlert2, actions: {
+            Button("Cancel") {
+                developermode = 10
+            }
+            Button("OK") {
+            }
+               
+        })
     }
 }
 
-struct aboutView: View {
-    var body: some View {
-        Section {
-            HStack {
-                Text("Version:")
-                Spacer()
-                Text("1.0.0")
-            }
-        }
-    }
-}
 
 struct settingsView_Previews: PreviewProvider {
     static var previews: some View {
