@@ -11,6 +11,7 @@ struct settingsView: View {
     @State var developermode = 10
     @State var showAlert = false
     @State var showAlert2 = false
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         NavigationView {
             List {
@@ -62,10 +63,10 @@ struct settingsView: View {
                 }, label: {
                     HStack {
                         Text("Version:")
-                            .foregroundColor(.black)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                         Spacer()
                         Text("1.0.0")
-                            .foregroundColor(.black)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
                 })
                 Section {
@@ -104,7 +105,10 @@ dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", 
                 }
             }
             .navigationTitle("設定")
+            
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        
         .alert("You are developer now !", isPresented: $showAlert, actions: {
                     Button("OK") { }
         })
@@ -116,6 +120,7 @@ dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", 
             }
                
         })
+        
     }
 }
 

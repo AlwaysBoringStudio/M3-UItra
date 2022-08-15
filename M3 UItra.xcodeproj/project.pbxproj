@@ -24,6 +24,8 @@
 		79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582A28AA384A00A37B5E /* practiceView.swift */; };
 		79C8582D28AA388B00A37B5E /* errorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582C28AA388B00A37B5E /* errorView.swift */; };
 		79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582E28AA38B500A37B5E /* scheduleView.swift */; };
+		79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D0AAD228AAAB5000E60B4C /* CloudKit.framework */; };
+		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,9 @@
 		79C8582C28AA388B00A37B5E /* errorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorView.swift; sourceTree = "<group>"; };
 		79C8582E28AA38B500A37B5E /* scheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleView.swift; sourceTree = "<group>"; };
 		79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "M3-UItra-Info.plist"; sourceTree = SOURCE_ROOT; };
+		79D0AAD028AA95A000E60B4C /* M3 UItra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "M3 UItra.entitlements"; sourceTree = "<group>"; };
+		79D0AAD228AAAB5000E60B4C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,7 @@
 				4932CDA528A4C89E000E7443 /* M3 UItraTests */,
 				4932CDAF28A4C89E000E7443 /* M3 UItraUITests */,
 				4932CD9328A4C89D000E7443 /* Products */,
+				79D0AAD128AAAB5000E60B4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +124,7 @@
 		4932CD9428A4C89D000E7443 /* M3 UItra */ = {
 			isa = PBXGroup;
 			children = (
+				79D0AAD028AA95A000E60B4C /* M3 UItra.entitlements */,
 				79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */,
 				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
 				4932CD9728A4C89D000E7443 /* ContentView.swift */,
@@ -131,6 +139,7 @@
 				4932CDC328A4E92B000E7443 /* the line and view.swift */,
 				79FC50C028A8FE2A00F8CC50 /* aiView.swift */,
 				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
+				79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */,
 				4932CD9B28A4C89E000E7443 /* Preview Content */,
 				4932CDBF28A4DF63000E7443 /* home page.swift */,
 			);
@@ -160,6 +169,14 @@
 				4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */,
 			);
 			path = "M3 UItraUITests";
+			sourceTree = "<group>";
+		};
+		79D0AAD128AAAB5000E60B4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79D0AAD228AAAB5000E60B4C /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +314,7 @@
 				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
 				4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */,
 				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
+				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
@@ -460,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "M3 UItra/M3 UItra.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"M3 UItra/Preview Content\"";
@@ -480,9 +499,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -491,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "M3 UItra/M3 UItra.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"M3 UItra/Preview Content\"";
@@ -511,9 +532,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -633,6 +655,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */,
+			);
+			currentVersion = 79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4932CD8A28A4C89D000E7443 /* Project object */;
 }

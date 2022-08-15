@@ -39,6 +39,16 @@ struct homeView: View {
                         Image("cal")
                             .resizable()
                             .scaledToFit()
+                            .overlay() {
+                                VStack {
+                                    Text("今天")
+                                        .font(.largeTitle)
+                                    Text("570 cal")
+                                        .font(.largeTitle)
+                                    Text("卡路里")
+                                        .font(.largeTitle)
+                                }
+                            }
                     }
                     
                 }
@@ -61,11 +71,29 @@ struct homeView: View {
                 }
             }
             .navigationTitle("成就")
-            
+            .background(NavigationConfigurator { nc in
+                            nc.navigationBar.barTintColor = .blue
+                            nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+                        })
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .frame(maxWidth: 800)
         
     }
+}
+
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void = { _ in }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+        UIViewController()
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+        if let nc = uiViewController.navigationController {
+            self.configure(nc)
+        }
+    }
+
 }
 
 

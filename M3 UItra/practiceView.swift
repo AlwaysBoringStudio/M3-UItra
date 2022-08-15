@@ -80,9 +80,12 @@ struct practiceView: View {
                     
                 }
                 Spacer()
-            }.frame(width: 340)
+            }
+            .frame(width: 340)
+                
             
         }
+        .navigationViewStyle(.stack)
         
     }
 }
@@ -190,7 +193,8 @@ struct praView: View {
 
 struct claView: View {
     // 課程
-    @State var text = String("H7J7F8")
+    @State var showAlert = false
+    @State var text = String("")
     var body: some View {
         Rectangle()
             .frame(width: 340, height: 500)
@@ -206,29 +210,31 @@ struct claView: View {
                         .bold()
                     Spacer()
                     HStack {
-                        Text("代碼: ")
+                        TextField("代碼", text: $text)
+                            .multilineTextAlignment(.center)
                             .foregroundColor(.black)
                             .font(.title)
-                            .bold()
-                        Text("\(text)")
-                            .underline()
-                            .foregroundColor(.black)
-                            .font(.title)
-                            .bold()
-                    }
+                    }.frame(maxWidth: 200)
                     Spacer()
-                    Rectangle()
-                        .frame(width: 150, height: 50)
-                        .foregroundColor(.white)
-                        .cornerRadius(25)
-                        .overlay() {
-                            Text("連接")
-                                .font(.title)
-                                .bold()
-                        }
+                    Button(action: {
+                        showAlert = true
+                    }, label: {
+                        Rectangle()
+                            .frame(width: 150, height: 50)
+                            .foregroundColor(.white)
+                            .cornerRadius(25)
+                            .overlay() {
+                                Text("連接")
+                                    .font(.title)
+                                    .bold()
+                            }
+                    })
                     Spacer()
                 }
             }
+            .alert("Your code is invalid !", isPresented: $showAlert, actions: {
+                        Button("OK") { }
+            })
     }
 }
 

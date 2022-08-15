@@ -6,11 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
-import AVFoundation
-import Vision
-import Combine
-import UIKit
 
 struct ContentView: View {
     var body: some View {
@@ -31,7 +26,9 @@ struct ContentView: View {
                 .tabItem {
                     Label("設定", systemImage: "command.circle")
                 }
+            
         }
+        
     }
 }
 
