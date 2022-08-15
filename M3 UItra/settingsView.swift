@@ -76,6 +76,32 @@ struct settingsView: View {
                     }
                     
                 }
+                Section {
+                    if developermode == 0 {
+                        NavigationLink(destination: ContentView()) {
+                            Text("ContentView()")
+                        }
+                        NavigationLink(destination: practiceView()) {
+                            Text("practiceView()")
+                        }
+                        NavigationLink(destination: scheduleView()) {
+                            Text("scheduleView()")
+                        }
+                        NavigationLink(destination: dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")) {
+                            Text("""
+dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+""")
+                        }
+                        NavigationLink(destination: aiView()) {
+                            Text("aiView()")
+                        }
+                        
+                        NavigationLink(destination: errorView()) {
+                            Text("errorView()")
+                        }
+                    }
+                    
+                }
             }
             .navigationTitle("設定")
         }
