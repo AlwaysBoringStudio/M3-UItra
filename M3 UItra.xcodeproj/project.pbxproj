@@ -18,8 +18,13 @@
 		4932CDC228A4E8F2000E7443 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC128A4E8F2000E7443 /* camera.swift */; };
 		4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC328A4E92B000E7443 /* the line and view.swift */; };
 		4932CDC628A4EA5B000E7443 /* frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC528A4EA5B000E7443 /* frame.swift */; };
-		797B83F728A7BC1A00937BDB /* game1view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B83F628A7BC1A00937BDB /* game1view.swift */; };
-		79FC50C128A8FE2A00F8CC50 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* UI.swift */; };
+		79C8582328AA378500A37B5E /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582228AA378500A37B5E /* dateView.swift */; };
+		79C8582528AA37C200A37B5E /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582428AA37C200A37B5E /* homeView.swift */; };
+		79C8582928AA380B00A37B5E /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582828AA380B00A37B5E /* settingsView.swift */; };
+		79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582A28AA384A00A37B5E /* practiceView.swift */; };
+		79C8582D28AA388B00A37B5E /* errorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582C28AA388B00A37B5E /* errorView.swift */; };
+		79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582E28AA38B500A37B5E /* scheduleView.swift */; };
+		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +59,13 @@
 		4932CDC128A4E8F2000E7443 /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
 		4932CDC328A4E92B000E7443 /* the line and view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "the line and view.swift"; sourceTree = "<group>"; };
 		4932CDC528A4EA5B000E7443 /* frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frame.swift; sourceTree = "<group>"; };
-		797B83F628A7BC1A00937BDB /* game1view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game1view.swift; sourceTree = "<group>"; };
-		79FC50C028A8FE2A00F8CC50 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		79C8582228AA378500A37B5E /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
+		79C8582428AA37C200A37B5E /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
+		79C8582828AA380B00A37B5E /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
+		79C8582A28AA384A00A37B5E /* practiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceView.swift; sourceTree = "<group>"; };
+		79C8582C28AA388B00A37B5E /* errorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorView.swift; sourceTree = "<group>"; };
+		79C8582E28AA38B500A37B5E /* scheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleView.swift; sourceTree = "<group>"; };
+		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +119,15 @@
 				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
 				4932CD9728A4C89D000E7443 /* ContentView.swift */,
 				4932CDC128A4E8F2000E7443 /* camera.swift */,
-				4932CDC328A4E92B000E7443 /* the line and view.swift */,
+				79C8582E28AA38B500A37B5E /* scheduleView.swift */,
+				79C8582C28AA388B00A37B5E /* errorView.swift */,
+				79C8582A28AA384A00A37B5E /* practiceView.swift */,
+				79C8582828AA380B00A37B5E /* settingsView.swift */,
+				79C8582428AA37C200A37B5E /* homeView.swift */,
+				79C8582228AA378500A37B5E /* dateView.swift */,
 				4932CDC528A4EA5B000E7443 /* frame.swift */,
-				797B83F628A7BC1A00937BDB /* game1view.swift */,
-				79FC50C028A8FE2A00F8CC50 /* UI.swift */,
+				4932CDC328A4E92B000E7443 /* the line and view.swift */,
+				79FC50C028A8FE2A00F8CC50 /* aiView.swift */,
 				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				4932CD9B28A4C89E000E7443 /* Preview Content */,
 				4932CDBF28A4DF63000E7443 /* home page.swift */,
@@ -275,12 +290,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C8582928AA380B00A37B5E /* settingsView.swift in Sources */,
 				4932CDC228A4E8F2000E7443 /* camera.swift in Sources */,
 				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
 				4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */,
-				79FC50C128A8FE2A00F8CC50 /* UI.swift in Sources */,
-				797B83F728A7BC1A00937BDB /* game1view.swift in Sources */,
+				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
+				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
+				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
+				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
+				79C8582328AA378500A37B5E /* dateView.swift in Sources */,
 				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
+				79C8582D28AA388B00A37B5E /* errorView.swift in Sources */,
 				4932CDC028A4DF63000E7443 /* home page.swift in Sources */,
 				4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */,
 			);

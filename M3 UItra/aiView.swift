@@ -1,14 +1,14 @@
 //
-//  game1view.swift
+//  calendar.swift
 //  M3 UItra
 //
-//  Created by HingTatTsang on 13/8/2022.
+//  Created by HingTatTsang on 14/8/2022.
 //
 
 import SwiftUI
 
 
-struct game1view: View {
+struct aiView: View {
     @StateObject var poseEstimator = PoseEstimator()
     
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
@@ -49,8 +49,6 @@ struct game1view: View {
     @State var no4 = Double(0)
     @State var slope7 = Double(0)
     @State var slope8 = Double(0)
-    
-    @State var action1 = false
     //let the var of formula angle
     
     var body: some View {
@@ -66,11 +64,11 @@ struct game1view: View {
             HStack {
                 VStack {
                     if poseEstimator.rightKneeconfidence != nil {
-                         let rightKneeconfidenceString: String = String(format: "%.1f", poseEstimator.rightKneeconfidence!)
-                         let leftKneeconfidenceString: String = String(format: "%.1f", poseEstimator.leftKneeconfidence!)
-                         let rightHipconfidenceString: String = String(format: "%.1f", poseEstimator.rightHipconfidence!)
-                         let rightAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.rightAnkleconfidence!)
-                         let leftAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.leftAnkleconfidence!)
+                      //   let rightKneeconfidenceString: String = String(format: "%.1f", poseEstimator.rightKneeconfidence!)
+                      //   let leftKneeconfidenceString: String = String(format: "%.1f", poseEstimator.leftKneeconfidence!)
+                      //   let rightHipconfidenceString: String = String(format: "%.1f", poseEstimator.rightHipconfidence!)
+//                         let rightAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.rightAnkleconfidence!)
+//                         let leftAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.leftAnkleconfidence!)
                          
                          
                          //Text("rightKneeconfidence:\(rightKneeconfidenceString)").font(.title)
@@ -79,12 +77,12 @@ struct game1view: View {
                         // Text("rightAnkleconfidence:\(rightAnkleconfidenceString)").font(.title)
                         // Text("leftAnkleconfidence:\(leftAnkleconfidenceString)").font(.title)
                         
-                        let qx1 = poseEstimator.rightAnkle.x
-                        let qy1 = poseEstimator.rightAnkle.y
-                        let qx2 = poseEstimator.rightKnee.x
-                        let qy2 = poseEstimator.rightKnee.y
-                        let qx3 = poseEstimator.rightHip.x
-                        let qy3 = poseEstimator.rightHip.y
+//                        let qx1 = poseEstimator.rightAnkle.x
+//                        let qy1 = poseEstimator.rightAnkle.y
+//                        let qx2 = poseEstimator.rightKnee.x
+//                        let qy2 = poseEstimator.rightKnee.y
+//                        let qx3 = poseEstimator.rightHip.x
+//                        let qy3 = poseEstimator.rightHip.y
                         
                         //Text("\(qx1), \(qx2), \(qx3), \(qy1), \(qy2), \(qy3)")
                         //    .font(.largeTitle)
@@ -103,7 +101,6 @@ struct game1view: View {
                          
                          
                      }
-                    
                 }
             }
             
@@ -199,8 +196,12 @@ struct game1view: View {
 
 
 
-struct game1view_Previews: PreviewProvider {
+
+
+
+struct calendar_Previews: PreviewProvider {
     static var previews: some View {
-        game1view()
+        aiView()
+        
     }
 }
