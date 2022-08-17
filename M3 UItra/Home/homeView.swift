@@ -15,12 +15,12 @@ struct homeView: View {
                     VStack {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                circleView(systemname: "heart", name: "heart", color: .pink)
-                                circleView(systemname: "lungs", name: "lungs", color: .green)
-                                circleView(systemname: "figure.walk", name: "figure.walk", color: .yellow)
-                                circleView(systemname: "flame.fill", name: "flame.fill", color: .blue)
-                                circleView(systemname: "bolt.heart.fill", name: "bolt.heart.fill", color: .green)
-                                circleView(systemname: "star", name: "star",color: .pink)
+                                rewardView(number: 1)
+                                rewardView(number: 2)
+                                rewardView(number: 3)
+                                rewardView(number: 4)
+                                rewardView(number: 5)
+                                rewardView(number: 6)
                             }
                         }
                         .padding(.horizontal)
@@ -71,10 +71,7 @@ struct homeView: View {
                 }
             }
             .navigationTitle("成就")
-            .background(NavigationConfigurator { nc in
-                            nc.navigationBar.barTintColor = .blue
-                            nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                        })
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 800)
@@ -82,19 +79,7 @@ struct homeView: View {
     }
 }
 
-struct NavigationConfigurator: UIViewControllerRepresentable {
-    var configure: (UINavigationController) -> Void = { _ in }
 
-    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
-        UIViewController()
-    }
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
-        if let nc = uiViewController.navigationController {
-            self.configure(nc)
-        }
-    }
-
-}
 
 
 struct homeView_Previews: PreviewProvider {

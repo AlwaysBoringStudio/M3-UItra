@@ -14,10 +14,14 @@
 		4932CDA728A4C89E000E7443 /* M3_UItraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */; };
 		4932CDB128A4C89E000E7443 /* M3_UItraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */; };
 		4932CDB328A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */; };
-		4932CDC028A4DF63000E7443 /* home page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDBF28A4DF63000E7443 /* home page.swift */; };
 		4932CDC228A4E8F2000E7443 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC128A4E8F2000E7443 /* camera.swift */; };
 		4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC328A4E92B000E7443 /* the line and view.swift */; };
 		4932CDC628A4EA5B000E7443 /* frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC528A4EA5B000E7443 /* frame.swift */; };
+		7912388328ACFBA000CE4E0B /* trainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912388228ACFBA000CE4E0B /* trainView.swift */; };
+		7912388528ACFBE300CE4E0B /* classView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912388428ACFBE300CE4E0B /* classView.swift */; };
+		79AB308128ACECA60001C091 /* webView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308028ACECA60001C091 /* webView.swift */; };
+		79AB308928ACEE200001C091 /* developerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308828ACEE200001C091 /* developerView.swift */; };
+		79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308A28ACF6D90001C091 /* rewardView.swift */; };
 		79C8582328AA378500A37B5E /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582228AA378500A37B5E /* dateView.swift */; };
 		79C8582528AA37C200A37B5E /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582428AA37C200A37B5E /* homeView.swift */; };
 		79C8582928AA380B00A37B5E /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582828AA380B00A37B5E /* settingsView.swift */; };
@@ -57,10 +61,14 @@
 		4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "M3 UItraUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraUITests.swift; sourceTree = "<group>"; };
 		4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4932CDBF28A4DF63000E7443 /* home page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "home page.swift"; sourceTree = "<group>"; };
 		4932CDC128A4E8F2000E7443 /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
 		4932CDC328A4E92B000E7443 /* the line and view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "the line and view.swift"; sourceTree = "<group>"; };
 		4932CDC528A4EA5B000E7443 /* frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frame.swift; sourceTree = "<group>"; };
+		7912388228ACFBA000CE4E0B /* trainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainView.swift; sourceTree = "<group>"; };
+		7912388428ACFBE300CE4E0B /* classView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classView.swift; sourceTree = "<group>"; };
+		79AB308028ACECA60001C091 /* webView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webView.swift; sourceTree = "<group>"; };
+		79AB308828ACEE200001C091 /* developerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = developerView.swift; sourceTree = "<group>"; };
+		79AB308A28ACF6D90001C091 /* rewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardView.swift; sourceTree = "<group>"; };
 		79C8582228AA378500A37B5E /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
 		79C8582428AA37C200A37B5E /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		79C8582828AA380B00A37B5E /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
@@ -128,20 +136,15 @@
 				79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */,
 				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
 				4932CD9728A4C89D000E7443 /* ContentView.swift */,
-				4932CDC128A4E8F2000E7443 /* camera.swift */,
-				79C8582E28AA38B500A37B5E /* scheduleView.swift */,
-				79C8582C28AA388B00A37B5E /* errorView.swift */,
-				79C8582A28AA384A00A37B5E /* practiceView.swift */,
-				79C8582828AA380B00A37B5E /* settingsView.swift */,
-				79C8582428AA37C200A37B5E /* homeView.swift */,
-				79C8582228AA378500A37B5E /* dateView.swift */,
-				4932CDC528A4EA5B000E7443 /* frame.swift */,
-				4932CDC328A4E92B000E7443 /* the line and view.swift */,
-				79FC50C028A8FE2A00F8CC50 /* aiView.swift */,
+				79AB308728ACEE030001C091 /* Home */,
+				79AB308428ACEDA50001C091 /* Practice */,
+				79AB308528ACEDB50001C091 /* Schedule */,
+				79AB308628ACEDD90001C091 /* Settings */,
+				79AB308328ACED2C0001C091 /* Other func */,
+				79AB308228ACECFA0001C091 /* AI Camera */,
 				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */,
 				4932CD9B28A4C89E000E7443 /* Preview Content */,
-				4932CDBF28A4DF63000E7443 /* home page.swift */,
 			);
 			path = "M3 UItra";
 			sourceTree = "<group>";
@@ -169,6 +172,63 @@
 				4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */,
 			);
 			path = "M3 UItraUITests";
+			sourceTree = "<group>";
+		};
+		79AB308228ACECFA0001C091 /* AI Camera */ = {
+			isa = PBXGroup;
+			children = (
+				79FC50C028A8FE2A00F8CC50 /* aiView.swift */,
+				4932CDC128A4E8F2000E7443 /* camera.swift */,
+				4932CDC328A4E92B000E7443 /* the line and view.swift */,
+				4932CDC528A4EA5B000E7443 /* frame.swift */,
+			);
+			path = "AI Camera";
+			sourceTree = "<group>";
+		};
+		79AB308328ACED2C0001C091 /* Other func */ = {
+			isa = PBXGroup;
+			children = (
+				79C8582C28AA388B00A37B5E /* errorView.swift */,
+				79AB308028ACECA60001C091 /* webView.swift */,
+			);
+			path = "Other func";
+			sourceTree = "<group>";
+		};
+		79AB308428ACEDA50001C091 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				79C8582A28AA384A00A37B5E /* practiceView.swift */,
+				7912388228ACFBA000CE4E0B /* trainView.swift */,
+				7912388428ACFBE300CE4E0B /* classView.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		79AB308528ACEDB50001C091 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				79C8582E28AA38B500A37B5E /* scheduleView.swift */,
+				79C8582228AA378500A37B5E /* dateView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		79AB308628ACEDD90001C091 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				79C8582828AA380B00A37B5E /* settingsView.swift */,
+				79AB308828ACEE200001C091 /* developerView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		79AB308728ACEE030001C091 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				79C8582428AA37C200A37B5E /* homeView.swift */,
+				79AB308A28ACF6D90001C091 /* rewardView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		79D0AAD128AAAB5000E60B4C /* Frameworks */ = {
@@ -313,15 +373,19 @@
 				4932CDC228A4E8F2000E7443 /* camera.swift in Sources */,
 				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
 				4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */,
+				7912388328ACFBA000CE4E0B /* trainView.swift in Sources */,
 				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
 				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
+				79AB308128ACECA60001C091 /* webView.swift in Sources */,
+				79AB308928ACEE200001C091 /* developerView.swift in Sources */,
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
+				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
+				79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */,
 				79C8582328AA378500A37B5E /* dateView.swift in Sources */,
 				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
 				79C8582D28AA388B00A37B5E /* errorView.swift in Sources */,
-				4932CDC028A4DF63000E7443 /* home page.swift in Sources */,
 				4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,14 +553,14 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -522,14 +586,14 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

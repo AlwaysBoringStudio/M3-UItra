@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import UIKit
 
 
 struct aiView: View {
+    
+    private let rotationChangePublisher = NotificationCenter.default
+            .publisher(for: UIDevice.orientationDidChangeNotification)
+    
+    @State private var isOrientationLocked = false
+    
     @StateObject var poseEstimator = PoseEstimator()
     
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
@@ -190,8 +197,24 @@ struct aiView: View {
             }
         }
         
-        
+        .onAppear() {
+            changeOrientation(to: .portrait)
+            isOrientationLocked = true
+        }
+        .onDisappear() {
+            isOrientationLocked = false
+        }
+        .onReceive(rotationChangePublisher) { _ in
+            if isOrientationLocked {
+                changeOrientation(to: .portrait)
+            }
+        }
     }
+    
+    func changeOrientation(to orientation: UIInterfaceOrientation) {
+            UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
+            print("Changing to", orientation.isPortrait ? "Portrait" : "Landscape")
+        }
 }
 
 
