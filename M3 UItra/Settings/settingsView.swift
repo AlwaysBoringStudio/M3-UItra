@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct settingsView: View {
+    @State var username = "Test User"
+    @State var notifyon = false
     var body: some View {
         NavigationView {
             List {
-                
                 Section {
-                    NavigationLink(destination: errorView()) {
+                    NavigationLink(destination: usernameView(username: $username)) {
                         HStack {
                             Image(systemName: "person.circle")
                                 .resizable()
@@ -25,7 +26,7 @@ struct settingsView: View {
                                     Spacer()
                                 }
                                 HStack {
-                                    Text("Username")
+                                    Text(username)
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                     Spacer()
@@ -35,7 +36,7 @@ struct settingsView: View {
                     }
                 }
                 Section {
-                    NavigationLink(destination: errorView()) {
+                    NavigationLink(destination: notifyView(notifyon: $notifyon)) {
                         HStack {
                             Image(systemName: "bell.circle")
                             Text("通知")
@@ -61,8 +62,4 @@ struct settingsView: View {
 }
 
 
-struct settingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        settingsView()
-    }
-}
+

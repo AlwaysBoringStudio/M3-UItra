@@ -278,6 +278,7 @@ struct dateView: View {
                     }
                 }
             }
+        
     }
     func correctdate(num: String) -> String {
         let add0 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]

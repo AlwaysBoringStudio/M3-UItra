@@ -28,7 +28,7 @@ struct developerView: View {
                 Text("Version:")
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                 Spacer()
-                Text("1.1.1")
+                Text(UIApplication.appVersion ?? "")
                     .foregroundColor(colorScheme == .dark ? .white : .black)
             }
         })

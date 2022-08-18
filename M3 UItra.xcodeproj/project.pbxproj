@@ -36,6 +36,8 @@
 		79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582E28AA38B500A37B5E /* scheduleView.swift */; };
 		79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D0AAD228AAAB5000E60B4C /* CloudKit.framework */; };
 		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
+		79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432B28AEA2E500E1853E /* usernameView.swift */; };
+		79DC432E28AEA7CC00E1853E /* noifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432D28AEA7CC00E1853E /* noifyView.swift */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		79D0AAD028AA95A000E60B4C /* M3 UItra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "M3 UItra.entitlements"; sourceTree = "<group>"; };
 		79D0AAD228AAAB5000E60B4C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		79DC432B28AEA2E500E1853E /* usernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usernameView.swift; sourceTree = "<group>"; };
+		79DC432D28AEA7CC00E1853E /* noifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noifyView.swift; sourceTree = "<group>"; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				79C8582828AA380B00A37B5E /* settingsView.swift */,
+				79DC432B28AEA2E500E1853E /* usernameView.swift */,
+				79DC432D28AEA7CC00E1853E /* noifyView.swift */,
 				79AB308828ACEE200001C091 /* developerView.swift */,
 			);
 			path = Settings;
@@ -388,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */,
 				79C8582928AA380B00A37B5E /* settingsView.swift in Sources */,
 				4932CDC228A4E8F2000E7443 /* camera.swift in Sources */,
 				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
@@ -407,6 +414,7 @@
 				79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */,
 				79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */,
 				79C8582328AA378500A37B5E /* dateView.swift in Sources */,
+				79DC432E28AEA7CC00E1853E /* noifyView.swift in Sources */,
 				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
 				791FD04D28AE5D1600E7845B /* welcomeView.swift in Sources */,
 				79C8582D28AA388B00A37B5E /* errorView.swift in Sources */,
@@ -584,7 +592,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -617,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

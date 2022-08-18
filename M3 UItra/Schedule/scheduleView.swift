@@ -55,7 +55,7 @@ struct monthView: View {
             // MARK: List
             ScrollView {
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 120)
                 
                 let imdate = "\(year)-\(month)"
                 let date = getdate(importdate: imdate)

@@ -11,6 +11,7 @@ struct CalendarContentView: View {
     var date: Date
 
     @Environment(\.calendar) var calendar
+    
     private var year: DateInterval {
         calendar.dateInterval(of: .month, for: date)!
     }
