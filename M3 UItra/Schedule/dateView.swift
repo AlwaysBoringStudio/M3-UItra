@@ -33,7 +33,7 @@ struct dateView: View {
                     .overlay() {
                         VStack {
                             HStack {
-                                Text("14日  Holiday")
+                                Text("\(date)日  Holiday")
                                     .bold()
                                     .font(.largeTitle)
                                     .foregroundColor(.black)
@@ -170,54 +170,120 @@ struct dateView: View {
                 
         }
             .sheet(isPresented: $popover) {
-                HStack {
-                    Rectangle()
-                        .foregroundColor(.yellow)
-                        .opacity(0.7)
-                        .frame(width: 250, height: 100)
-                        .overlay() {
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    Text("\(fullyear)年")
-                                        .padding(.horizontal)
+                VStack {
+                    let datecorrect = correctdate(num: month)
+                    Text("\(fullyear)年\(datecorrect)月\(date)日")
+                        .font(.largeTitle)
+                    VStack {
+                        Rectangle()
+                            .foregroundColor(.yellow)
+                            .opacity(0.7)
+                            .frame(width: 347, height: 100)
+                            .overlay() {
+                                VStack {
                                     Spacer()
+                                    HStack {
+                                        Text("\(fullyear)年")
+                                            .padding(.horizontal)
+                                        Spacer()
+                                    }
+                                    Text("\(month)月\(date)日")
+                                        .font(.largeTitle)
+                                        .bold()
+                                    Spacer()
+                                    
                                 }
-                                Text("\(month)月\(date)日")
-                                    .font(.largeTitle)
-                                    .bold()
-                                Spacer()
                                 
                             }
-                            
-                        }
-                    Rectangle()
-                        .foregroundColor(.blue)
-                        .opacity(0.5)
-                        .frame(width: 90, height: 100)
-                        .overlay() {
-                            VStack {
-                                Text("是日課程")
-                                    .font(.title3)
-                                HStack {
-                                    Text(" 陳老師")
-                                        .bold()
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text(" 7:00 a.m.")
-                                        .bold()
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text(" 7:30 a.m.")
-                                        .bold()
-                                    Spacer()
+                        Rectangle()
+                            .foregroundColor(.blue)
+                            .opacity(0.5)
+                            .frame(width:347, height: 500)
+                            .overlay() {
+                                ZStack {
+                                    VStack {
+                                        Text("是日課程:")
+                                            .font(.largeTitle)
+                                            .padding()
+                                        Spacer()
+                                    }
+                                    VStack {
+                                        if itemnumber == 1 {
+                                            HStack {
+                                                Text(" · \(item1)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                        } else if itemnumber == 2 {
+                                            HStack {
+                                                Text(" · \(item1)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                            HStack {
+                                                Text(" · \(item2)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                        } else if itemnumber == 3 {
+                                            HStack {
+                                                Text(" · \(item1)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                            HStack {
+                                                Text(" · \(item2)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                            HStack {
+                                                Text(" · \(item3)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                        } else if itemnumber == 4 {
+                                            HStack {
+                                                Text(" · \(item1)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                            HStack {
+                                                Text(" · \(item2)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                            HStack {
+                                                Text(" · \(item3)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                            HStack {
+                                                Text(" · \(item4)")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                                }
+                                        } else {
+                                            Text("Error")
+                                                .font(.largeTitle)
+                                                .foregroundColor(.black)
+                                        }
+                                        
+                                    }
                                 }
                             }
-                        }
+                    }
                 }
             }
+    }
+    func correctdate(num: String) -> String {
+        let add0 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        var new = ""
+        if add0.contains(num) {
+            new = ("0\(num)")
+        } else {
+            new = ("\(num)")
+        }
+        return new
     }
 }
 
