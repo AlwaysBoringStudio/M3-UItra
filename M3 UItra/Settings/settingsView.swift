@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct settingsView: View {
-    @State var username = "Test User"
+    let defaults = UserDefaults.standard
+    @State var username = "USERNAME"
     @State var notifyon = false
     var body: some View {
         NavigationView {
@@ -42,12 +43,6 @@ struct settingsView: View {
                             Text("通知")
                         }
                     }
-                    NavigationLink(destination: errorView()) {
-                        HStack {
-                            Image(systemName: "externaldrive")
-                            Text("儲存空間")
-                        }
-                    }
                 }
                 developerView()
             }
@@ -56,6 +51,10 @@ struct settingsView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         
+        .onAppear() {
+            username = defaults.string(forKey: "username") ?? "USERNAME"
+            notifyon = defaults.bool(forKey: "notifyon")
+        }
         
         
     }

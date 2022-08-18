@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct usernameView: View {
+    let defaults = UserDefaults.standard
+    
     @Binding var username: String
     
     var body: some View {
@@ -25,7 +27,9 @@ struct usernameView: View {
             .navigationTitle("帳戶")
             
         }
-        
+        .onDisappear() {
+            defaults.set(username, forKey: "username")
+        }
     }
 }
 

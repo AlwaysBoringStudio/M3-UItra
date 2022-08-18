@@ -51,6 +51,7 @@ struct welcomeView: View {
     
 }
 
+
 struct FeatureCell: View {
     var image: String
     var title: String

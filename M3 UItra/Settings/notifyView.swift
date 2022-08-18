@@ -9,6 +9,8 @@ import SwiftUI
 import UserNotifications
 
 struct notifyView: View {
+    let defaults = UserDefaults.standard
+    
     @Binding var notifyon: Bool
     
     var body: some View {
@@ -26,33 +28,36 @@ struct notifyView: View {
                         }
                     }
                 }
-                if notifyon == true {
-                    Section {
-                        HStack {
-                            Button("Test") {
-                                let content = UNMutableNotificationContent()
-                                content.title = "Hello !"
-                                content.subtitle = "Test"
-                                content.sound = UNNotificationSound.default
-
-                                // show this notification five seconds from now
-                                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-                                // choose a random identifier
-                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-                                // add our notification request
-                                UNUserNotificationCenter.current().add(request)
-                                
-                                print("All set!")
-                            }
-                        }
-                    }
-                }
+//                if notifyon == true {
+//                    Section {
+//                        HStack {
+//                            Button("Test") {
+//                                let content = UNMutableNotificationContent()
+//                                content.title = "Hello !"
+//                                content.subtitle = "Test"
+//                                content.sound = UNNotificationSound.default
+//
+//                                // show this notification five seconds from now
+//                                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//
+//                                // choose a random identifier
+//                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//
+//                                // add our notification request
+//                                UNUserNotificationCenter.current().add(request)
+//
+//                                print("All set!")
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("通知")
+        .onDisappear() {
+            defaults.set(notifyon, forKey: "notifyon")
+        }
     }
 }
 
