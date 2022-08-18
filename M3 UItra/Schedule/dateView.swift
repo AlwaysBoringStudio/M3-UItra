@@ -220,6 +220,7 @@ struct dateView: View {
             }
     }
 }
+
 struct dateView_Previews: PreviewProvider {
     static var previews: some View {
         dateView(date: "13", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")

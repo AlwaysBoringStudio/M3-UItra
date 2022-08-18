@@ -8,7 +8,6 @@
 import SwiftUI
 
 // MARK: This View Just For Button
-
 struct practiceView: View {
     @State var view = true
     @State var size = CGFloat(160)

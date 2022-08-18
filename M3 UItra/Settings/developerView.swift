@@ -36,12 +36,11 @@ struct developerView: View {
         Group {
             if developermode == 0 {
                 developerGITHUBlist()
-                developerHomeView()
-                developerPracticeView()
-                developerScheduleView()
-                developerSettingsView()
-                developerOther_funcView()
-                developerAI_CameraView()
+                Section(header: Text("Debug")) {
+                    NavigationLink(destination: debugView()) {
+                        Text("Debug")
+                    }
+                }
             } else {
                 
             }
@@ -59,6 +58,22 @@ struct developerView: View {
             }
                
         })
+    }
+}
+
+struct debugView: View {
+    var body: some View {
+        List {
+            developercontentView()
+            developerHomeView()
+            developerPracticeView()
+            developerScheduleView()
+            developerSettingsView()
+            developerOther_funcView()
+            developerAI_CameraView()
+        }
+        .navigationTitle("Debug")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -99,14 +114,18 @@ struct developerGITHUBlist: View {
             }
             
         }
+        
+    }
+}
+
+struct developercontentView: View {
+    var body: some View {
         Section(header: Text("ContentView")) {
             NavigationLink(destination: ContentView()) {
                 Text("ContentView()")
             }
             
         }
-        
-        
     }
 }
 
@@ -191,6 +210,9 @@ struct developerOther_funcView: View {
                 Text("""
                         WebView(url: URL(string: "https://www.apple.com")!)
                         """)
+            }
+            NavigationLink(destination: todaydate()) {
+                Text("todaydate()")
             }
         }
     }

@@ -11,6 +11,7 @@ struct classView: View {
     @State var showAlert = false
     @State var text = String("")
     var body: some View {
+        // MARK: 連接課堂
         Rectangle()
             .frame(width: 340, height: 500)
             .foregroundColor(.green)
@@ -47,6 +48,8 @@ struct classView: View {
                     Spacer()
                 }
             }
+        // MARK: if error
+        // if error run "showAlert = true"
             .alert("Your code is invalid !", isPresented: $showAlert, actions: {
                         Button("OK") { }
             })
