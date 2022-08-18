@@ -27,7 +27,7 @@ struct welcomeView: View {
                 FeatureCell(image: "figure.walk", title: "訓練", subtitle: "沒有描述", color: .red)
                 FeatureCell(image: "calendar", title: "日程表", subtitle: "沒有描述", color: .green)
                 FeatureCell(image: "info.circle.fill", title: "Version", subtitle: String(describing: UIApplication.appVersion), color: .gray)
-//                FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This welcome view are develop in progress.", color: .yellow)
+                FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
             }
             .padding(.leading)
             
@@ -84,6 +84,7 @@ extension UIApplication {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 }
+
 
 
 

@@ -188,7 +188,7 @@ struct dateView: View {
                                                 .padding(.horizontal)
                                             Spacer()
                                         }
-                                        Text("\(date)月\(date)日")
+                                        Text("\(correctdate(num: month))月\(correctdate(num: date))日")
                                             .foregroundColor(.black)
                                             .font(.largeTitle)
                                             .bold()
