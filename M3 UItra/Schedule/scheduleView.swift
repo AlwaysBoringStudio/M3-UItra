@@ -15,18 +15,32 @@ struct scheduleView: View {
         let monthInt = Int(month)
         TabView(selection:$selection) {
             ForEach((1..<(monthInt ?? 12)), id: \.self) {
-                monthView(year: "2022", month: "\($0)")
+                let new = correctdate(num: "\($0)")
+                monthView(year: "2022", month: new)
                     .tag($0)
             }
-            monthView(year: year, month: month, istoday: true)
+            let new = correctdate(num: nowdate(format: "MM"))
+            monthView(year: year, month: new, istoday: true)
                 .tag(nowdate(format: "MM"))
+            
             ForEach((((monthInt ?? 1)+1)...12), id: \.self) {
-                monthView(year: "2022", month: "\($0)")
+                let new = correctdate(num: "\($0)")
+                monthView(year: "2022", month: new)
                     .tag($0)
             }
             
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+    }
+    func correctdate(num: String) -> String {
+        let add0 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        var new = ""
+        if add0.contains(num) {
+            new = ("0\(num)")
+        } else {
+            new = ("\(num)")
+        }
+        return new
     }
 }
 
@@ -42,13 +56,27 @@ struct monthView: View {
             ScrollView {
                 Spacer()
                     .frame(height: 100)
-                CalendarContentView()
+                
+                let imdate = "\(year)-\(month)"
+                let date = getdate(importdate: imdate)
+                
+                CalendarContentView(date: date)
                 
             }
             .padding(.top)
             todayView(year: year, month: month, istoday: istoday)
         }
         .edgesIgnoringSafeArea(.all)
+    }
+    func getdate(importdate: String) -> Date {
+        print(importdate)
+        let isoDate = importdate
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM"
+        let date = dateFormatter.date(from:isoDate) ?? Date()
+        return date
     }
 }
 
