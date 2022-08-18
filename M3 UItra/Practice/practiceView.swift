@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: This View Just For Button
+
 struct practiceView: View {
     @State var view = true
     @State var size = CGFloat(160)
@@ -23,6 +25,7 @@ struct practiceView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             VStack {
+                // MARK: 訓練 Button
                 HStack {
                     if view == true {
                         Rectangle()
@@ -49,6 +52,7 @@ struct practiceView: View {
                             }
                     }
                     Spacer()
+                    // MARK: 課程 Button
                     if view == true {
                         Rectangle()
                             .frame(width: size, height: 35)

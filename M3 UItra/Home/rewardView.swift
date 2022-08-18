@@ -50,6 +50,8 @@ struct rewardcellView: View {
                         .padding()
                 }
         })
+        
+        // MARK: Action after tapped
         .popover(isPresented: $buttonpressed) {
             VStack {
                 Circle()

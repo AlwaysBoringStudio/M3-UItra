@@ -10,6 +10,9 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
 
+    ///Detect Network State 
+    @StateObject var network = Network()
+    
     var url: URL
 
     func makeUIView(context: Context) -> WKWebView {

@@ -12,6 +12,7 @@ struct trainView: View {
     @State var view2 = false
     @State var view3 = false
     var body: some View {
+        // MARK: 可選項目 Button
         Button(action: {
             view3 = true
         }) {
@@ -41,6 +42,7 @@ struct trainView: View {
                     }
                 }
         }
+        // MARK: 掌上壓 Button
         Button(action: {
             view1 = true
         }) {
@@ -67,6 +69,7 @@ struct trainView: View {
                     }
                 }
         }
+        // MARK: 仰臥起坐 Button
         Button(action: {
             view2 = true
         }) {
@@ -93,6 +96,7 @@ struct trainView: View {
                     }
                 }
         }
+        // MARK: Action after tapped 掌上壓 Button
         .fullScreenCover(isPresented: $view1) {
             NavigationView {
                 aiView()
@@ -109,6 +113,8 @@ struct trainView: View {
                     }
             }
         }
+        
+        // MARK: Action after tapped 仰臥起坐 Button
         .fullScreenCover(isPresented: $view2) {
             NavigationView {
                 aiView()
@@ -125,8 +131,9 @@ struct trainView: View {
                     }
             }
         }
+        // MARK: Action if error
         .sheet(isPresented: $view3) {
-            errorView()
+            errorView(errorcode: "cannot detect trainView() number")
         }
         
     }

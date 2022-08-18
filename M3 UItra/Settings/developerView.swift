@@ -8,19 +8,6 @@
 import SwiftUI
 import WebKit
 
-struct readmeView: UIViewRepresentable {
-  @Binding var text: String
-   
-  func makeUIView(context: Context) -> WKWebView {
-    return WKWebView()
-  }
-   
-  func updateUIView(_ uiView: WKWebView, context: Context) {
-    uiView.loadHTMLString(text, baseURL: nil)
-  }
-}
-
-
 struct developerView: View {
     @State var developermode = 10
     @State var showAlert = false
@@ -118,8 +105,23 @@ struct developerGITHUBlist: View {
             }
             
         }
+        
+        
     }
 }
+
+struct readmeView: UIViewRepresentable {
+  @Binding var text: String
+   
+  func makeUIView(context: Context) -> WKWebView {
+    return WKWebView()
+  }
+   
+  func updateUIView(_ uiView: WKWebView, context: Context) {
+    uiView.loadHTMLString(text, baseURL: nil)
+  }
+}
+
 
 struct developerHomeView: View {
     var body: some View {
@@ -157,8 +159,8 @@ struct developerScheduleView: View {
             }
             NavigationLink(destination: dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")) {
                 Text("""
-dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
-""")
+                        dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+                        """)
             }
         }
     }
@@ -180,8 +182,10 @@ struct developerSettingsView: View {
 struct developerOther_funcView: View {
     var body: some View {
         Section(header: Text("Other func")) {
-            NavigationLink(destination: errorView()) {
-                Text("errorView()")
+            NavigationLink(destination: errorView(errorcode: "Test")) {
+                Text("""
+                     errorView(errorcode: "Test")
+                     """)
             }
             NavigationLink(destination: WebView(url: URL(string: "https://www.apple.com")!)) {
                 Text("""

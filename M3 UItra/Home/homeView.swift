@@ -12,6 +12,7 @@ struct homeView: View {
         NavigationView {
             ScrollView {
                 ZStack {
+                    // MARK: Reward
                     VStack {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
@@ -28,6 +29,7 @@ struct homeView: View {
                     
                 }
                 HStack {
+                    // MARK: 任務 Pie Chart
                     VStack {
                         Image("pie")
                             .resizable()
@@ -35,6 +37,7 @@ struct homeView: View {
                         Text("任務")
                             .font(.title)
                     }
+                    // MARK: 卡路里
                     VStack {
                         Image("cal")
                             .resizable()
@@ -53,6 +56,7 @@ struct homeView: View {
                     
                 }
                 HStack {
+                    // MARK: 心跳
                     VStack {
                         Image("rate")
                             .resizable()
@@ -60,6 +64,7 @@ struct homeView: View {
                         Text("心跳")
                             .font(.title)
                     }
+                    // MARK: 卡路里 Bar Chart
                     VStack {
                         Image("bar")
                             .resizable()
