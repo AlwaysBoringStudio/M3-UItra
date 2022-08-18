@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var welcome = true
     var body: some View {
         TabView {
             homeView()
@@ -27,6 +28,9 @@ struct ContentView: View {
                     Label("設定", systemImage: "command.circle")
                 }
             
+        }
+        .sheet(isPresented: $welcome) {
+            welcomeView(showWelcomeScreen: $welcome)
         }
         
     }

@@ -64,19 +64,23 @@ struct todayView: View {
                                         VStack {
                                             Text("是日課程")
                                                 .font(.title3)
+                                                .foregroundColor(.black)
                                             HStack {
-                                                Text(" 陳老師")
+                                                Text(" 沒有數據")
                                                     .bold()
+                                                    .foregroundColor(.black)
                                                 Spacer()
                                             }
                                             HStack {
-                                                Text(" 7:00 a.m.")
+                                                Text(" 沒有數據")
                                                     .bold()
+                                                    .foregroundColor(.black)
                                                 Spacer()
                                             }
                                             HStack {
-                                                Text(" 7:30 a.m.")
+                                                Text(" 沒有數據")
                                                     .bold()
+                                                    .foregroundColor(.black)
                                                 Spacer()
                                             }
                                         }

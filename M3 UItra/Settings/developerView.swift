@@ -36,11 +36,6 @@ struct developerView: View {
         Group {
             if developermode == 0 {
                 developerGITHUBlist()
-                Section(header: Text("Debug")) {
-                    NavigationLink(destination: debugView()) {
-                        Text("Debug")
-                    }
-                }
             } else {
                 
             }
@@ -58,22 +53,6 @@ struct developerView: View {
             }
                
         })
-    }
-}
-
-struct debugView: View {
-    var body: some View {
-        List {
-            developercontentView()
-            developerHomeView()
-            developerPracticeView()
-            developerScheduleView()
-            developerSettingsView()
-            developerOther_funcView()
-            developerAI_CameraView()
-        }
-        .navigationTitle("Debug")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -118,16 +97,6 @@ struct developerGITHUBlist: View {
     }
 }
 
-struct developercontentView: View {
-    var body: some View {
-        Section(header: Text("ContentView")) {
-            NavigationLink(destination: ContentView()) {
-                Text("ContentView()")
-            }
-            
-        }
-    }
-}
 
 struct readmeView: UIViewRepresentable {
   @Binding var text: String
@@ -140,98 +109,6 @@ struct readmeView: UIViewRepresentable {
     uiView.loadHTMLString(text, baseURL: nil)
   }
 }
-
-
-struct developerHomeView: View {
-    var body: some View {
-        Section(header: Text("Home")) {
-            NavigationLink(destination: homeView()) {
-                Text("homeView()")
-            }
-            NavigationLink(destination: rewardView()) {
-                Text("rewardView()")
-            }
-        }
-    }
-}
-
-struct developerPracticeView: View {
-    var body: some View {
-        Section(header: Text("Practice")) {
-            NavigationLink(destination: practiceView()) {
-                Text("practiceView()")
-            }
-            NavigationLink(destination: trainView()) {
-                Text("tarinView()")
-            }
-            NavigationLink(destination: classView()) {
-                Text("classView()")
-            }
-        }
-    }
-}
-struct developerScheduleView: View {
-    var body: some View {
-        Section(header: Text("Schedule")) {
-            NavigationLink(destination: scheduleView()) {
-                Text("scheduleView()")
-            }
-            NavigationLink(destination: dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")) {
-                Text("""
-                        dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
-                        """)
-            }
-        }
-    }
-}
-
-struct developerSettingsView: View {
-    var body: some View {
-        Section(header: Text("Settings")) {
-            NavigationLink(destination: settingsView()) {
-                Text("settingsView()")
-            }
-            NavigationLink(destination: developerView()) {
-                Text("developerView()")
-            }
-        }
-    }
-}
-
-struct developerOther_funcView: View {
-    var body: some View {
-        Section(header: Text("Other func")) {
-            NavigationLink(destination: errorView(errorcode: "Test")) {
-                Text("""
-                     errorView(errorcode: "Test")
-                     """)
-            }
-            NavigationLink(destination: WebView(url: URL(string: "https://www.apple.com")!)) {
-                Text("""
-                        WebView(url: URL(string: "https://www.apple.com")!)
-                        """)
-            }
-            NavigationLink(destination: todaydate()) {
-                Text("todaydate()")
-            }
-        }
-    }
-}
-
-struct developerAI_CameraView: View {
-    var body: some View {
-        Section(header: Text("AI Camera")) {
-            NavigationLink(destination: aiView()) {
-                Text("aiView()")
-            }
-            NavigationLink(destination: WebView(url: URL(string: "https://www.apple.com")!)) {
-                Text("webView()")
-            }
-        }
-    }
-}
-
-
 
 struct developerView_Previews: PreviewProvider {
     static var previews: some View {

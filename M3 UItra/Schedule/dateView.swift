@@ -33,7 +33,7 @@ struct dateView: View {
                     .overlay() {
                         VStack {
                             HStack {
-                                Text("\(date)日  Holiday")
+                                Text("\(correctdate(num: date))日  Holiday")
                                     .bold()
                                     .font(.largeTitle)
                                     .foregroundColor(.black)
@@ -51,7 +51,7 @@ struct dateView: View {
                             .opacity(0.5)
                             .frame(width: 70, height: 100)
                             .overlay() {
-                                Text("\(date)日")
+                                Text("\(correctdate(num: date))日")
                                     .bold()
                                     .font(.title3)
                                     .foregroundColor(.black)
@@ -170,107 +170,111 @@ struct dateView: View {
                 
         }
             .sheet(isPresented: $popover) {
-                VStack {
-                    let datecorrect = correctdate(num: month)
-                    Text("\(fullyear)年\(datecorrect)月\(date)日")
-                        .font(.largeTitle)
+                ZStack {
+                    Color.white
+                        .edgesIgnoringSafeArea(.all)
                     VStack {
-                        Rectangle()
-                            .foregroundColor(.yellow)
-                            .opacity(0.7)
-                            .frame(width: 347, height: 100)
-                            .overlay() {
-                                VStack {
-                                    Spacer()
-                                    HStack {
-                                        Text("\(fullyear)年")
-                                            .padding(.horizontal)
-                                        Spacer()
-                                    }
-                                    Text("\(month)月\(date)日")
-                                        .font(.largeTitle)
-                                        .bold()
-                                    Spacer()
-                                    
-                                }
-                                
-                            }
-                        Rectangle()
-                            .foregroundColor(.blue)
-                            .opacity(0.5)
-                            .frame(width:347, height: 500)
-                            .overlay() {
-                                ZStack {
+                        VStack {
+                            Rectangle()
+                                .foregroundColor(.yellow)
+                                .opacity(0.7)
+                                .frame(width: 347, height: 100)
+                                .overlay() {
                                     VStack {
-                                        Text("是日課程:")
-                                            .font(.largeTitle)
-                                            .padding()
                                         Spacer()
-                                    }
-                                    VStack {
-                                        if itemnumber == 1 {
-                                            HStack {
-                                                Text(" · \(item1)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                        } else if itemnumber == 2 {
-                                            HStack {
-                                                Text(" · \(item1)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                            HStack {
-                                                Text(" · \(item2)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                        } else if itemnumber == 3 {
-                                            HStack {
-                                                Text(" · \(item1)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                            HStack {
-                                                Text(" · \(item2)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                            HStack {
-                                                Text(" · \(item3)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                        } else if itemnumber == 4 {
-                                            HStack {
-                                                Text(" · \(item1)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                            HStack {
-                                                Text(" · \(item2)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                            HStack {
-                                                Text(" · \(item3)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                            HStack {
-                                                Text(" · \(item4)")
-                                                    .font(.largeTitle)
-                                                    .foregroundColor(.black)
-                                                }
-                                        } else {
-                                            Text("Error")
-                                                .font(.largeTitle)
+                                        HStack {
+                                            Text("\(fullyear)年")
                                                 .foregroundColor(.black)
+                                                .padding(.horizontal)
+                                            Spacer()
                                         }
+                                        Text("\(date)月\(date)日")
+                                            .foregroundColor(.black)
+                                            .font(.largeTitle)
+                                            .bold()
+                                        Spacer()
                                         
                                     }
+                                    
                                 }
-                            }
+                            Rectangle()
+                                .foregroundColor(.blue)
+                                .opacity(0.5)
+                                .frame(width:347, height: 450)
+                                .overlay() {
+                                    ZStack {
+                                        VStack {
+                                            Text("已編排:")
+                                                .font(.largeTitle)
+                                                .foregroundColor(.black)
+                                                .padding()
+                                            Spacer()
+                                        }
+                                        VStack {
+                                            if itemnumber == 1 {
+                                                HStack {
+                                                    Text(" · \(item1)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                            } else if itemnumber == 2 {
+                                                HStack {
+                                                    Text(" · \(item1)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                                HStack {
+                                                    Text(" · \(item2)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                            } else if itemnumber == 3 {
+                                                HStack {
+                                                    Text(" · \(item1)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                                HStack {
+                                                    Text(" · \(item2)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                                HStack {
+                                                    Text(" · \(item3)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                            } else if itemnumber == 4 {
+                                                HStack {
+                                                    Text(" · \(item1)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                                HStack {
+                                                    Text(" · \(item2)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                                HStack {
+                                                    Text(" · \(item3)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                                HStack {
+                                                    Text(" · \(item4)")
+                                                        .font(.largeTitle)
+                                                        .foregroundColor(.black)
+                                                    }
+                                            } else {
+                                                Text("Error")
+                                                    .font(.largeTitle)
+                                                    .foregroundColor(.black)
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                        }
                     }
                 }
             }
@@ -285,10 +289,31 @@ struct dateView: View {
         }
         return new
     }
+    
+    
+    func getrightdate() -> Date {
+        let datecorrect = correctdate(num: month)
+        let datecorrectday = correctdate(num: date)
+        print("\(fullyear)年\(datecorrect)月\(datecorrectday)日")
+        
+        let string = "\(date)/\(datecorrect)/\(fullyear)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        dateFormatter.date(from: string)
+        return dateFormatter.date(from: string) ?? Date()
+    }
+    
+    
 }
 
 struct dateView_Previews: PreviewProvider {
     static var previews: some View {
-        dateView(date: "13", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+        VStack {
+            dateView(date: "2", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+            dateView(date: "3", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+            dateView(date: "10", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+            dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+            dateView(date: "20", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+        }
     }
 }

@@ -19,12 +19,12 @@
 		4932CDC628A4EA5B000E7443 /* frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC528A4EA5B000E7443 /* frame.swift */; };
 		7912388328ACFBA000CE4E0B /* trainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912388228ACFBA000CE4E0B /* trainView.swift */; };
 		7912388528ACFBE300CE4E0B /* classView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912388428ACFBE300CE4E0B /* classView.swift */; };
+		791FD04D28AE5D1600E7845B /* welcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791FD04C28AE5D1600E7845B /* welcomeView.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
 		79996AF628AE1AA9000E1FF0 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 79996AF328AE198E000E1FF0 /* Data.json */; };
 		79996AF828AE1C0D000E1FF0 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF728AE1C0D000E1FF0 /* Calendar.swift */; };
-		79996AFA28AE1F47000E1FF0 /* calcDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF928AE1F47000E1FF0 /* calcDate.swift */; };
 		79AB308128ACECA60001C091 /* webView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308028ACECA60001C091 /* webView.swift */; };
 		79AB308928ACEE200001C091 /* developerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308828ACEE200001C091 /* developerView.swift */; };
 		79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308A28ACF6D90001C091 /* rewardView.swift */; };
@@ -72,12 +72,12 @@
 		4932CDC528A4EA5B000E7443 /* frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frame.swift; sourceTree = "<group>"; };
 		7912388228ACFBA000CE4E0B /* trainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainView.swift; sourceTree = "<group>"; };
 		7912388428ACFBE300CE4E0B /* classView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classView.swift; sourceTree = "<group>"; };
+		791FD04C28AE5D1600E7845B /* welcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeView.swift; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 		79996AF428AE19AD000E1FF0 /* decode json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "decode json.swift"; sourceTree = "<group>"; };
 		79996AF728AE1C0D000E1FF0 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
-		79996AF928AE1F47000E1FF0 /* calcDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcDate.swift; sourceTree = "<group>"; };
 		79AB308028ACECA60001C091 /* webView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webView.swift; sourceTree = "<group>"; };
 		79AB308828ACEE200001C091 /* developerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = developerView.swift; sourceTree = "<group>"; };
 		79AB308A28ACF6D90001C091 /* rewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardView.swift; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 				79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */,
 				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
 				4932CD9728A4C89D000E7443 /* ContentView.swift */,
+				791FD04C28AE5D1600E7845B /* welcomeView.swift */,
 				79AB308728ACEE030001C091 /* Home */,
 				79AB308428ACEDA50001C091 /* Practice */,
 				79AB308528ACEDB50001C091 /* Schedule */,
@@ -205,7 +206,6 @@
 				79AB308028ACECA60001C091 /* webView.swift */,
 				79996AEF28ADFBEE000E1FF0 /* get today date.swift */,
 				79996AF428AE19AD000E1FF0 /* decode json.swift */,
-				79996AF928AE1F47000E1FF0 /* calcDate.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -395,7 +395,6 @@
 				7912388328ACFBA000CE4E0B /* trainView.swift in Sources */,
 				79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */,
 				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
-				79996AFA28AE1F47000E1FF0 /* calcDate.swift in Sources */,
 				79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */,
 				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
@@ -409,6 +408,7 @@
 				79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */,
 				79C8582328AA378500A37B5E /* dateView.swift in Sources */,
 				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
+				791FD04D28AE5D1600E7845B /* welcomeView.swift in Sources */,
 				79C8582D28AA388B00A37B5E /* errorView.swift in Sources */,
 				4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */,
 			);
@@ -584,7 +584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -617,7 +617,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
