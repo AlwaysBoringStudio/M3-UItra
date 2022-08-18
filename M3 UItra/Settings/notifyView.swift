@@ -57,6 +57,7 @@ struct notifyView: View {
         .navigationTitle("通知")
         .onDisappear() {
             defaults.set(notifyon, forKey: "notifyon")
+            defaults.synchronize()
         }
     }
 }
