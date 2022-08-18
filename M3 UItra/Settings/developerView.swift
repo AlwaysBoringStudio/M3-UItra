@@ -22,6 +22,60 @@ struct readmeView: UIViewRepresentable {
 
 
 struct developerView: View {
+    @State var developermode = 10
+    @State var showAlert = false
+    @State var showAlert2 = false
+    @Environment(\.colorScheme) var colorScheme
+    var body: some View {
+        Button(action: {
+            if developermode == 0 {
+                showAlert2 = true
+            } else if developermode == 1 {
+                showAlert = true
+                developermode = developermode - 1
+            } else {
+                developermode = developermode - 1
+            }
+        }, label: {
+            HStack {
+                Text("Version:")
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                Spacer()
+                Text("1.1.1")
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
+            }
+        })
+        
+        Group {
+            if developermode == 0 {
+                developerGITHUBlist()
+                developerHomeView()
+                developerPracticeView()
+                developerScheduleView()
+                developerSettingsView()
+                developerOther_funcView()
+                developerAI_CameraView()
+            } else {
+                
+            }
+            
+        }
+        
+        .alert("You are developer now !", isPresented: $showAlert, actions: {
+                    Button("OK") { }
+        })
+        .alert("You are developer already !", isPresented: $showAlert2, actions: {
+            Button("Cancel") {
+                developermode = 10
+            }
+            Button("OK") {
+            }
+               
+        })
+    }
+}
+
+struct developerGITHUBlist: View {
     @State var text = """
                         <meta name="viewport" content="width=device-width, initial-scale=0.9">
                         <h1 id="m3-uitra">M3-UItra</h1>
@@ -48,84 +102,109 @@ struct developerView: View {
                         <li>帳戶，通知，和儲存空間感知器</li>
                         </ol>
                         """
-    @State var developermode = 10
-    @State var showAlert = false
-    @State var showAlert2 = false
-    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Button(action: {
-            if developermode == 0 {
-                showAlert2 = true
-            } else if developermode == 1 {
-                showAlert = true
-                developermode = developermode - 1
-            } else {
-                developermode = developermode - 1
+        Section(header: Text("Git")) {
+            NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra")!).navigationTitle("GitHub").navigationBarTitleDisplayMode(.inline)) {
+                Text("GitHub")
             }
-        }, label: {
-            HStack {
-                Text("Version:")
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                Spacer()
-                Text("1.1.0")
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
+            NavigationLink(destination: readmeView(text: $text).navigationTitle("README.md").navigationBarTitleDisplayMode(.inline)) {
+                Text("README.md")
             }
-        })
-        Group {
-            if developermode == 0 {
-                Section {
-                    NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra")!).navigationTitle("GitHub").navigationBarTitleDisplayMode(.inline)) {
-                        Text("GitHub")
-                    }
-                    
-                }
-                Section {
-                    NavigationLink(destination: readmeView(text: $text).navigationTitle("README.md").navigationBarTitleDisplayMode(.inline)) {
-                        Text("README.md")
-                    }
-                    
-                }
-                Section {
-                    NavigationLink(destination: ContentView()) {
-                        Text("ContentView()")
-                    }
-                    NavigationLink(destination: practiceView()) {
-                        Text("practiceView()")
-                    }
-                    NavigationLink(destination: scheduleView()) {
-                        Text("scheduleView()")
-                    }
-                    NavigationLink(destination: dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")) {
-                        Text("""
-    dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
-    """)
-                    }
-                    NavigationLink(destination: aiView()) {
-                        Text("aiView()")
-                    }
-                    
-                    NavigationLink(destination: errorView()) {
-                        Text("errorView()")
-                    }
-                    
-                }
-            }
+            
         }
-        
-        
-        .alert("You are developer now !", isPresented: $showAlert, actions: {
-                    Button("OK") { }
-        })
-        .alert("You are developer already !", isPresented: $showAlert2, actions: {
-            Button("Cancel") {
-                developermode = 10
+        Section(header: Text("ContentView")) {
+            NavigationLink(destination: ContentView()) {
+                Text("ContentView()")
             }
-            Button("OK") {
-            }
-               
-        })
+            
+        }
     }
 }
+
+struct developerHomeView: View {
+    var body: some View {
+        Section(header: Text("Home")) {
+            NavigationLink(destination: homeView()) {
+                Text("homeView()")
+            }
+            NavigationLink(destination: rewardView()) {
+                Text("rewardView()")
+            }
+        }
+    }
+}
+
+struct developerPracticeView: View {
+    var body: some View {
+        Section(header: Text("Practice")) {
+            NavigationLink(destination: practiceView()) {
+                Text("practiceView()")
+            }
+            NavigationLink(destination: trainView()) {
+                Text("tarinView()")
+            }
+            NavigationLink(destination: classView()) {
+                Text("classView()")
+            }
+        }
+    }
+}
+struct developerScheduleView: View {
+    var body: some View {
+        Section(header: Text("Schedule")) {
+            NavigationLink(destination: scheduleView()) {
+                Text("scheduleView()")
+            }
+            NavigationLink(destination: dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")) {
+                Text("""
+dateView(date: "12", itemnumber: 2, item1: "Sit Up: 100", item2: "Sit Up: 100", item3: "", item4: "", name: "陳老師", starttime: "7:00 a.m.", endtime: "7:30 a.m.", holiday: false, month: "8", fullyear: "2022")
+""")
+            }
+        }
+    }
+}
+
+struct developerSettingsView: View {
+    var body: some View {
+        Section(header: Text("Settings")) {
+            NavigationLink(destination: settingsView()) {
+                Text("settingsView()")
+            }
+            NavigationLink(destination: developerView()) {
+                Text("developerView()")
+            }
+        }
+    }
+}
+
+struct developerOther_funcView: View {
+    var body: some View {
+        Section(header: Text("Other func")) {
+            NavigationLink(destination: errorView()) {
+                Text("errorView()")
+            }
+            NavigationLink(destination: WebView(url: URL(string: "https://www.apple.com")!)) {
+                Text("""
+                        WebView(url: URL(string: "https://www.apple.com")!)
+                        """)
+            }
+        }
+    }
+}
+
+struct developerAI_CameraView: View {
+    var body: some View {
+        Section(header: Text("AI Camera")) {
+            NavigationLink(destination: aiView()) {
+                Text("aiView()")
+            }
+            NavigationLink(destination: WebView(url: URL(string: "https://www.apple.com")!)) {
+                Text("webView()")
+            }
+        }
+    }
+}
+
 
 
 struct developerView_Previews: PreviewProvider {
