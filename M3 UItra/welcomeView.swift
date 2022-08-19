@@ -24,10 +24,10 @@ struct welcomeView: View {
                 .multilineTextAlignment(.center)
             Spacer()
             VStack(spacing: 24) {
-                
-                FeatureCell(image: "figure.walk", title: "訓練", subtitle: "沒有描述", color: .red)
-                FeatureCell(image: "calendar", title: "日程表", subtitle: "沒有描述", color: .green)
                 FeatureCell(image: "info.circle.fill", title: "Version", subtitle: UIApplication.appVersion ?? "", color: .gray)
+                FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "此更新新增了日程表上的星期", color: .yellow)
+                FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "此更新更變了任務的圓形圖", color: .yellow)
+                FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "設定部份已經可以使用", color: .yellow)
                 FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
             }
             .padding(.leading)

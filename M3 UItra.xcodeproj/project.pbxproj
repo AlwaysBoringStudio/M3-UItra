@@ -24,6 +24,7 @@
 		792AE62D28AF37BA0002F750 /* ActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE62C28AF37BA0002F750 /* ActivityData.swift */; };
 		792AE62F28AF37D20002F750 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE62E28AF37D20002F750 /* Constants.swift */; };
 		792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE63028AF37FC0002F750 /* ColorExtension.swift */; };
+		792AE63328AF3E920002F750 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792AE63228AF3E920002F750 /* HealthKit.framework */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
@@ -83,6 +84,7 @@
 		792AE62C28AF37BA0002F750 /* ActivityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityData.swift; sourceTree = "<group>"; };
 		792AE62E28AF37D20002F750 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		792AE63028AF37FC0002F750 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		792AE63228AF3E920002F750 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */,
+				792AE63328AF3E920002F750 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +273,7 @@
 		79D0AAD128AAAB5000E60B4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				792AE63228AF3E920002F750 /* HealthKit.framework */,
 				79D0AAD228AAAB5000E60B4C /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -608,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -641,7 +645,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

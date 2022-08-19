@@ -23,6 +23,8 @@ struct dateView: View {
     @State var fullyear: String
     
     @State var popover = false
+    
+    @State var weekday = ""
     var body: some View {
         VStack {
             if holiday == true {
@@ -51,10 +53,16 @@ struct dateView: View {
                             .opacity(0.5)
                             .frame(width: 70, height: 100)
                             .overlay() {
-                                Text("\(correctdate(num: date))日")
-                                    .bold()
-                                    .font(.title3)
-                                    .foregroundColor(.black)
+                                VStack {
+                                    Text("\(correctdate(num: date))日")
+                                        .bold()
+                                        .font(.title3)
+                                        .foregroundColor(.black)
+                                    Text(getdayofweeknow())
+                                        .bold()
+                                        .foregroundColor(.black)
+                                    
+                                }
                             }
                             
                         Rectangle()
@@ -169,7 +177,7 @@ struct dateView: View {
             }
                 
         }
-            .sheet(isPresented: $popover) {
+            .popover(isPresented: $popover) {
                 ZStack {
                     Color.white
                         .edgesIgnoringSafeArea(.all)
@@ -188,12 +196,12 @@ struct dateView: View {
                                                 .padding(.horizontal)
                                             Spacer()
                                         }
-                                        Text("\(correctdate(num: month))月\(correctdate(num: date))日")
+                                        Text("\(correctdate(num: month))月\(correctdate(num: date))日 (\(getdayofweeknow()))")
                                             .foregroundColor(.black)
                                             .font(.largeTitle)
                                             .bold()
-                                        Spacer()
                                         
+                                        Spacer()
                                     }
                                     
                                 }
@@ -280,6 +288,37 @@ struct dateView: View {
             }
         
     }
+    
+    func getdayofweeknow() -> String {
+        let datecorrect = correctdate(num: month)
+        let datecorrectday = correctdate(num: date)
+        let mem = getDayOfWeek("\(datecorrectday)/\(datecorrect)/\(fullyear)", format:"dd/MM/yyyy") ?? ""
+        return mem
+    }
+    
+    func getDayOfWeek(_ date:String, format: String) -> String? {
+        
+        let weekDays = [
+            "星期日",
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六"
+        ]
+
+        let formatter  = DateFormatter()
+        formatter.dateFormat = format
+        guard let myDate = formatter.date(from: date) else { return nil }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: myDate)
+        
+        
+        return weekDays[weekDay-1]
+    }
+    
     func correctdate(num: String) -> String {
         let add0 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
         var new = ""
@@ -297,9 +336,9 @@ struct dateView: View {
         let datecorrectday = correctdate(num: date)
         print("\(fullyear)年\(datecorrect)月\(datecorrectday)日")
         
-        let string = "\(date)/\(datecorrect)/\(fullyear)"
+        let string = "\(datecorrectday)/\(datecorrect)/\(fullyear)"
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         dateFormatter.date(from: string)
         return dateFormatter.date(from: string) ?? Date()
     }
