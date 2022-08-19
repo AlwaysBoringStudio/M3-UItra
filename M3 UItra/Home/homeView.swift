@@ -31,9 +31,18 @@ struct homeView: View {
                 HStack {
                     // MARK: 任務 Pie Chart
                     VStack {
-                        Image("pie")
+                        Image("cal")
                             .resizable()
                             .scaledToFit()
+                            .overlay() {
+                                RingView(
+                                    percentage: 0.9,
+                                    backgroundColor: Color.moveRingBackground,
+                                    startColor: Color.moveRingStartColor,
+                                    endColor: Color.moveRingEndColor,
+                                    thickness: Constants.mainRingThickness
+                                )
+                            }
                         Text("任務")
                             .font(.title)
                     }

@@ -20,6 +20,10 @@
 		7912388328ACFBA000CE4E0B /* trainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912388228ACFBA000CE4E0B /* trainView.swift */; };
 		7912388528ACFBE300CE4E0B /* classView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912388428ACFBE300CE4E0B /* classView.swift */; };
 		791FD04D28AE5D1600E7845B /* welcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791FD04C28AE5D1600E7845B /* welcomeView.swift */; };
+		792AE62B28AF379B0002F750 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE62A28AF379B0002F750 /* RingView.swift */; };
+		792AE62D28AF37BA0002F750 /* ActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE62C28AF37BA0002F750 /* ActivityData.swift */; };
+		792AE62F28AF37D20002F750 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE62E28AF37D20002F750 /* Constants.swift */; };
+		792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE63028AF37FC0002F750 /* ColorExtension.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
@@ -75,6 +79,10 @@
 		7912388228ACFBA000CE4E0B /* trainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainView.swift; sourceTree = "<group>"; };
 		7912388428ACFBE300CE4E0B /* classView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classView.swift; sourceTree = "<group>"; };
 		791FD04C28AE5D1600E7845B /* welcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeView.swift; sourceTree = "<group>"; };
+		792AE62A28AF379B0002F750 /* RingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		792AE62C28AF37BA0002F750 /* ActivityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityData.swift; sourceTree = "<group>"; };
+		792AE62E28AF37D20002F750 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		792AE63028AF37FC0002F750 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -210,6 +218,10 @@
 				79AB308028ACECA60001C091 /* webView.swift */,
 				79996AEF28ADFBEE000E1FF0 /* get today date.swift */,
 				79996AF428AE19AD000E1FF0 /* decode json.swift */,
+				792AE62A28AF379B0002F750 /* RingView.swift */,
+				792AE62C28AF37BA0002F750 /* ActivityData.swift */,
+				792AE62E28AF37D20002F750 /* Constants.swift */,
+				792AE63028AF37FC0002F750 /* ColorExtension.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -394,15 +406,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792AE62D28AF37BA0002F750 /* ActivityData.swift in Sources */,
 				79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */,
 				79C8582928AA380B00A37B5E /* settingsView.swift in Sources */,
 				4932CDC228A4E8F2000E7443 /* camera.swift in Sources */,
 				4932CDC628A4EA5B000E7443 /* frame.swift in Sources */,
 				4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */,
 				7912388328ACFBA000CE4E0B /* trainView.swift in Sources */,
+				792AE62B28AF379B0002F750 /* RingView.swift in Sources */,
 				79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */,
 				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
 				79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */,
+				792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */,
+				792AE62F28AF37D20002F750 /* Constants.swift in Sources */,
 				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
 				79AB308128ACECA60001C091 /* webView.swift in Sources */,
@@ -592,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -625,7 +641,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

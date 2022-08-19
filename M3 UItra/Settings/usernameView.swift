@@ -29,7 +29,6 @@ struct usernameView: View {
         }
         .onDisappear() {
             defaults.set(username, forKey: "username")
-            defaults.synchronize()
         }
     }
 }

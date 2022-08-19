@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var welcome = true
+    let defaults = UserDefaults.standard
+    @State var welcome = false
     
     var body: some View {
         TabView {
@@ -34,6 +35,12 @@ struct ContentView: View {
             welcomeView(showWelcomeScreen: $welcome)
         }
         
+        .onAppear() {
+            let hi = defaults.bool(forKey: "firstopen\(UIApplication.appVersion ?? "")")
+            if hi == false {
+                welcome = true
+            }
+        }
     }
 }
 

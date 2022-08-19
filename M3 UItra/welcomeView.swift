@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct welcomeView: View {
+    let defaults = UserDefaults.standard
     @Binding var showWelcomeScreen: Bool
     @State var isOnline = false
     var body: some View {
@@ -32,7 +33,10 @@ struct welcomeView: View {
             .padding(.leading)
             
             Spacer()
-            Button(action: { self.showWelcomeScreen = false }) {
+            Button(action: {
+                defaults.set(showWelcomeScreen, forKey: "firstopen\(UIApplication.appVersion ?? "")")
+                self.showWelcomeScreen = false
+            }) {
                 HStack {
                     Spacer()
                     Text("繼續")
