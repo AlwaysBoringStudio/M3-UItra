@@ -48,12 +48,14 @@ struct classView: View {
                     Spacer()
                 }
             }
+        
         // MARK: if error
         // if error run "showAlert = true"
             .alert("Your code is invalid !", isPresented: $showAlert, actions: {
                         Button("OK") { }
             })
     }
+    
 }
 
 

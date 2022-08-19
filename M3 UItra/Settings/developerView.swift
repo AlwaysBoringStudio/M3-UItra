@@ -92,6 +92,33 @@ struct developerGITHUBlist: View {
                 Text("README.md")
             }
             
+            
+            
+        }
+        Section(header: Text("Bug")) {
+            NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra/issues")!).navigationTitle("GitHub").navigationBarTitleDisplayMode(.inline)) {
+                HStack {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .resizable()
+                        .foregroundColor(.red)
+                        .padding(5)
+                        .frame(width: 50, height: 50)
+                        
+                    VStack {
+                        HStack {
+                            Text("已知的Bug")
+                                .font(.title3)
+                            Spacer()
+                        }
+                        HStack {
+                            Text("按此查看已知的Bug")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
+                    }
+                }
+            }
         }
         
     }

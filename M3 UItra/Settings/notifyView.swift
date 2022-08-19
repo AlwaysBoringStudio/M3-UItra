@@ -76,8 +76,4 @@ struct backgroundView: View {
     }
 }
 
-struct noifyView_Previews: PreviewProvider {
-    static var previews: some View {
-        settingsView()
-    }
-}
+

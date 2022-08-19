@@ -10,17 +10,25 @@ import SwiftUI
 struct usernameView: View {
     let defaults = UserDefaults.standard
     
+    @State var showwelcome = false
+    
     @Binding var username: String
+    
+    @Binding var refresh: Bool
     
     var body: some View {
         List {
             Section {
                 HStack {
-                    Text("你的名字： ")
-                        .bold()
-                    Spacer()
+                    Text("你的名字：")
                     TextEditor(text: $username)
-                        .frame(width: 100)
+                }
+            }
+            Section {
+                HStack {
+                    Toggle(isOn: $showwelcome) {
+                        Text("在主頁顯示歡迎")
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -29,12 +37,18 @@ struct usernameView: View {
         }
         .onDisappear() {
             defaults.set(username, forKey: "username")
+            defaults.set(showwelcome, forKey: "showwelcome")
+            
+            refresh = true
+        }
+        .onAppear() {
+            showwelcome = defaults.bool(forKey: "showwelcome")
+            
         }
     }
 }
 
-struct usernameView_Previews: PreviewProvider {
-    static var previews: some View {
-        settingsView()
-    }
+class ContentViewModel: ObservableObject {
+    @Published var refresh = false
 }
+

@@ -177,7 +177,7 @@ struct dateView: View {
             }
                 
         }
-            .popover(isPresented: $popover) {
+        .popover(isPresented: $popover,attachmentAnchor: .point(.center), arrowEdge: .trailing) {
                 ZStack {
                     Color.white
                         .edgesIgnoringSafeArea(.all)

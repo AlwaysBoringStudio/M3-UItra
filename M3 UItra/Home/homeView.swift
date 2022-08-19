@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct homeView: View {
+    let defaults = UserDefaults.standard
+    @State var showwelcome = false
+    @State var username = ""
+    @State var navtitle = "成就"
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 ZStack {
                     // MARK: Reward
                     VStack {
@@ -83,13 +87,27 @@ struct homeView: View {
                     }
                     
                 }
+                
             }
-            .navigationTitle("成就")
+            
+            .navigationTitle(navtitle)
+
+            .onAppear() {
+                runwelcome()
+            }
+            
             
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .frame(maxWidth: 800)
+        .frame(maxWidth: 700)
         
+    }
+    func runwelcome() -> Void {
+        username = defaults.string(forKey: "username") ?? "USERNAME"
+        showwelcome = defaults.bool(forKey: "showwelcome")
+        if showwelcome == true {
+            navtitle = "歡迎, \(username)"
+        }
     }
 }
 

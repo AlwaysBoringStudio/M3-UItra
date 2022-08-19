@@ -42,10 +42,13 @@ struct StickFigureView: View {
                 
                         
                 } else {
-                    Image("body")
-                        .resizable()
-                        .scaledToFit()
-                        
+                    HStack {
+                        Spacer()
+                        Image("body")
+                            .resizable()
+                            .scaledToFit()
+                        Spacer()
+                    }
                 }
                 if poseEstimator.leftKneeconfidence ?? 0 >= 0.5 {
                     // Left leg
@@ -55,9 +58,13 @@ struct StickFigureView: View {
                         .fill(Color.red)
                     
                 } else {
-                    Image("body")
-                        .resizable()
-                        .scaledToFit()
+                    HStack {
+                        Spacer()
+                        Image("body")
+                            .resizable()
+                            .scaledToFit()
+                        Spacer()
+                    }
                         
                 }
                 if poseEstimator.rightHipconfidence ?? 0 >= 0.5 {
@@ -67,9 +74,13 @@ struct StickFigureView: View {
                         .stroke(lineWidth: 7.0)
                         .fill(Color.yellow)
                 } else {
-                    Image("body")
-                        .resizable()
-                        .scaledToFit()
+                    HStack {
+                        Spacer()
+                        Image("body")
+                            .resizable()
+                            .scaledToFit()
+                        Spacer()
+                    }
                         
                 }
                 if poseEstimator.rightAnkleconfidence ?? 0 >= 0.5 {
@@ -78,9 +89,13 @@ struct StickFigureView: View {
                         .stroke(lineWidth: 7.0)
                         .fill(Color.green)
                 } else {
-                    Image("body")
-                        .resizable()
-                        .scaledToFit()
+                    HStack {
+                        Spacer()
+                        Image("body")
+                            .resizable()
+                            .scaledToFit()
+                        Spacer()
+                    }
                         
                 }
                 if poseEstimator.leftAnkleconfidence ?? 0 >= 0.5 {
@@ -89,9 +104,13 @@ struct StickFigureView: View {
                         .stroke(lineWidth: 7.0)
                         .fill(Color.green)
                 } else {
-                    Image("body")
-                        .resizable()
-                        .scaledToFit()
+                    HStack {
+                        Spacer()
+                        Image("body")
+                            .resizable()
+                            .scaledToFit()
+                        Spacer()
+                    }
                         
                 }
                 
@@ -99,9 +118,13 @@ struct StickFigureView: View {
             
             
         } else {
-            Image("body")
-                .resizable()
-                .scaledToFit()
+            HStack {
+                Spacer()
+                Image("body")
+                    .resizable()
+                    .scaledToFit()
+                Spacer()
+            }
                 
         }
     }

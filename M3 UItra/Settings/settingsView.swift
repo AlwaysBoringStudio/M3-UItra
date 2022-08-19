@@ -11,11 +11,13 @@ struct settingsView: View {
     let defaults = UserDefaults.standard
     @State var username = "USERNAME"
     @State var notifyon = false
+    @State var showwelcome = false
+    @Binding var refresh: Bool
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: usernameView(username: $username)) {
+                    NavigationLink(destination: usernameView(username: $username, refresh: $refresh)) {
                         HStack {
                             Image(systemName: "person.circle")
                                 .resizable()
@@ -54,6 +56,7 @@ struct settingsView: View {
         .onAppear() {
             username = defaults.string(forKey: "username") ?? "USERNAME"
             notifyon = defaults.bool(forKey: "notifyon")
+            
         }
         
         

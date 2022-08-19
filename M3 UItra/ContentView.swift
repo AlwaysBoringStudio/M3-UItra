@@ -10,10 +10,17 @@ import SwiftUI
 struct ContentView: View {
     let defaults = UserDefaults.standard
     @State var welcome = false
+    @State var refresh = false
     
     var body: some View {
         TabView {
-            homeView()
+            Group {
+                if refresh == true {
+                    refreshhelper(refresh: $refresh)
+                } else {
+                    homeView()
+                }
+            }
                 .tabItem {
                     Label("主頁", systemImage: "house")
                 }
@@ -25,7 +32,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("日程表", systemImage: "calendar")
                 }
-            settingsView()
+            settingsView(refresh: $refresh)
                 .tabItem {
                     Label("設定", systemImage: "command.circle")
                 }
@@ -36,14 +43,26 @@ struct ContentView: View {
         }
         
         .onAppear() {
-            let hi = defaults.bool(forKey: "firstopen\(UIApplication.appVersion ?? "")")
-            if hi == false {
+            let hi = defaults.string(forKey: "firstopen")
+            if hi != UIApplication.appVersion ?? "" {
                 welcome = true
             }
         }
+        
     }
 }
 
+struct refreshhelper: View {
+    @Binding var refresh: Bool
+    var body: some View {
+        Text("refreshing")
+        
+        .onAppear() {
+            refresh = false
+        }
+        
+    }
+}
 
 struct Previews_ContentView_Previews: PreviewProvider {
     static var previews: some View {

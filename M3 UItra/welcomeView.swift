@@ -12,44 +12,44 @@ struct welcomeView: View {
     @Binding var showWelcomeScreen: Bool
     @State var isOnline = false
     var body: some View {
-        VStack {
-            Spacer()
-            Text("歡迎使用")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            Text("M3-Ultra")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            Spacer()
-            VStack(spacing: 24) {
-                FeatureCell(image: "info.circle.fill", title: "Version", subtitle: UIApplication.appVersion ?? "", color: .gray)
-                FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "此更新新增了日程表上的星期", color: .yellow)
-                FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "此更新更變了任務的圓形圖", color: .yellow)
-                FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "設定部份已經可以使用", color: .yellow)
-                FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
-            }
-            .padding(.leading)
-            
-            Spacer()
-            Button(action: {
-                defaults.set(showWelcomeScreen, forKey: "firstopen\(UIApplication.appVersion ?? "")")
-                self.showWelcomeScreen = false
-            }) {
-                HStack {
-                    Spacer()
-                    Text("繼續")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Spacer()
+        NavigationView {
+            VStack {
+                Text("歡迎使用")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                Text("M3-Ultra")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                VStack(spacing: 24) {
+                    FeatureCell(image: "info.circle.fill", title: "Version", subtitle: UIApplication.appVersion ?? "", color: .gray)
+                    FeatureCell(image: "exclamationmark.triangle.fill", title: "附加資訊:", subtitle: "設定部份已經可以使用", color: .yellow)
+                    
+                    FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
                 }
+                .padding(.leading)
+                Spacer()
+                Spacer()
+                Button(action: {
+                    defaults.set(UIApplication.appVersion ?? "", forKey: "firstopen")
+                    self.showWelcomeScreen = false
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("繼續")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
+                .background(Color.blue)
+                .cornerRadius(15)
             }
-            .frame(height: 50)
-            .background(Color.blue)
-            .cornerRadius(15)
+            .padding()
         }
-        .padding()
         
     }
     
