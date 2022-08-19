@@ -5,6 +5,7 @@
 //  Created by HingTatTsang on 18/8/2022.
 //
 
+import Foundation
 import SwiftUI
 
 struct todayView: View {
@@ -37,20 +38,33 @@ struct todayView: View {
                                         .opacity(0.7)
                                         .frame(width: 250, height: 100)
                                         .overlay() {
-                                            VStack {
-                                                Spacer()
-                                                HStack {
-                                                    Text("\(nowdate(format: "yyyy"))年")
-                                                        .foregroundColor(.black)
-                                                        .padding(.horizontal)
+                                            HStack {
+                                                VStack {
                                                     Spacer()
+                                                    HStack {
+                                                        Text("\(nowdate(format: "yyyy"))年 \(getDayOfWeektoday())")
+                                                            .foregroundColor(.black)
+                                                            .padding(.horizontal)
+                                                    }
+                                                    Text("\(nowdate(format: "MM"))月\(nowdate(format: "dd"))日 ")
+                                                        .font(.title)
+                                                        .bold()
+                                                        .foregroundColor(.black)
+                                                    Spacer()
+                                                    
+                                                    
                                                 }
-                                                Text("\(nowdate(format: "MM"))月\(nowdate(format: "dd"))日")
-                                                    .font(.largeTitle)
-                                                    .bold()
-                                                    .foregroundColor(.black)
-                                                Spacer()
-                                                
+                                                VStack {
+                                                    Text(" · 沒有數據")
+                                                        .bold()
+                                                        .foregroundColor(.black)
+                                                    Text(" · 沒有數據")
+                                                        .bold()
+                                                        .foregroundColor(.black)
+                                                    Text(" · 沒有數據")
+                                                        .bold()
+                                                        .foregroundColor(.black)
+                                                }
                                             }
                                             
                                         }
@@ -62,27 +76,20 @@ struct todayView: View {
                                     .frame(width: 90, height: 100)
                                     .overlay() {
                                         VStack {
-                                            Text("是日課程")
-                                                .font(.title3)
+                                            HStack {
+                                                Text("是日課程")
+                                                    .font(.title3)
+                                                    .foregroundColor(.black)
+                                            }
+                                            Text("沒有數據")
+                                                .bold()
                                                 .foregroundColor(.black)
-                                            HStack {
-                                                Text(" 沒有數據")
-                                                    .bold()
-                                                    .foregroundColor(.black)
-                                                Spacer()
-                                            }
-                                            HStack {
-                                                Text(" 沒有數據")
-                                                    .bold()
-                                                    .foregroundColor(.black)
-                                                Spacer()
-                                            }
-                                            HStack {
-                                                Text(" 沒有數據")
-                                                    .bold()
-                                                    .foregroundColor(.black)
-                                                Spacer()
-                                            }
+                                            Text("沒有數據")
+                                                .bold()
+                                                .foregroundColor(.black)
+                                            Text("沒有數據")
+                                                .bold()
+                                                .foregroundColor(.black)
                                         }
                                     }
                             }
@@ -147,7 +154,28 @@ struct todayView: View {
             .padding(.top)
         }
     }
+    func getDayOfWeektoday() -> String {
+        
+        let weekDays = [
+            "星期日",
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六"
+        ]
+
+        let myDate = Date()
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: myDate)
+        
+        
+        return weekDays[weekDay-1]
+    }
 }
+
 
 
 

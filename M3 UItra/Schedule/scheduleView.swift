@@ -53,7 +53,7 @@ struct monthView: View {
         ZStack {
             Color.white
             // MARK: List
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 Spacer()
                     .frame(height: 120)
                 

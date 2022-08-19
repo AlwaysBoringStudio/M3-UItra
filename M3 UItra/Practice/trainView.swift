@@ -61,7 +61,7 @@ struct trainView: View {
                                     .foregroundColor(.white)
                                     .font(.title)
                                     .bold()
-                                    .padding()
+                                    .padding(25)
                                 Spacer()
                             }
                         }
@@ -88,7 +88,7 @@ struct trainView: View {
                                     .foregroundColor(.white)
                                     .font(.title)
                                     .bold()
-                                    .padding()
+                                    .padding(25)
                                 Spacer()
                             }
                         }
@@ -133,7 +133,7 @@ struct trainView: View {
         }
         // MARK: Action if error
         .sheet(isPresented: $view3) {
-            errorView(errorcode: "cannot detect trainView() number")
+            errorView(errorcode: "頁面開發中")
         }
         
     }
