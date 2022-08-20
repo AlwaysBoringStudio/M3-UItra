@@ -51,8 +51,8 @@ struct classView: View {
         
         // MARK: if error
         // if error run "showAlert = true"
-            .alert("Your code is invalid !", isPresented: $showAlert, actions: {
-                        Button("OK") { }
+            .alert("代碼無效 !", isPresented: $showAlert, actions: {
+                        Button("返回") { }
             })
     }
     

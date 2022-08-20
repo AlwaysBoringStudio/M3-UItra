@@ -15,12 +15,11 @@ struct usernameView: View {
     @Binding var username: String
     
     @Binding var refresh: Bool
-    
     var body: some View {
         List {
             Section {
                 HStack {
-                    Text("你的名字：")
+                    Text("你的名稱：")
                     TextEditor(text: $username)
                 }
             }
@@ -31,19 +30,17 @@ struct usernameView: View {
                     }
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("帳戶")
+            .navigationTitle("名稱設定")
             
         }
         .onDisappear() {
             defaults.set(username, forKey: "username")
             defaults.set(showwelcome, forKey: "showwelcome")
-            
             refresh = true
+            
         }
         .onAppear() {
             showwelcome = defaults.bool(forKey: "showwelcome")
-            
         }
     }
 }

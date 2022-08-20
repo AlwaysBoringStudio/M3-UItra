@@ -25,6 +25,8 @@
 		792AE62F28AF37D20002F750 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE62E28AF37D20002F750 /* Constants.swift */; };
 		792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792AE63028AF37FC0002F750 /* ColorExtension.swift */; };
 		792AE63328AF3E920002F750 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792AE63228AF3E920002F750 /* HealthKit.framework */; };
+		7943A97A28AFAE5E006E7F19 /* AirplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943A97928AFAE5E006E7F19 /* AirplayView.swift */; };
+		7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
@@ -85,6 +87,8 @@
 		792AE62E28AF37D20002F750 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		792AE63028AF37FC0002F750 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		792AE63228AF3E920002F750 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		7943A97928AFAE5E006E7F19 /* AirplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplayView.swift; sourceTree = "<group>"; };
+		7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = airplaysettingsView.swift; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				792AE62C28AF37BA0002F750 /* ActivityData.swift */,
 				792AE62E28AF37D20002F750 /* Constants.swift */,
 				792AE63028AF37FC0002F750 /* ColorExtension.swift */,
+				7943A97928AFAE5E006E7F19 /* AirplayView.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				79C8582828AA380B00A37B5E /* settingsView.swift */,
+				7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */,
 				799CB78B28AEB425004076AD /* notifyView.swift */,
 				79DC432B28AEA2E500E1853E /* usernameView.swift */,
 				79AB308828ACEE200001C091 /* developerView.swift */,
@@ -431,10 +437,12 @@
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
 				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
+				7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */,
 				799CB78C28AEB425004076AD /* notifyView.swift in Sources */,
 				79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */,
 				79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */,
 				79C8582328AA378500A37B5E /* dateView.swift in Sources */,
+				7943A97A28AFAE5E006E7F19 /* AirplayView.swift in Sources */,
 				4932CD9628A4C89D000E7443 /* M3_UItraApp.swift in Sources */,
 				791FD04D28AE5D1600E7845B /* welcomeView.swift in Sources */,
 				79C8582D28AA388B00A37B5E /* errorView.swift in Sources */,
@@ -525,7 +533,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -579,7 +587,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -612,7 +620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.3.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -645,7 +653,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.3.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

@@ -9,34 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     let defaults = UserDefaults.standard
+    @State var airplay = false
     @State var welcome = false
     @State var refresh = false
-    
     var body: some View {
-        TabView {
-            Group {
-                if refresh == true {
-                    refreshhelper(refresh: $refresh)
-                } else {
-                    homeView()
-                }
+        ZStack {
+            if airplay == true {
+                Airplaybackgroundhelper(view: AnyView(errorView()))
             }
-                .tabItem {
-                    Label("主頁", systemImage: "house")
+            TabView {
+                Group {
+                    if refresh == true {
+                        refreshhelper(refresh: $refresh)
+                    } else {
+                        homeView()
+                    }
                 }
-            practiceView()
-                .tabItem {
-                    Label("訓練", systemImage: "figure.walk")
-                }
-            scheduleView()
-                .tabItem {
-                    Label("日程表", systemImage: "calendar")
-                }
-            settingsView(refresh: $refresh)
-                .tabItem {
-                    Label("設定", systemImage: "command.circle")
-                }
-            
+                    .tabItem {
+                        Label("主頁", systemImage: "house")
+                    }
+                practiceView()
+                    .tabItem {
+                        Label("訓練", systemImage: "figure.walk")
+                    }
+                scheduleView()
+                    .tabItem {
+                        Label("日程表", systemImage: "calendar")
+                    }
+                settingsView(refresh: $refresh)
+                    .tabItem {
+                        Label("設定", systemImage: "command.circle")
+                    }
+                
+            }
         }
         .sheet(isPresented: $welcome) {
             welcomeView(showWelcomeScreen: $welcome)
@@ -47,7 +52,10 @@ struct ContentView: View {
             if hi != UIApplication.appVersion ?? "" {
                 welcome = true
             }
+            airplay = defaults.bool(forKey: "airplay")
+            
         }
+
         
     }
 }

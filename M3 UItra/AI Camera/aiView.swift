@@ -61,6 +61,7 @@ struct aiView: View {
     var body: some View {
         VStack {
             ZStack {
+                
                 GeometryReader { geo in
                     CameraViewWrapper(poseEstimator: poseEstimator)
                     StickFigureView(poseEstimator: poseEstimator, size: geo.size)
@@ -200,6 +201,7 @@ struct aiView: View {
         .onAppear() {
             changeOrientation(to: .portrait)
             isOrientationLocked = true
+            
         }
         .onDisappear() {
             isOrientationLocked = false
@@ -218,6 +220,52 @@ struct aiView: View {
 }
 
 
+struct aiView_Airplay: View {
+    @StateObject var poseEstimator = PoseEstimator()
+    var body: some View {
+        Group {
+            if poseEstimator.rightKneeconfidence != nil {
+                let rightKneeconfidenceString: String = String(format: "%.1f", poseEstimator.rightKneeconfidence!)
+                let leftKneeconfidenceString: String = String(format: "%.1f", poseEstimator.leftKneeconfidence!)
+                let rightHipconfidenceString: String = String(format: "%.1f", poseEstimator.rightHipconfidence!)
+                let rightAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.rightAnkleconfidence!)
+                let leftAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.leftAnkleconfidence!)
+                 
+                 
+                Text("rightKneeconfidence:\(rightKneeconfidenceString)").font(.title)
+                Text("leftKneeconfidence:\(leftKneeconfidenceString)").font(.title)
+                Text("rightHipconfidence:\(rightHipconfidenceString)").font(.title)
+                Text("rightAnkleconfidence:\(rightAnkleconfidenceString)").font(.title)
+                Text("leftAnkleconfidence:\(leftAnkleconfidenceString)").font(.title)
+                
+                let qx1 = poseEstimator.rightAnkle.x
+                let qy1 = poseEstimator.rightAnkle.y
+                let qx2 = poseEstimator.rightKnee.x
+                let qy2 = poseEstimator.rightKnee.y
+                let qx3 = poseEstimator.rightHip.x
+                let qy3 = poseEstimator.rightHip.y
+                
+                Text("\(qx1), \(qx2), \(qx3), \(qy1), \(qy2), \(qy3)")
+                    .font(.largeTitle)
+                
+                Text("左腳角度\(poseEstimator.angleOfRightLeg)").font(.largeTitle)
+                Text("右腳角度\(poseEstimator.angleOfLeftLeg)").font(.largeTitle)
+                Text("右手角度\(poseEstimator.angleOfRArm)").font(.largeTitle)
+                Text("左手角度\(poseEstimator.angleOfLArm)").font(.largeTitle)
+                 
+             } else {
+                 Text("左腳角度\(" nil")").font(.largeTitle)
+                 Text("右腳角度\(" nil")").font(.largeTitle)
+                 Text("右手角度\(" nil")").font(.largeTitle)
+                 Text("左手角度\(" nil")").font(.largeTitle)
+                 
+                 
+                 
+             }
+        }
+        
+    }
+}
 
 
 

@@ -53,7 +53,6 @@ struct notifyView: View {
 //                }
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("通知")
         .onDisappear() {
             defaults.set(notifyon, forKey: "notifyon")

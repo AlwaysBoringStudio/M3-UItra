@@ -24,7 +24,6 @@ class PoseEstimator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Obs
     @Published var rightHipconfidence = Float("")
     @Published var rightAnkleconfidence = Float("")
     @Published var leftAnkleconfidence = Float("")
-    @Published var isGoodPosture = true
     
     @Published var rightKnee = CGPoint(x: 0, y: 0)
     @Published var rightAnkle = CGPoint(x: 0, y: 0)
@@ -126,15 +125,7 @@ class PoseEstimator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Obs
             self.wasInBottomPosition = true
         }
         
-
-        let kneeDistance = rightKnee.distance(to: leftKnee)
-        let ankleDistance = rightAnkle.distance(to: leftAnkle)
         
-        if ankleDistance > kneeDistance {
-            self.isGoodPosture = false
-        } else {
-            self.isGoodPosture = true
-        }
         
     }
 
