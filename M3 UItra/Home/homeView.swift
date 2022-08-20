@@ -10,12 +10,14 @@ import Combine
 
 struct homeView: View {
     let defaults = UserDefaults.standard
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     @State var showwelcome = false
     @State var username = ""
     @State var navtitle = "成就"
     @State var health = Float(0)
     @State var caltoday = Float(0)
     @State var reward = 0
+    @State var message = 0
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -81,14 +83,13 @@ struct homeView: View {
                                         endColor: Color.moveRingEndColor,
                                         thickness: Constants.mainRingThickness
                                     )
-                                    VStack {VStack {
+                                    VStack {
                                         Text("今天")
                                             .font(.title3)
                                         Text("\(Int(health*100))%")
                                             .font(.title3)
                                         Text("任務")
                                             .font(.title3)
-                                    }
                                     }
                                 }
                             }
@@ -152,6 +153,23 @@ struct homeView: View {
                 health = defaults.float(forKey: "health")
                 caltoday = defaults.float(forKey: "caltoday")
                 reward = defaults.integer(forKey: "reward")
+            }
+            .onReceive(timer) { input in
+                if message != 3 {
+                    message = message+1
+                } else {
+                    message = 1
+                }
+                if message == 1 {
+                    runwelcome()
+                    print("1")
+                } else if message == 2{
+                    navtitle = "已完成\(Int(health*100))%任務"
+                    print("2")
+                } else if message == 3 {
+                    navtitle = "已消耗\(Int(caltoday))卡路里"
+                    print("3")
+                }
             }
             
             

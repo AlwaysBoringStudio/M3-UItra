@@ -26,7 +26,7 @@ struct usernameView: View {
             Section {
                 HStack {
                     Toggle(isOn: $showwelcome) {
-                        Text("在主頁顯示歡迎")
+                        Text("在主頁顯示歡迎及其他訊息")
                     }
                 }
             }

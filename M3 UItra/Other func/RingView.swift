@@ -26,13 +26,14 @@ struct RingView: View {
         return ZStack {
 //            RingBackgroundShape(thickness: thickness)
 //                .fill(backgroundColor)
+            
             RingShape(currentPercentage: currentPercentage, thickness: thickness)
                 .fill(gradient)
                 .rotationEffect(.init(degrees: -90))
                 .shadow(radius: 2)
                 .drawingGroup()
                 .onAppear() {
-                    print("ring start 1")
+                    print("hi")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation(self.animation) {
                             self.currentPercentage = self.percentage
@@ -40,25 +41,11 @@ struct RingView: View {
                     }
                     
                 }
-                .onTapGesture {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        withAnimation(self.animation) {
-                            self.currentPercentage = self.percentage
-                        }
-                    }
-                }
             RingTipShape(currentPercentage: currentPercentage, thickness: thickness)
                 .fill(currentPercentage > 1 ? endColor : .clear)
                 .rotationEffect(.init(degrees: -90))
                 .onAppear() {
-                    print("ring start 2")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        withAnimation(self.animation) {
-                            self.currentPercentage = self.percentage
-                        }
-                    }
-                }
-                .onTapGesture {
+                    print("hi")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation(self.animation) {
                             self.currentPercentage = self.percentage

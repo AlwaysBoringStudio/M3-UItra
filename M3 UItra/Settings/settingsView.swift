@@ -38,7 +38,7 @@ struct settingsView: View {
                                     Spacer()
                                 }
                                 HStack {
-                                    Text("你的名稱設定")
+                                    Text("設定你的名稱")
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                     Spacer()
@@ -54,12 +54,7 @@ struct settingsView: View {
                             Text("通知")
                         }
                     }
-                    NavigationLink(destination: airplaysettingsView()) {
-                        HStack {
-                            Image(systemName: "airplayvideo")
-                            Text("AirPlay")
-                        }
-                    }
+                    
                     
                 }
                 

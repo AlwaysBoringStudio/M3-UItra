@@ -9,14 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     let defaults = UserDefaults.standard
-    @State var airplay = false
     @State var welcome = false
     @State var refresh = false
     var body: some View {
         ZStack {
-            if airplay == true {
-                Airplaybackgroundhelper(view: AnyView(errorView()))
-            }
             TabView {
                 Group {
                     if refresh == true {
@@ -52,7 +48,7 @@ struct ContentView: View {
             if hi != UIApplication.appVersion ?? "" {
                 welcome = true
             }
-            airplay = defaults.bool(forKey: "airplay")
+            
             
         }
 

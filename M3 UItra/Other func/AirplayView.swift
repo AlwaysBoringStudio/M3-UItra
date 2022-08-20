@@ -109,11 +109,69 @@ class ExternalDisplayContent: ObservableObject {
 
 
 struct AirplayView: View {
+    let defaults = UserDefaults.standard
+    @State var showwelcome = false
+    @State var username = ""
+    @State var navtitle = "成就"
+    @State var health = Float(0)
+    @State var caltoday = Float(0)
+    @State var reward = 0
     var body: some View {
-        Text("Hi")
-            .font(.largeTitle)
-            .bold()
-            .foregroundColor(.red)
+        // MARK: 任務 Pie Chart
+        VStack {
+            VStack {
+                Image("cal")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay() {
+                        ZStack {
+                            RingView(
+                                percentage: Double(health),
+                                backgroundColor: Color.moveRingBackground,
+                                startColor: Color.moveRingStartColor,
+                                endColor: Color.moveRingEndColor,
+                                thickness: Constants.mainRingThickness
+                            )
+                            VStack {VStack {
+                                Text("今天")
+                                    .font(.title3)
+                                Text("\(Int(health*100))%")
+                                    .font(.title3)
+                                Text("任務")
+                                    .font(.title3)
+                            }
+                            }
+                        }
+                    }
+               
+            }
+            // MARK: 卡路里
+            VStack {
+                Image("cal")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay() {
+                        ZStack {
+                            RingView(
+                                percentage: Double(caltoday/2000),
+                                backgroundColor: Color.exerciseRingBackground,
+                                startColor: Color.exerciseRingStartColor,
+                                endColor: Color.exerciseRingEndColor,
+                                thickness: Constants.mainRingThickness
+                            )
+                            VStack {
+                                Text("今天")
+                                    .font(.title3)
+                                Text("\(Int(caltoday))/2,000")
+                                    .font(.title3)
+                                Text("卡路里")
+                                    .font(.title3)
+                            }
+                        }
+                    }
+            }
+        }
+        
     }
 }
 

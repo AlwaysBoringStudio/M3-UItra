@@ -14,7 +14,6 @@ struct developerView: View {
     @Binding var refresh: Bool
     @State var username = ""
     @State var notifyon = false
-    @State var airplay = false
     @State var firstopen = ""
     @State var showwelcome = false
     @State var caltoday = Float(0)
@@ -72,11 +71,6 @@ struct developerView: View {
                     Text("Bool: notifyon = true")
                 } else {
                     Text("Bool: notifyon = false")
-                }
-                if airplay == true {
-                    Text("Bool: airplay = true")
-                } else {
-                    Text("Bool: airplay = false")
                 }
                 if showwelcome == true {
                     Text("Bool: showwelcome = true")
@@ -157,7 +151,6 @@ struct developerView: View {
             username = defaults.string(forKey: "username") ?? "USERNAME"
             notifyon = defaults.bool(forKey: "notifyon")
             health = defaults.float(forKey: "health")
-            airplay = defaults.bool(forKey: "airplay")
             firstopen = defaults.string(forKey: "firstopen") ?? "ERROR"
             showwelcome = defaults.bool(forKey: "showwelcome")
             caltoday = defaults.float(forKey: "caltoday")
@@ -175,7 +168,6 @@ struct developerView: View {
                 defaults.set(String("John Appleseed"), forKey: "username")
                 defaults.set(String(""), forKey: "firstopen")
                 defaults.set(Bool(true), forKey: "showwelcome")
-                defaults.set(Bool(true), forKey: "airplay")
                 defaults.set(Bool(false), forKey: "notifyon")
                 refresh = true
                 exit(0)
@@ -192,7 +184,6 @@ struct developerView: View {
                 defaults.set(String("USERNAME"), forKey: "username")
                 defaults.set(String(""), forKey: "firstopen")
                 defaults.set(Bool(false), forKey: "showwelcome")
-                defaults.set(Bool(false), forKey: "airplay")
                 defaults.set(Bool(false), forKey: "notifyon")
                 refresh = true
                 exit(0)

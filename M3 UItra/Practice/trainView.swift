@@ -122,11 +122,13 @@ struct trainView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar() {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                view2 = false
-                            }, label: {
-                                Text("退出")
-                            })
+                            HStack {
+                                Button(action: {
+                                    view2 = false
+                                }, label: {
+                                    Text("退出")
+                                })
+                            }
                         }
                     }
             }

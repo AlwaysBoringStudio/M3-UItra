@@ -11,9 +11,6 @@
 		4932CD9828A4C89D000E7443 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CD9728A4C89D000E7443 /* ContentView.swift */; };
 		4932CD9A28A4C89E000E7443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4932CD9928A4C89E000E7443 /* Assets.xcassets */; };
 		4932CD9D28A4C89E000E7443 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4932CD9C28A4C89E000E7443 /* Preview Assets.xcassets */; };
-		4932CDA728A4C89E000E7443 /* M3_UItraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */; };
-		4932CDB128A4C89E000E7443 /* M3_UItraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */; };
-		4932CDB328A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */; };
 		4932CDC228A4E8F2000E7443 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC128A4E8F2000E7443 /* camera.swift */; };
 		4932CDC428A4E92B000E7443 /* the line and view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC328A4E92B000E7443 /* the line and view.swift */; };
 		4932CDC628A4EA5B000E7443 /* frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932CDC528A4EA5B000E7443 /* frame.swift */; };
@@ -42,28 +39,25 @@
 		79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582A28AA384A00A37B5E /* practiceView.swift */; };
 		79C8582D28AA388B00A37B5E /* errorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582C28AA388B00A37B5E /* errorView.swift */; };
 		79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582E28AA38B500A37B5E /* scheduleView.swift */; };
+		79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C9349728B0C40F006592AC /* AirPlayController.swift */; };
 		79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D0AAD228AAAB5000E60B4C /* CloudKit.framework */; };
 		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
 		79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432B28AEA2E500E1853E /* usernameView.swift */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4932CDA328A4C89E000E7443 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4932CD8A28A4C89D000E7443 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4932CD9128A4C89D000E7443;
-			remoteInfo = "M3 UItra";
+/* Begin PBXCopyFilesBuildPhase section */
+		79C934D928B0C8CC006592AC /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4932CDAD28A4C89E000E7443 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4932CD8A28A4C89D000E7443 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4932CD9128A4C89D000E7443;
-			remoteInfo = "M3 UItra";
-		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4932CD9228A4C89D000E7443 /* M3 UItra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M3 UItra.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,11 +65,6 @@
 		4932CD9728A4C89D000E7443 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4932CD9928A4C89E000E7443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4932CD9C28A4C89E000E7443 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4932CDA228A4C89E000E7443 /* M3 UItraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "M3 UItraTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraTests.swift; sourceTree = "<group>"; };
-		4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "M3 UItraUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraUITests.swift; sourceTree = "<group>"; };
-		4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4932CDC128A4E8F2000E7443 /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
 		4932CDC328A4E92B000E7443 /* the line and view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "the line and view.swift"; sourceTree = "<group>"; };
 		4932CDC528A4EA5B000E7443 /* frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frame.swift; sourceTree = "<group>"; };
@@ -89,6 +78,7 @@
 		792AE63228AF3E920002F750 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		7943A97928AFAE5E006E7F19 /* AirplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplayView.swift; sourceTree = "<group>"; };
 		7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = airplaysettingsView.swift; sourceTree = "<group>"; };
+		794603AE28B0C9A30083567D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -104,6 +94,8 @@
 		79C8582A28AA384A00A37B5E /* practiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceView.swift; sourceTree = "<group>"; };
 		79C8582C28AA388B00A37B5E /* errorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorView.swift; sourceTree = "<group>"; };
 		79C8582E28AA38B500A37B5E /* scheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleView.swift; sourceTree = "<group>"; };
+		79C9349728B0C40F006592AC /* AirPlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayController.swift; sourceTree = "<group>"; };
+		79C9349D28B0C8CB006592AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "M3-UItra-Info.plist"; sourceTree = SOURCE_ROOT; };
 		79D0AAD028AA95A000E60B4C /* M3 UItra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "M3 UItra.entitlements"; sourceTree = "<group>"; };
 		79D0AAD228AAAB5000E60B4C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -122,20 +114,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4932CD9F28A4C89E000E7443 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4932CDA928A4C89E000E7443 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -143,8 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				4932CD9428A4C89D000E7443 /* M3 UItra */,
-				4932CDA528A4C89E000E7443 /* M3 UItraTests */,
-				4932CDAF28A4C89E000E7443 /* M3 UItraUITests */,
+				79C9349C28B0C8C9006592AC /* M3-Ultra */,
+				794603AD28B0C9A30083567D /* M3-Ultra */,
 				4932CD9328A4C89D000E7443 /* Products */,
 				79D0AAD128AAAB5000E60B4C /* Frameworks */,
 			);
@@ -154,8 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				4932CD9228A4C89D000E7443 /* M3 UItra.app */,
-				4932CDA228A4C89E000E7443 /* M3 UItraTests.xctest */,
-				4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,21 +166,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4932CDA528A4C89E000E7443 /* M3 UItraTests */ = {
+		794603AD28B0C9A30083567D /* M3-Ultra */ = {
 			isa = PBXGroup;
 			children = (
-				4932CDA628A4C89E000E7443 /* M3_UItraTests.swift */,
+				794603AE28B0C9A30083567D /* Assets.xcassets */,
 			);
-			path = "M3 UItraTests";
-			sourceTree = "<group>";
-		};
-		4932CDAF28A4C89E000E7443 /* M3 UItraUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4932CDB028A4C89E000E7443 /* M3_UItraUITests.swift */,
-				4932CDB228A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift */,
-			);
-			path = "M3 UItraUITests";
+			path = "M3-Ultra";
 			sourceTree = "<group>";
 		};
 		79AB308228ACECFA0001C091 /* AI Camera */ = {
@@ -230,6 +197,7 @@
 				792AE62E28AF37D20002F750 /* Constants.swift */,
 				792AE63028AF37FC0002F750 /* ColorExtension.swift */,
 				7943A97928AFAE5E006E7F19 /* AirplayView.swift */,
+				79C9349728B0C40F006592AC /* AirPlayController.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -276,6 +244,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		79C9349C28B0C8C9006592AC /* M3-Ultra */ = {
+			isa = PBXGroup;
+			children = (
+				79C9349D28B0C8CB006592AC /* Assets.xcassets */,
+			);
+			path = "M3-Ultra";
+			sourceTree = "<group>";
+		};
 		79D0AAD128AAAB5000E60B4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +271,7 @@
 				4932CD8E28A4C89D000E7443 /* Sources */,
 				4932CD8F28A4C89D000E7443 /* Frameworks */,
 				4932CD9028A4C89D000E7443 /* Resources */,
+				79C934D928B0C8CC006592AC /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -304,42 +281,6 @@
 			productName = "M3 UItra";
 			productReference = 4932CD9228A4C89D000E7443 /* M3 UItra.app */;
 			productType = "com.apple.product-type.application";
-		};
-		4932CDA128A4C89E000E7443 /* M3 UItraTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4932CDB928A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraTests" */;
-			buildPhases = (
-				4932CD9E28A4C89E000E7443 /* Sources */,
-				4932CD9F28A4C89E000E7443 /* Frameworks */,
-				4932CDA028A4C89E000E7443 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4932CDA428A4C89E000E7443 /* PBXTargetDependency */,
-			);
-			name = "M3 UItraTests";
-			productName = "M3 UItraTests";
-			productReference = 4932CDA228A4C89E000E7443 /* M3 UItraTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4932CDAB28A4C89E000E7443 /* M3 UItraUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4932CDBC28A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraUITests" */;
-			buildPhases = (
-				4932CDA828A4C89E000E7443 /* Sources */,
-				4932CDA928A4C89E000E7443 /* Frameworks */,
-				4932CDAA28A4C89E000E7443 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4932CDAE28A4C89E000E7443 /* PBXTargetDependency */,
-			);
-			name = "M3 UItraUITests";
-			productName = "M3 UItraUITests";
-			productReference = 4932CDAC28A4C89E000E7443 /* M3 UItraUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -353,14 +294,6 @@
 				TargetAttributes = {
 					4932CD9128A4C89D000E7443 = {
 						CreatedOnToolsVersion = 13.4.1;
-					};
-					4932CDA128A4C89E000E7443 = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 4932CD9128A4C89D000E7443;
-					};
-					4932CDAB28A4C89E000E7443 = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 4932CD9128A4C89D000E7443;
 					};
 				};
 			};
@@ -378,8 +311,6 @@
 			projectRoot = "";
 			targets = (
 				4932CD9128A4C89D000E7443 /* M3 UItra */,
-				4932CDA128A4C89E000E7443 /* M3 UItraTests */,
-				4932CDAB28A4C89E000E7443 /* M3 UItraUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -392,20 +323,6 @@
 				79996AF628AE1AA9000E1FF0 /* Data.json in Resources */,
 				4932CD9D28A4C89E000E7443 /* Preview Assets.xcassets in Resources */,
 				4932CD9A28A4C89E000E7443 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4932CDA028A4C89E000E7443 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4932CDAA28A4C89E000E7443 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +353,7 @@
 				79AB308928ACEE200001C091 /* developerView.swift in Sources */,
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
+				79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */,
 				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
 				7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */,
 				799CB78C28AEB425004076AD /* notifyView.swift in Sources */,
@@ -450,37 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4932CD9E28A4C89E000E7443 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4932CDA728A4C89E000E7443 /* M3_UItraTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4932CDA828A4C89E000E7443 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4932CDB328A4C89E000E7443 /* M3_UItraUITestsLaunchTests.swift in Sources */,
-				4932CDB128A4C89E000E7443 /* M3_UItraUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4932CDA428A4C89E000E7443 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4932CD9128A4C89D000E7443 /* M3 UItra */;
-			targetProxy = 4932CDA328A4C89E000E7443 /* PBXContainerItemProxy */;
-		};
-		4932CDAE28A4C89E000E7443 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4932CD9128A4C89D000E7443 /* M3 UItra */;
-			targetProxy = 4932CDAD28A4C89E000E7443 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4932CDB428A4C89E000E7443 /* Debug */ = {
@@ -620,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.10;
+				MARKETING_VERSION = 1.3.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -653,89 +541,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.10;
+				MARKETING_VERSION = 1.3.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		4932CDBA28A4C89E000E7443 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UGQBX3P3M8;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/M3 UItra.app/M3 UItra";
-			};
-			name = Debug;
-		};
-		4932CDBB28A4C89E000E7443 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UGQBX3P3M8;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/M3 UItra.app/M3 UItra";
-			};
-			name = Release;
-		};
-		4932CDBD28A4C89E000E7443 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V5NPVP856C;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "M3 UItra";
-			};
-			name = Debug;
-		};
-		4932CDBE28A4C89E000E7443 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V5NPVP856C;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "aaa.M3-UItraUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "M3 UItra";
 			};
 			name = Release;
 		};
@@ -756,24 +568,6 @@
 			buildConfigurations = (
 				4932CDB728A4C89E000E7443 /* Debug */,
 				4932CDB828A4C89E000E7443 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4932CDB928A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4932CDBA28A4C89E000E7443 /* Debug */,
-				4932CDBB28A4C89E000E7443 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4932CDBC28A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItraUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4932CDBD28A4C89E000E7443 /* Debug */,
-				4932CDBE28A4C89E000E7443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
