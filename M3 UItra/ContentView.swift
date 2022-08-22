@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: 分頁控制器
 struct ContentView: View {
     let defaults = UserDefaults.standard
     @State var welcome = false
@@ -56,6 +57,8 @@ struct ContentView: View {
     }
 }
 
+
+// MARK: 重新整理
 struct refreshhelper: View {
     @Binding var refresh: Bool
     var body: some View {

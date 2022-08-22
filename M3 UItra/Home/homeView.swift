@@ -21,8 +21,8 @@ struct homeView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
+                // MARK: Reward
                 ZStack {
-                    // MARK: Reward
                     VStack {
                         if reward != 0 {
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -68,8 +68,8 @@ struct homeView: View {
                     }
                     
                 }
+                // MARK: 任務 Pie Chart
                 HStack {
-                    // MARK: 任務 Pie Chart
                     VStack {
                         Image("cal")
                             .resizable()
@@ -123,40 +123,22 @@ struct homeView: View {
                     
                 }
                 HStack {
+                    // MARK: 七天的卡路里圖表
                     calchartView()
                 }
-//                HStack {
-//                    // MARK: 心跳
-//                    VStack {
-//                        Image("rate")
-//                            .resizable()
-//                            .scaledToFit()
-//                        Text("心跳")
-//                            .font(.title)
-//                    }
-//                    // MARK: 卡路里 Bar Chart
-//                    VStack {
-//                        Image("bar")
-//                            .resizable()
-//                            .scaledToFit()
-//                        Text("卡路里")
-//                            .font(.title)
-//                    }
-//
-//                }
-                
             }
-            
+            // MARK: 標題
             .navigationTitle(navtitle)
 
             
-            
+            // MARK: 載入數據
             .onAppear() {
                 runwelcome()
                 health = loadcaldata()/2000
                 caltoday = loadcaldata()
                 reward = defaults.integer(forKey: "reward")
             }
+            // MARK: 自動更變標題文字
             .onReceive(timer) { input in
                 if showwelcome == true {
                     if message != 3 {
@@ -185,6 +167,7 @@ struct homeView: View {
         .frame(maxWidth: 700)
         
     }
+    // MARK: 刷新數據
     func loadcaldata() -> Float {
         let today = Date()
         let formatter1 = DateFormatter()
@@ -194,7 +177,7 @@ struct homeView: View {
         let loaddata = datacal ?? ""
         return Float(loaddata) ?? 0
     }
-    
+    // MARK: 檢查是否有在設定中打開"歡迎訊息"
     func runwelcome() -> Void {
         username = defaults.string(forKey: "username") ?? "USERNAME"
         showwelcome = defaults.bool(forKey: "showwelcome")

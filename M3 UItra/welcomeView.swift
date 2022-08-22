@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: 歡迎頁面
+
 struct welcomeView: View {
     let defaults = UserDefaults.standard
     @Binding var showWelcomeScreen: Bool

@@ -734,16 +734,12 @@ struct dateView: View {
         let dataitem2 = defaults.string(forKey: "\(datedatanow)dataitem2")
         let dataitem3 = defaults.string(forKey: "\(datedatanow)dataitem3")
         let dataitem4 = defaults.string(forKey: "\(datedatanow)dataitem4")
-        let datastarttime = defaults.string(forKey: "\(datedatanow)datastarttime")
-        let dataendtime = defaults.string(forKey: "\(datedatanow)dataendtime")
         let dataholiday = defaults.bool(forKey: "\(datedatanow)dataholiday")
         let datacal = defaults.string(forKey: "\(datedatanow)datacal")
         item1 = dataitem1 ?? ""
         item2 = dataitem2 ?? ""
         item3 = dataitem3 ?? ""
         item4 = dataitem4 ?? ""
-        starttime = datastarttime ?? ""
-        endtime = dataendtime ?? ""
         holiday = dataholiday
         cal = datacal ?? ""
     }
@@ -771,16 +767,6 @@ struct dateView: View {
             defaults.set(item4, forKey: "\(datedatanow)dataitem4")
         } else {
             defaults.removeObject(forKey: "\(datedatanow)dataitem4")
-        }
-        if starttime != "" {
-            defaults.set(starttime, forKey: "\(datedatanow)datastarttime")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)datastarttime")
-        }
-        if endtime != "" {
-            defaults.set(endtime, forKey: "\(datedatanow)dataendtime")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)dataendtime")
         }
         if holiday != false {
             defaults.set(holiday, forKey: "\(datedatanow)dataholiday")

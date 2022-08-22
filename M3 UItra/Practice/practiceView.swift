@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: This View Just For Button
+// MARK: 訓練頁面的控制器
 struct practiceView: View {
     @State var view = true
     @State var size = CGFloat(160)

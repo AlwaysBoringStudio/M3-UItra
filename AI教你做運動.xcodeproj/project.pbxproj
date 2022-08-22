@@ -62,7 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4932CD9228A4C89D000E7443 /* M3 UItra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M3 UItra.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4932CD9228A4C89D000E7443 /* AI教你做運動.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI教你做運動.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3_UItraApp.swift; sourceTree = "<group>"; };
 		4932CD9728A4C89D000E7443 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4932CD9928A4C89E000E7443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		4932CD9328A4C89D000E7443 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4932CD9228A4C89D000E7443 /* M3 UItra.app */,
+				4932CD9228A4C89D000E7443 /* AI教你做運動.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,9 +270,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4932CD9128A4C89D000E7443 /* M3 UItra */ = {
+		4932CD9128A4C89D000E7443 /* AI教你做運動 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItra" */;
+			buildConfigurationList = 4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "AI教你做運動" */;
 			buildPhases = (
 				4932CD8E28A4C89D000E7443 /* Sources */,
 				4932CD8F28A4C89D000E7443 /* Frameworks */,
@@ -283,9 +283,9 @@
 			);
 			dependencies = (
 			);
-			name = "M3 UItra";
+			name = "AI教你做運動";
 			productName = "M3 UItra";
-			productReference = 4932CD9228A4C89D000E7443 /* M3 UItra.app */;
+			productReference = 4932CD9228A4C89D000E7443 /* AI教你做運動.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -303,7 +303,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4932CD8D28A4C89D000E7443 /* Build configuration list for PBXProject "M3 UItra" */;
+			buildConfigurationList = 4932CD8D28A4C89D000E7443 /* Build configuration list for PBXProject "AI教你做運動" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -316,7 +316,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4932CD9128A4C89D000E7443 /* M3 UItra */,
+				4932CD9128A4C89D000E7443 /* AI教你做運動 */,
 			);
 		};
 /* End PBXProject section */
@@ -506,6 +506,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "M3-UItra-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI教你做運動";
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -516,7 +517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.22;
+				MARKETING_VERSION = 1.3.25;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -539,6 +540,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "M3-UItra-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI教你做運動";
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -549,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.22;
+				MARKETING_VERSION = 1.3.25;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -562,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4932CD8D28A4C89D000E7443 /* Build configuration list for PBXProject "M3 UItra" */ = {
+		4932CD8D28A4C89D000E7443 /* Build configuration list for PBXProject "AI教你做運動" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4932CDB428A4C89E000E7443 /* Debug */,
@@ -571,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "M3 UItra" */ = {
+		4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "AI教你做運動" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4932CDB728A4C89E000E7443 /* Debug */,
