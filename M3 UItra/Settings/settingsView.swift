@@ -16,10 +16,39 @@ struct settingsView: View {
     
     @State var health = Float(0)
     
+    @State var clear = false
     
     @State var developermode = 10
     @State var showAlert = false
     @State var showAlert2 = false
+    
+    @State var text = """
+                        <meta name="viewport" content="width=device-width, initial-scale=0.9">
+                        <h1 id="m3-uitra">M3-UItra</h1>
+                        <h1 id="此-app-會用到下列的功能：">此 App 會用到下列的功能：</h1>
+                        <ol>
+                        <li>CoreML - Vision</li>
+                        <li>Bluetooth </li>
+                        <li>Internet</li>
+                        <li>Health Kit</li>
+                        <li>Cloud Kit</li>
+                        </ol>
+                        <h1 id="需要增加的功能：">需要增加的功能：</h1>
+                        <ol>
+                        <li>運動動作偵測</li>
+                        <li>支援 iPad UI</li>
+                        <li>支援 Dark Mode</li>
+                        <li>任務的 Pie Chart </li>
+                        <li>卡路里計算</li>
+                        <li>從 Healthy Kit 取得 Apple Watch 的心跳記錄</li>
+                        <li>便用 CloudKit 同步 iPhone 和 iPad 的使用者數據</li>
+                        <li>更改勳章名稱</li>
+                        <li>加入課程連接功能</li>
+                        <li>日程表</li>
+                        <li>帳戶，通知，和儲存空間感知器</li>
+                        </ol>
+                        """
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -84,7 +113,20 @@ struct settingsView: View {
                                 Text("開發人員選項")
                             }
                         }
+                        
                     }
+                }
+                Section(header: Text("清除所有數據")) {
+                    Button(action: {
+                        clear = true
+                    }, label: {
+                        HStack {
+                            Spacer()
+                            Text("清除此應用的所有數據")
+                                .foregroundColor(.red)
+                            Spacer()
+                        }
+                    })
                 }
                 
             }
@@ -110,6 +152,23 @@ struct settingsView: View {
             Button("好") {
             }
                
+        })
+        .alert("清除此應用的所有數據，是否繼續 ?", isPresented: $clear, actions: {
+            Button("取消") {
+                
+            }
+            Button("是") {
+                let dictionary = defaults.dictionaryRepresentation()
+                dictionary.keys.forEach { key in
+                    defaults.removeObject(forKey: key)
+                }
+                refresh = true
+                print(Array(defaults.dictionaryRepresentation().keys))
+                exit(0)
+                
+                
+            }
+            
         })
         
         

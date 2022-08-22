@@ -52,19 +52,44 @@ struct monthView: View {
     var body: some View {
         ZStack {
             Color.white
-            // MARK: List
-            ScrollView(showsIndicators: false) {
+            VStack {
                 Spacer()
-                    .frame(height: 120)
-                
-                let imdate = "\(year)-\(month)"
-                let date = getdate(importdate: imdate)
-                
-                CalendarContentView(date: date)
+                    .frame(height: 150)
+                VStack {
+                    ScrollView(showsIndicators: false) {
+                        Spacer()
+                            .frame(height: 18)
+                        let imdate = "\(year)-\(month)"
+                        let date = getdate(importdate: imdate)
+
+                        CalendarContentView(date: date)
+
+                    }
+                }
+            }
+            ZStack {
+                VStack {
+                    Group {
+                        Color.white
+                            .frame(height: 160)
+                            .edgesIgnoringSafeArea(.all)
+                    }
+                    Spacer()
+                    
+                }
+                VStack {
+                    Group {
+                        VStack {
+                            todayView(year: year, month: month, istoday: istoday)
+                            LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.01), Color.white]),startPoint: .bottom, endPoint: .top)
+                                .frame(height: 15)
+
+                        }
+                    }
+                    Spacer()
+                }
                 
             }
-            .padding(.top)
-            todayView(year: year, month: month, istoday: istoday)
         }
         .edgesIgnoringSafeArea(.all)
     }

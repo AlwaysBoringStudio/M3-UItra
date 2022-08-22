@@ -20,7 +20,6 @@ struct developerView: View {
     @State var reward: Int = 0
     @State var textedit = Float(0)
     @State var demo = false
-    @State var clear = false
     @State var text = """
                         <meta name="viewport" content="width=device-width, initial-scale=0.9">
                         <h1 id="m3-uitra">M3-UItra</h1>
@@ -49,12 +48,6 @@ struct developerView: View {
                         """
     var body: some View {
         List {
-            Section(header: Text("任務完成度參數修改器")) {
-                Slider(value: $health, in: 0...5)
-            }
-            Section(header: Text("卡路里參數修改器")) {
-                Slider(value: $caltoday, in: 0...9999)
-            }
             Section(header: Text("得獎等級(1-6)參數修改器")) {
                 HStack {
                     Slider(value: $textedit, in: 0...6)
@@ -76,6 +69,12 @@ struct developerView: View {
                     Text("Bool: showwelcome = true")
                 } else {
                     Text("Bool: showwelcome = false")
+                }
+            }
+            Section(header: Text("所有已儲存的變數")) {
+                let alldata = Array(defaults.dictionaryRepresentation().keys)
+                ForEach(alldata, id: \.self) { i  in
+                    Text("\(i)")
                 }
             }
             Section(header: Text("GitHub")) {
@@ -126,24 +125,11 @@ struct developerView: View {
                     }
                 })
             }
-            Section(header: Text("清除所有數據")) {
-                Button(action: {
-                    clear = true
-                }, label: {
-                    HStack {
-                        Spacer()
-                        Text("清除此應用的所有數據")
-                            .foregroundColor(.red)
-                        Spacer()
-                    }
-                })
-            }
+            
         }
         .navigationTitle("開發人員選項")
         .onDisappear() {
             reward = Int(textedit)
-            defaults.set(health, forKey: "health")
-            defaults.set(caltoday, forKey: "caltoday")
             defaults.set(reward, forKey: "reward")
             refresh = true
         }
@@ -162,34 +148,43 @@ struct developerView: View {
                 
             }
             Button("是") {
-                defaults.set(Float(0.89), forKey: "health")
-                defaults.set(Int(1723), forKey: "caltoday")
+                let dictionary = defaults.dictionaryRepresentation()
+                dictionary.keys.forEach { key in
+                    defaults.removeObject(forKey: key)
+                }
                 defaults.set(Int(6), forKey: "reward")
                 defaults.set(String("John Appleseed"), forKey: "username")
                 defaults.set(String(""), forKey: "firstopen")
                 defaults.set(Bool(true), forKey: "showwelcome")
                 defaults.set(Bool(false), forKey: "notifyon")
-                refresh = true
-                exit(0)
-            }
-        })
-        .alert("清除此應用的所有數據，是否繼續 ?", isPresented: $clear, actions: {
-            Button("取消") {
-                
-            }
-            Button("是") {
-                defaults.set(Float(0), forKey: "health")
-                defaults.set(Int(0), forKey: "caltoday")
-                defaults.set(Int(0), forKey: "reward")
-                defaults.set(String("USERNAME"), forKey: "username")
-                defaults.set(String(""), forKey: "firstopen")
-                defaults.set(Bool(false), forKey: "showwelcome")
-                defaults.set(Bool(false), forKey: "notifyon")
+                testdata(datatoday: Date(), datacal: 1823)
+                testdata(datatoday: yesterDay(pre: 1), datacal: 1920)
+                testdata(datatoday: yesterDay(pre: 2), datacal: 1080)
+                testdata(datatoday: yesterDay(pre: 3), datacal: 720)
+                testdata(datatoday: yesterDay(pre: 4), datacal: 768)
+                testdata(datatoday: yesterDay(pre: 5), datacal: 148)
+                testdata(datatoday: yesterDay(pre: 6), datacal: 1360)
                 refresh = true
                 exit(0)
             }
         })
     }
+    func yesterDay(pre: Int) -> Date {
+        var dayComponent = DateComponents()
+        dayComponent.day = Int(String("-\(Int(pre))"))
+        let calendar = Calendar.current
+        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
+        return nextDay
+    }
+    func testdata(datatoday: Date, datacal: Int) -> Void {
+        let today = datatoday
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        defaults.set(datacal, forKey: "\(datedatanow)datacal")
+    }
+
+    
        
 }
 struct readmeView: UIViewRepresentable {

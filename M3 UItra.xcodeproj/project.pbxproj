@@ -24,6 +24,8 @@
 		792AE63328AF3E920002F750 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792AE63228AF3E920002F750 /* HealthKit.framework */; };
 		7943A97A28AFAE5E006E7F19 /* AirplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943A97928AFAE5E006E7F19 /* AirplayView.swift */; };
 		7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */; };
+		7971A78528B33875007302A1 /* barchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78428B33875007302A1 /* barchartView.swift */; };
+		7971A78728B3460B007302A1 /* calchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78628B3460B007302A1 /* calchartView.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
@@ -79,6 +81,8 @@
 		7943A97928AFAE5E006E7F19 /* AirplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplayView.swift; sourceTree = "<group>"; };
 		7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = airplaysettingsView.swift; sourceTree = "<group>"; };
 		794603AE28B0C9A30083567D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7971A78428B33875007302A1 /* barchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barchartView.swift; sourceTree = "<group>"; };
+		7971A78628B3460B007302A1 /* calchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calchartView.swift; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -192,12 +196,14 @@
 				79AB308028ACECA60001C091 /* webView.swift */,
 				79996AEF28ADFBEE000E1FF0 /* get today date.swift */,
 				79996AF428AE19AD000E1FF0 /* decode json.swift */,
+				792AE63028AF37FC0002F750 /* ColorExtension.swift */,
 				792AE62A28AF379B0002F750 /* RingView.swift */,
 				792AE62C28AF37BA0002F750 /* ActivityData.swift */,
 				792AE62E28AF37D20002F750 /* Constants.swift */,
-				792AE63028AF37FC0002F750 /* ColorExtension.swift */,
 				7943A97928AFAE5E006E7F19 /* AirplayView.swift */,
 				79C9349728B0C40F006592AC /* AirPlayController.swift */,
+				7971A78428B33875007302A1 /* barchartView.swift */,
+				7971A78628B3460B007302A1 /* calchartView.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -342,11 +348,13 @@
 				7912388328ACFBA000CE4E0B /* trainView.swift in Sources */,
 				792AE62B28AF379B0002F750 /* RingView.swift in Sources */,
 				79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */,
+				7971A78728B3460B007302A1 /* calchartView.swift in Sources */,
 				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
 				79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */,
 				792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */,
 				792AE62F28AF37D20002F750 /* Constants.swift in Sources */,
 				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
+				7971A78528B33875007302A1 /* barchartView.swift in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
 				79AB308128ACECA60001C091 /* webView.swift in Sources */,
 				79996AF828AE1C0D000E1FF0 /* Calendar.swift in Sources */,
@@ -508,7 +516,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.12;
+				MARKETING_VERSION = 1.3.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -541,7 +549,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.12;
+				MARKETING_VERSION = 1.3.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

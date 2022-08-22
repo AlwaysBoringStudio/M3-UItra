@@ -18,7 +18,7 @@ struct CalendarContentView: View {
     
     var body: some View {
         CalendarView(interval: self.year) { date in
-            dateView(date: (String(self.calendar.component(.day, from: date))), itemnumber: 1, item1: "沒有數據", item2: "沒有數據", item3: "", item4: "", name: "沒有數據", starttime: "沒有數據", endtime: "沒有數據", holiday: false, month: getdatemonth(date: date), fullyear: getdateyear(date: date))
+            dateView(date: (String(self.calendar.component(.day, from: date))), month: getdatemonth(date: date), fullyear: getdateyear(date: date))
             
         }
     }

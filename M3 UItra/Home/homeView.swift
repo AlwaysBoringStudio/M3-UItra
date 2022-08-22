@@ -112,7 +112,7 @@ struct homeView: View {
                                     VStack {
                                         Text("今天")
                                             .font(.title3)
-                                        Text("\(Int(caltoday))/2,000")
+                                        Text("\(Int(loadcaldata()))/2,000")
                                             .font(.title3)
                                         Text("卡路里")
                                             .font(.title3)
@@ -123,24 +123,27 @@ struct homeView: View {
                     
                 }
                 HStack {
-                    // MARK: 心跳
-                    VStack {
-                        Image("rate")
-                            .resizable()
-                            .scaledToFit()
-                        Text("心跳")
-                            .font(.title)
-                    }
-                    // MARK: 卡路里 Bar Chart
-                    VStack {
-                        Image("bar")
-                            .resizable()
-                            .scaledToFit()
-                        Text("卡路里")
-                            .font(.title)
-                    }
-                    
+                    calchartView()
                 }
+//                HStack {
+//                    // MARK: 心跳
+//                    VStack {
+//                        Image("rate")
+//                            .resizable()
+//                            .scaledToFit()
+//                        Text("心跳")
+//                            .font(.title)
+//                    }
+//                    // MARK: 卡路里 Bar Chart
+//                    VStack {
+//                        Image("bar")
+//                            .resizable()
+//                            .scaledToFit()
+//                        Text("卡路里")
+//                            .font(.title)
+//                    }
+//
+//                }
                 
             }
             
@@ -150,25 +153,27 @@ struct homeView: View {
             
             .onAppear() {
                 runwelcome()
-                health = defaults.float(forKey: "health")
-                caltoday = defaults.float(forKey: "caltoday")
+                health = loadcaldata()/2000
+                caltoday = loadcaldata()
                 reward = defaults.integer(forKey: "reward")
             }
             .onReceive(timer) { input in
-                if message != 3 {
-                    message = message+1
-                } else {
-                    message = 1
-                }
-                if message == 1 {
-                    runwelcome()
-                    print("1")
-                } else if message == 2{
-                    navtitle = "已完成\(Int(health*100))%任務"
-                    print("2")
-                } else if message == 3 {
-                    navtitle = "已消耗\(Int(caltoday))卡路里"
-                    print("3")
+                if showwelcome == true {
+                    if message != 3 {
+                        message = message+1
+                    } else {
+                        message = 1
+                    }
+                    if message == 1 {
+                        runwelcome()
+                        print("1")
+                    } else if message == 2{
+                        navtitle = "已完成\(Int(health*100))%任務"
+                        print("2")
+                    } else if message == 3 {
+                        navtitle = "已消耗\(Int(caltoday))卡路里"
+                        print("3")
+                    }
                 }
             }
             
@@ -180,6 +185,16 @@ struct homeView: View {
         .frame(maxWidth: 700)
         
     }
+    func loadcaldata() -> Float {
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        let datacal = defaults.string(forKey: "\(datedatanow)datacal")
+        let loaddata = datacal ?? ""
+        return Float(loaddata) ?? 0
+    }
+    
     func runwelcome() -> Void {
         username = defaults.string(forKey: "username") ?? "USERNAME"
         showwelcome = defaults.bool(forKey: "showwelcome")
