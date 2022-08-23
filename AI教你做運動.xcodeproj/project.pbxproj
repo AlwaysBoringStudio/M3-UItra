@@ -571,7 +571,7 @@
 				4932CDB528A4C89E000E7443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "AI教你做運動" */ = {
 			isa = XCConfigurationList;
@@ -580,7 +580,7 @@
 				4932CDB828A4C89E000E7443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
