@@ -148,12 +148,12 @@
 				4932CD9528A4C89D000E7443 /* M3_UItraApp.swift */,
 				4932CD9728A4C89D000E7443 /* ContentView.swift */,
 				791FD04C28AE5D1600E7845B /* welcomeView.swift */,
+				79AB308228ACECFA0001C091 /* AI Camera */,
 				79AB308728ACEE030001C091 /* Home */,
 				79AB308428ACEDA50001C091 /* Practice */,
 				79AB308528ACEDB50001C091 /* Schedule */,
 				79AB308628ACEDD90001C091 /* Settings */,
 				79AB308328ACED2C0001C091 /* Other func */,
-				79AB308228ACECFA0001C091 /* AI Camera */,
 				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				79996AF328AE198E000E1FF0 /* Data.json */,
 				79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */,
@@ -517,7 +517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.27;
+				MARKETING_VERSION = 1.3.28;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -551,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.27;
+				MARKETING_VERSION = 1.3.28;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -571,7 +571,7 @@
 				4932CDB528A4C89E000E7443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		4932CDB628A4C89E000E7443 /* Build configuration list for PBXNativeTarget "AI教你做運動" */ = {
 			isa = XCConfigurationList;
@@ -580,7 +580,7 @@
 				4932CDB828A4C89E000E7443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
