@@ -152,6 +152,7 @@ struct dateView: View {
                             popover = true
                         }
                         
+                        
                     }) {
                         HStack {
                             if getrightdate() == getdatecom() {
@@ -255,43 +256,36 @@ struct dateView: View {
                                                 
                                             }
                                         }
+                                    
                                     Rectangle()
                                         .foregroundColor(.green)
                                         .opacity(0.5)
                                         .frame(width: 90, height: 100)
                                         .overlay() {
-                                            VStack {
-                                                HStack {
-                                                    Spacer()
-                                                    VStack {
-                                                        if cal == "" {
-                                                            Text("0")
+                                            ZStack {
+                                                VStack {
+                                                    HStack {
+                                                        Spacer()
+                                                        VStack {
+                                                            if cal == "" {
+                                                                Text("0")
+                                                                    .bold()
+                                                                    .foregroundColor(.black)
+                                                            } else {
+                                                                Text(cal)
+                                                                    .bold()
+                                                                    .foregroundColor(.black)
+                                                                
+                                                            }
+                                                            Text("卡路里")
                                                                 .bold()
                                                                 .foregroundColor(.black)
-                                                        } else {
-                                                            Text("\(cal)")
-                                                                .bold()
-                                                                .foregroundColor(.black)
-                                                            
                                                         }
-                                                        Text("卡路里")
-                                                            .bold()
-                                                            .foregroundColor(.black)
+                                                        Spacer()
                                                     }
-                                                    Spacer()
+                                                    
                                                 }
-//                                                HStack {
-//                                                    Text(" \(starttime)")
-//                                                        .bold()
-//                                                        .foregroundColor(.black)
-//                                                    Spacer()
-//                                                }
-//                                                HStack {
-//                                                    Text(" \(endtime)")
-//                                                        .bold()
-//                                                        .foregroundColor(.black)
-//                                                    Spacer()
-//                                                }
+                                                
                                                 
                                                 
                                             }
@@ -470,6 +464,7 @@ struct dateView: View {
         }
         .onAppear() {
             loadalldata()
+            
         }
         .sheet(isPresented: $add) {
             NavigationView {
@@ -779,6 +774,13 @@ struct dateView: View {
             defaults.removeObject(forKey: "\(datedatanow)datacal")
         }
         print("data saved")
+    }
+    
+    func stringtofloat(string: String) -> Float {
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: string)
+        let numberFloatValue = number?.floatValue ?? 0
+        return numberFloatValue
     }
     
     func getdayofweeknow() -> String {
