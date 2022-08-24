@@ -161,23 +161,23 @@ struct developerView: View {
                     let int = Int.random(in: 1...6)
                     if int == 1 {
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跑步")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1000...1500))
                     } else if int == 2 {
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跑步")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
                         testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1500...2000))
                     } else if int == 3 {
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跑步")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
                         testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 500...1000))
                     } else if int == 4 {
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跑步")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
                         testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1500...2000))
                     } else if int == 5 {
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跑步")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
                         testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 500...1000))
                     }
                 }
@@ -185,13 +185,13 @@ struct developerView: View {
                     let int = Int.random(in: 1...4)
                     if int == 1 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跑步")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                     } else if int == 2 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跑步")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
                     } else if int == 3 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跑步")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
                     }
                 }
                 refresh = true
