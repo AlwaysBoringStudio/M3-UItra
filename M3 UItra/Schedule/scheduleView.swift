@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct scheduleView: View {
     var month = nowdate(format: "MM")
@@ -16,7 +17,7 @@ struct scheduleView: View {
         TabView(selection:$selection) {
             ForEach((1..<(monthInt ?? 12)), id: \.self) {
                 let new = correctdate(num: "\($0)")
-                monthView(year: "2022", month: new)
+                monthView(year: year, month: new)
                     .tag($0)
             }
             let new = correctdate(num: nowdate(format: "MM"))
@@ -25,9 +26,10 @@ struct scheduleView: View {
             
             ForEach((((monthInt ?? 1)+1)...12), id: \.self) {
                 let new = correctdate(num: "\($0)")
-                monthView(year: "2022", month: new)
+                monthView(year: year, month: new)
                     .tag($0)
             }
+            
             
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

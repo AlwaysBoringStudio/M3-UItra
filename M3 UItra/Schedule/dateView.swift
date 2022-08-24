@@ -316,51 +316,56 @@ struct dateView: View {
                             Rectangle()
                                 .foregroundColor(.yellow)
                                 .opacity(0.7)
-                                .frame(width: 347, height: 100)
+                                .frame(height: 100)
+                                .padding(.horizontal)
                                 .overlay() {
-                                    if today == true {
-                                        VStack {
-                                            Spacer()
-                                            Text("今天 (\(getdayofweeknow()))")
-                                                .foregroundColor(.black)
-                                                .font(.largeTitle)
-                                                .bold()
-                                            
-                                            Spacer()
-                                        }
-                                    } else if getrightdate() == getdatecom() {
-                                        VStack {
-                                            Spacer()
-                                            Text("今天 (\(getdayofweeknow()))")
-                                                .foregroundColor(.black)
-                                                .font(.largeTitle)
-                                                .bold()
-                                            
-                                            Spacer()
-                                        }
-                                    } else {
-                                        VStack {
-                                            Spacer()
-                                            HStack {
-                                                Text("\(fullyear)年")
+                                    VStack {
+                                        if today == true {
+                                            VStack {
+                                                Spacer()
+                                                Text("今天 (\(getdayofweeknow()))")
                                                     .foregroundColor(.black)
-                                                    .padding(.horizontal)
+                                                    .font(.largeTitle)
+                                                    .bold()
+                                                
                                                 Spacer()
                                             }
-                                            Text("\(correctdate(num: month))月\(correctdate(num: date))日 (\(getdayofweeknow()))")
-                                                .foregroundColor(.black)
-                                                .font(.largeTitle)
-                                                .bold()
-                                            
-                                            Spacer()
+                                        } else if getrightdate() == getdatecom() {
+                                            VStack {
+                                                Spacer()
+                                                Text("今天 (\(getdayofweeknow()))")
+                                                    .foregroundColor(.black)
+                                                    .font(.largeTitle)
+                                                    .bold()
+                                                
+                                                Spacer()
+                                            }
+                                        } else {
+                                            VStack {
+                                                Spacer()
+                                                HStack {
+                                                    Text("\(fullyear)年")
+                                                        .foregroundColor(.black)
+                                                        .padding(.horizontal)
+                                                    Spacer()
+                                                }
+                                                Text("\(correctdate(num: month))月\(correctdate(num: date))日 (\(getdayofweeknow()))")
+                                                    .foregroundColor(.black)
+                                                    .font(.largeTitle)
+                                                    .bold()
+                                                
+                                                Spacer()
+                                            }
                                         }
+                                        
                                     }
+                                    .frame(width:347)
                                     
                                 }
                             Rectangle()
                                 .foregroundColor(.blue)
                                 .opacity(0.5)
-                                .frame(width:347, height: 450)
+                                .padding(.horizontal)
                                 .overlay() {
                                     ZStack {
                                         VStack {
