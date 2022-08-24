@@ -18,49 +18,60 @@ struct barchartView: View {
         HStack {
             VStack {
                 VStack {
-                    ZStack {
+                    if data > 2000 {
                         VStack {
-                            if data != 0 {
-                                LinearGradient(gradient: Gradient(colors: [Color.green, Color.red]),startPoint: .top, endPoint: .bottom)
-                                    .frame(width: 20*CGFloat(size), height: CGFloat(per)/CGFloat(small))
-                            } else {
-                                Rectangle()
-                                    .foregroundColor(.black)
-                                    .opacity(0)
-                                    .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
-                            }
+                            Rectangle()
+                                .foregroundColor(.green)
+                                .frame(width: 20*CGFloat(size))
                         }
+                        
+                    } else {
                         ZStack {
-                            if data != 0 {
-                                VStack {
-                                    if colorScheme == .light {
-                                        Rectangle()
-                                            .foregroundColor(.white)
-                                            .opacity(1)
-                                            .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
-                                    } else {
-                                        Rectangle()
-                                            .foregroundColor(.black)
-                                            .opacity(1)
-                                            .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
+                            VStack {
+                                if data != 0 {
+                                    LinearGradient(gradient: Gradient(colors: [Color.green, Color.red]),startPoint: .top, endPoint: .bottom)
+                                        .frame(width: 20*CGFloat(size), height: CGFloat(per)/CGFloat(small))
+                                } else {
+                                    Rectangle()
+                                        .foregroundColor(.black)
+                                        .opacity(0)
+                                        .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
+                                }
+                            }
+                            ZStack {
+                                if data != 0 {
+                                    VStack {
+                                        if colorScheme == .light {
+                                            Rectangle()
+                                                .foregroundColor(.white)
+                                                .opacity(1)
+                                                .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
+                                        } else {
+                                            Rectangle()
+                                                .foregroundColor(.black)
+                                                .opacity(1)
+                                                .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
+                                        }
+                                        Spacer()
                                     }
-                                    Spacer()
                                 }
-                            }
-                            if text == true {
-                                VStack {
-                                    Spacer()
-                                    Text("今")
-                                        .foregroundColor(.white)
-                                        .padding(.top)
-                                    Text("天")
-                                        .foregroundColor(.white)
-                                        .padding(.bottom)
+                                if text == true {
+                                    VStack {
+                                        Spacer()
+                                        Text("今")
+                                            .foregroundColor(.white)
+                                            .padding(.top)
+                                        Text("天")
+                                            .foregroundColor(.white)
+                                            .padding(.bottom)
+                                    }
                                 }
+                                
                             }
-                            
                         }
+                        
                     }
+                    
                     
                 }
                 .frame(height: CGFloat(per)/CGFloat(small))
@@ -84,7 +95,7 @@ struct barchartView_Previews: PreviewProvider {
             barchartView(data: 900, per: 2000, text: true)
             barchartView(data: 1200, per: 2000, text: true)
             barchartView(data: 1600, per: 2000, text: true)
-            barchartView(data: 2000, per: 2000, text: true)
+            barchartView(data: 9000, per: 2000, text: true)
         }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct dateView: View {
     let defaults = UserDefaults.standard
+    @ObservedObject var datas = ReadData()
     @State var date: String
     @State var item1 = ""
     @State var item2 = ""
@@ -340,6 +341,7 @@ struct dateView: View {
                                                 
                                                 Spacer()
                                             }
+                                            
                                         } else {
                                             VStack {
                                                 Spacer()
@@ -356,12 +358,15 @@ struct dateView: View {
                                                 
                                                 Spacer()
                                             }
+                                            
                                         }
                                         
                                     }
                                     .frame(width:347)
                                     
+                                    
                                 }
+                                .padding(.top)
                             Rectangle()
                                 .foregroundColor(.blue)
                                 .opacity(0.5)
@@ -476,7 +481,11 @@ struct dateView: View {
                 List {
                     Section {
                         TextField("請輸入要新增的活動", text: $itemeditdata)
+                        NavigationLink(destination: sectionView()) {
+                            Text("要新增的活動")
+                        }
                     }
+                    
                     Section {
                         HStack {
                             Spacer()
@@ -882,6 +891,16 @@ struct dateView: View {
         return num
     }
     
+}
+
+struct sectionView: View {
+    @ObservedObject var datas = ReadData()
+    var body: some View {
+        List(datas.caldatas) { caldatas in
+            Text("\(caldatas.name)")
+        }
+        
+    }
 }
 
 struct dateView_Previews: PreviewProvider {

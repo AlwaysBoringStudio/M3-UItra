@@ -29,7 +29,7 @@
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
-		79996AF628AE1AA9000E1FF0 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 79996AF328AE198E000E1FF0 /* Data.json */; };
+		79996AF628AE1AA9000E1FF0 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 79996AF328AE198E000E1FF0 /* Data.json */; settings = {ASSET_TAGS = (New, ); }; };
 		79996AF828AE1C0D000E1FF0 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF728AE1C0D000E1FF0 /* Calendar.swift */; };
 		799CB78C28AEB425004076AD /* notifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799CB78B28AEB425004076AD /* notifyView.swift */; };
 		79AB308128ACECA60001C091 /* webView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308028ACECA60001C091 /* webView.swift */; };
@@ -154,8 +154,8 @@
 				79AB308628ACEDD90001C091 /* Settings */,
 				79AB308328ACED2C0001C091 /* Other func */,
 				79AB308228ACECFA0001C091 /* AI Camera */,
-				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				79996AF328AE198E000E1FF0 /* Data.json */,
+				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */,
 				4932CD9B28A4C89E000E7443 /* Preview Content */,
 			);
@@ -295,6 +295,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
