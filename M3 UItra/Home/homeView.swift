@@ -122,6 +122,7 @@ struct homeView: View {
                     }
                     
                 }
+                
                 HStack {
                     // MARK: 七天的卡路里圖表
                     calchartView()

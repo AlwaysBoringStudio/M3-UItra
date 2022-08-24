@@ -71,11 +71,12 @@ struct developerView: View {
                     Text("Bool: showwelcome = false")
                 }
             }
+            
             Section(header: Text("所有已儲存的變數")) {
-                let alldata = Array(defaults.dictionaryRepresentation().keys)
-                ForEach(alldata, id: \.self) { i  in
-                    Text("\(i)")
+                NavigationLink(destination: saveddata().navigationTitle("所有已儲存的變數")) {
+                    Text("所有已儲存的變數")
                 }
+                
             }
             Section(header: Text("GitHub")) {
                 NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra")!).navigationTitle("GitHub").navigationBarTitleDisplayMode(.inline)) {
@@ -231,6 +232,19 @@ struct developerView: View {
     
        
 }
+
+struct saveddata: View {
+    let defaults = UserDefaults.standard
+    var body: some View {
+        let alldata = Array(defaults.dictionaryRepresentation().keys)
+        List {
+            ForEach(alldata, id: \.self) { i  in
+                Text("\(i)")
+            }
+        }
+    }
+}
+
 struct readmeView: UIViewRepresentable {
   @Binding var text: String
    

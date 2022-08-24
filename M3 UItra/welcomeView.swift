@@ -26,8 +26,7 @@ struct welcomeView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 VStack(spacing: 24) {
-                    FeatureCell(image: "info.circle.fill", title: "Version", subtitle: UIApplication.appVersion ?? "", color: .gray)
-                    
+                    FeatureCell(image: "info.circle.fill", title: "Version", subtitle: UIApplication.appVersion ?? "", color: .gray)                  
                     FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
                 }
                 .padding(.leading)

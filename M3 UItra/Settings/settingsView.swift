@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct settingsView: View {
     let defaults = UserDefaults.standard
@@ -173,6 +174,7 @@ struct settingsView: View {
         
         
     }
+    
 }
 
 

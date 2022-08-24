@@ -151,3 +151,9 @@ struct CalendarView<DateView>: View where DateView: View {
     }
 }
 
+
+struct Previews_Calendar_Previews: PreviewProvider {
+    static var previews: some View {
+        CalendarContentView(date: Date())
+    }
+}

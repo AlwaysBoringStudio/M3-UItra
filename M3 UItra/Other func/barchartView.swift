@@ -8,89 +8,70 @@
 import SwiftUI
 
 struct barchartView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var data: Float
     @State var per: Float
     @State var size = Float(1.6)
     @State var small = Float(10)
     @State var text = false
     var body: some View {
-        if data > 1500 {
-            HStack {
+        HStack {
+            VStack {
                 VStack {
-                    VStack {
-                        ZStack {
-                            VStack {
-                                Spacer()
-                                Rectangle()
-                                    .foregroundColor(.green)
-                                    .opacity(0)
+                    ZStack {
+                        VStack {
+                            if data != 0 {
+                                LinearGradient(gradient: Gradient(colors: [Color.green, Color.red]),startPoint: .top, endPoint: .bottom)
                                     .frame(width: 20*CGFloat(size), height: CGFloat(per)/CGFloat(small))
-                            }
-                            ZStack {
-                                VStack {
-                                    Spacer()
-                                    Rectangle()
-                                        .foregroundColor(.red)
-                                        .frame(width: 20*CGFloat(size), height: CGFloat(data)/CGFloat(small))
-                                }
-                                if text == true {
-                                    VStack {
-                                        Spacer()
-                                        Text("今")
-                                            .foregroundColor(.blue)
-                                            .padding(.top)
-                                        Text("天")
-                                            .foregroundColor(.blue)
-                                            .padding(.bottom)
-                                    }
-                                }
+                            } else {
+                                Rectangle()
+                                    .foregroundColor(.black)
+                                    .opacity(0)
+                                    .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
                             }
                         }
-                        
-                    }
-                    .frame(height: CGFloat(per)/CGFloat(small))
-                    Text("\(Int(data))")
-                }
-            }
-            .padding(3)
-        } else {
-            HStack {
-                VStack {
-                    VStack {
                         ZStack {
-                            VStack {
-                                Spacer()
-                                Rectangle()
-                                    .foregroundColor(.green)
-                                    .opacity(0)
-                                    .frame(width: 20*CGFloat(size), height: CGFloat(per)/CGFloat(small))
+                            if data != 0 {
+                                VStack {
+                                    if colorScheme == .light {
+                                        Rectangle()
+                                            .foregroundColor(.white)
+                                            .opacity(1)
+                                            .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
+                                    } else {
+                                        Rectangle()
+                                            .foregroundColor(.black)
+                                            .opacity(1)
+                                            .frame(width: 20*CGFloat(size), height: CGFloat(CGFloat(200)-CGFloat(data)/CGFloat(small)))
+                                    }
+                                    Spacer()
+                                }
                             }
-                            ZStack {
+                            if text == true {
                                 VStack {
                                     Spacer()
-                                    Rectangle()
-                                        .frame(width: 20*CGFloat(size), height: CGFloat(data)/CGFloat(small))
-                                }
-                                if text == true {
-                                    VStack {
-                                        Spacer()
-                                        Text("今")
-                                            .foregroundColor(.blue)
-                                            .padding(.top)
-                                        Text("天")
-                                            .foregroundColor(.blue)
-                                            .padding(.bottom)
-                                    }
+                                    Text("今")
+                                        .foregroundColor(.white)
+                                        .padding(.top)
+                                    Text("天")
+                                        .foregroundColor(.white)
+                                        .padding(.bottom)
                                 }
                             }
+                            
                         }
-                        
                     }
-                    .frame(height: CGFloat(per)/CGFloat(small))
-                    Text("\(Int(data))")
+                    
+                }
+                .frame(height: CGFloat(per)/CGFloat(small))
+                ZStack {
+                    HStack {
+                        Text("\(Int(data))")
+                    }
+                    Text("00000")
+                        .opacity(0)
                 }
             }
-            .padding(3)
         }
     }
 }

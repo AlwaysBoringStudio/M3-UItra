@@ -12,6 +12,7 @@ struct calchartView: View {
     var body: some View {
         VStack {
             Text("過去七天的卡路里消耗量")
+                .font(.title)
             HStack {
                 barchartView(data: loaddata(datecal: yesterDay(pre: 6)), per: 2000)
                 barchartView(data: loaddata(datecal: yesterDay(pre: 5)), per: 2000)
@@ -53,14 +54,18 @@ struct calchartView: View {
 
 struct calchartView_Previews: PreviewProvider {
     static var previews: some View {
-        HStack {
-            barchartView(data: 1920, per: 2000)
-            barchartView(data: 1368, per: 2000)
-            barchartView(data: 1080, per: 2000)
-            barchartView(data: 720, per: 2000)
-            barchartView(data: 1280, per: 2000)
-            barchartView(data: 2000, per: 2000)
-            barchartView(data: 1685, per: 2000)
+        VStack {
+            Text("過去七天的卡路里消耗量")
+                .font(.title)
+            HStack {
+                barchartView(data: 1920, per: 2000)
+                barchartView(data: 1368, per: 2000)
+                barchartView(data: 1080, per: 2000)
+                barchartView(data: 720, per: 2000)
+                barchartView(data: 1280, per: 2000)
+                barchartView(data: 2000, per: 2000)
+                barchartView(data: 1685, per: 2000)
+            }
         }
     }
 }
