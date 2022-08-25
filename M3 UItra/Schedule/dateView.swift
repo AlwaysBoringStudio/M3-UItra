@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 
 struct dateView: View {
@@ -551,7 +552,8 @@ struct dateView: View {
                     }
                     Section {
                         TextField("請輸入運動的卡路里", text: $calmem)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
+                            
                     }
                     Section {
                         NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
@@ -656,7 +658,7 @@ struct dateView: View {
                     }
                     Section {
                         TextField("請輸入運動的卡路里", text: $cal1)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                     }
                     Section {
                         NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
@@ -713,7 +715,7 @@ struct dateView: View {
                     }
                     Section {
                         TextField("請輸入運動的卡路里", text: $cal2)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                     }
                     Section {
                         NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
@@ -770,7 +772,7 @@ struct dateView: View {
                     }
                     Section {
                         TextField("請輸入運動的卡路里", text: $cal3)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                     }
                     Section {
                         NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
@@ -823,7 +825,7 @@ struct dateView: View {
                     }
                     Section {
                         TextField("請輸入運動的卡路里", text: $cal4)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                     }
                     Section {
                         NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
@@ -865,6 +867,7 @@ struct dateView: View {
                 .interactiveDismissDisabled()
             }
         }
+        
     }
     func loadalldata() -> Void {
         let today = getrightdate()
