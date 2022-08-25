@@ -57,8 +57,6 @@ struct developerView: View {
             Section(header: Text("其他參數")) {
                 Text("String: username = \(username)")
                 Text("String: firseopen = \(firstopen)")
-                Text("Float: health = \(health)")
-                Text("Float: caltoday = \(caltoday)")
                 Text("Int: reward = \(reward)")
                 if notifyon == true {
                     Text("Bool: notifyon = true")
@@ -159,40 +157,45 @@ struct developerView: View {
                 defaults.set(Bool(true), forKey: "showwelcome")
                 defaults.set(Bool(false), forKey: "notifyon")
                 for i in 0...366 {
-                    let int = Int.random(in: 1...6)
+                    let int = Int.random(in: 1...3)
                     if int == 1 {
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                        testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1000...1500))
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
                     } else if int == 2 {
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                        testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1500...2000))
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
                     } else if int == 3 {
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                        testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 500...1000))
-                    } else if int == 4 {
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                        testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1500...2000))
-                    } else if int == 5 {
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                        testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 500...1000))
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
                     }
                 }
                 for i in 0...366 {
                     let int = Int.random(in: 1...4)
                     if int == 1 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高6")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
                     } else if int == 2 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高7")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
                     } else if int == 3 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩8")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "240")
                     }
                 }
                 refresh = true
@@ -244,6 +247,7 @@ struct saveddata: View {
         }
     }
 }
+
 
 struct readmeView: UIViewRepresentable {
   @Binding var text: String

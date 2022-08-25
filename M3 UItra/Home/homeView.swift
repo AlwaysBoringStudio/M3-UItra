@@ -18,6 +18,10 @@ struct homeView: View {
     @State var caltoday = Float(0)
     @State var reward = 0
     @State var message = 0
+    @State var cal1 = ""
+    @State var cal2 = ""
+    @State var cal3 = ""
+    @State var cal4 = ""
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -127,7 +131,6 @@ struct homeView: View {
                     // MARK: 七天的卡路里圖表
                     calchartView()
                 }
-                debugbutton()
             }
             // MARK: 標題
             .navigationTitle(navtitle)
@@ -139,6 +142,7 @@ struct homeView: View {
                 health = loadcaldata()/2000
                 caltoday = loadcaldata()
                 reward = defaults.integer(forKey: "reward")
+                
             }
             // MARK: 自動更變標題文字
             .onReceive(timer) { input in
@@ -175,8 +179,12 @@ struct homeView: View {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
-        let datacal = defaults.string(forKey: "\(datedatanow)datacal")
-        let loaddata = datacal ?? ""
+        let sum1 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal1") ?? "")")
+        let sum2 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal2") ?? "")")
+        let sum3 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal3") ?? "")")
+        let sum4 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal4") ?? "")")
+        let datacal = String(sum1+sum2+sum3+sum4)
+        let loaddata = datacal
         return Float(loaddata) ?? 0
     }
     // MARK: 檢查是否有在設定中打開"歡迎訊息"
@@ -187,99 +195,17 @@ struct homeView: View {
             navtitle = "歡迎, \(username)"
         }
     }
+    func stringtofloat(string: String) -> Float {
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: string)
+        let numberFloatValue = number?.floatValue ?? 0
+        return numberFloatValue
+    }
     
     
 }
 
 
-struct debugbutton: View {
-    let defaults = UserDefaults.standard
-    var body: some View {
-        #if DEBUG
-        Button(action: {
-            let dictionary = defaults.dictionaryRepresentation()
-            dictionary.keys.forEach { key in
-                defaults.removeObject(forKey: key)
-            }
-            defaults.set(Int(6), forKey: "reward")
-            defaults.set(String("John Appleseed"), forKey: "username")
-            defaults.set(String(""), forKey: "firstopen")
-            defaults.set(Bool(true), forKey: "showwelcome")
-            defaults.set(Bool(false), forKey: "notifyon")
-            for i in 0...366 {
-                let int = Int.random(in: 1...6)
-                if int == 1 {
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                    testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1000...1500))
-                } else if int == 2 {
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                    testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1500...2000))
-                } else if int == 3 {
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                    testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 500...1000))
-                } else if int == 4 {
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                    testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 1500...2000))
-                } else if int == 5 {
-                    otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                    testdata(datatoday: yesterDay(pre: i), datacal: Int.random(in: 500...1000))
-                }
-            }
-            for i in 0...366 {
-                let int = Int.random(in: 1...4)
-                if int == 1 {
-                    otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                    otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                } else if int == 2 {
-                    otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
-                    otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                    otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                } else if int == 3 {
-                    otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                }
-            }
-            exit(0)
-        }, label: {
-            Text("載入測試隨機數據(此按鈕只會在模擬器中顯示)")
-        })
-        #endif
-
-    }
-    func yesterDay(pre: Int) -> Date {
-        var dayComponent = DateComponents()
-        dayComponent.day = Int(String("-\(Int(pre))"))
-        let calendar = Calendar.current
-        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
-        return nextDay
-    }
-    func folDay(pre: Int) -> Date {
-        var dayComponent = DateComponents()
-        dayComponent.day = Int(String("\(Int(pre))"))
-        let calendar = Calendar.current
-        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
-        return nextDay
-    }
-    func testdata(datatoday: Date, datacal: Int) -> Void {
-        let today = datatoday
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM/yyyy"
-        let datedatanow = "\(formatter1.string(from: today))"
-        defaults.set(datacal, forKey: "\(datedatanow)datacal")
-    }
-    func otherdata(datatoday: Date, datainfo: String, datastring: String) -> Void {
-        let today = datatoday
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM/yyyy"
-        let datedatanow = "\(formatter1.string(from: today))"
-        defaults.set(datastring, forKey: "\(datedatanow)\(datainfo)")
-    }
-   
-}
 
 struct homeView_Previews: PreviewProvider {
     static var previews: some View {

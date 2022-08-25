@@ -15,6 +15,7 @@ struct settingsView: View {
     @State var showwelcome = false
     @Binding var refresh: Bool
     
+    
     @State var health = Float(0)
     
     @State var clear = false
@@ -130,6 +131,7 @@ struct settingsView: View {
                     })
                 }
                 
+                
             }
             .navigationTitle("設定")
             
@@ -143,7 +145,7 @@ struct settingsView: View {
             
         }
         
-        .alert("恭喜你, 你成為開發人員 !", isPresented: $showAlert, actions: {
+        .alert("恭喜你, 你已經成為開發人員 !", isPresented: $showAlert, actions: {
                     Button("完成") { }
         })
         .alert("不需要了, 你已經是開發人員 !", isPresented: $showAlert2, actions: {

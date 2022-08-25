@@ -30,8 +30,12 @@ struct calchartView: View {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
-        let datacal = defaults.string(forKey: "\(datedatanow)datacal")
-        let loaddata = datacal ?? ""
+        let sum1 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal1") ?? "")")
+        let sum2 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal2") ?? "")")
+        let sum3 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal3") ?? "")")
+        let sum4 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal4") ?? "")")
+        let datacal = String(sum1+sum2+sum3+sum4)
+        let loaddata = datacal
         return Float(loaddata) ?? 0
     }
     
@@ -48,6 +52,12 @@ struct calchartView: View {
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
         defaults.set(datacal, forKey: "\(datedatanow)datacal")
+    }
+    func stringtofloat(string: String) -> Float {
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: string)
+        let numberFloatValue = number?.floatValue ?? 0
+        return numberFloatValue
     }
     
 }

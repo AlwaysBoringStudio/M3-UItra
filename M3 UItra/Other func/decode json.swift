@@ -8,36 +8,64 @@
 import Foundation
 import SwiftUI
 
-struct Caldata: Codable, Identifiable {
-    enum Caldatainfo: CodingKey {
-        case name
-        case cal
-    }
-    
-    var id = UUID()
-    var name: String
-    var cal: Int
-}
+public class UserFetcher: ObservableObject {
 
-class ReadData: ObservableObject  {
-    @Published var caldatas = [Caldata]()
+    @Published var users = [User]()
     
     init(){
-        loadData()
+        load()
     }
     
-    func loadData()  {
-        guard let url = Bundle.main.url(forResource: "Data", withExtension: "json")
-            else {
-                print("Json file not found")
-                return
+    func load() {
+        let url = URL(string: "https://alwaysboringstudio.site/M3-UItra/M3%20UItra/Data.json")!
+
+    
+        URLSession.shared.dataTask(with: url) {(data,response,error) in
+            do {
+                if let d = data {
+                    let decodedLists = try JSONDecoder().decode([User].self, from: d)
+                    DispatchQueue.main.async {
+                        self.users = decodedLists
+                    }
+                }else {
+                    print("No Data")
+                }
+            } catch {
+                print ("Error")
             }
-        
-        let data = try? Data(contentsOf: url)
-        let caldatas = try? JSONDecoder().decode([Caldata].self, from: data!)
-        self.caldatas = caldatas!
-        
+            
+        }.resume()
+       
     }
-     
+}
+
+struct jsondatatest: View {
+    @ObservedObject var fetcher = UserFetcher()
+    var body: some View {
+        List {
+            Section(header: Text("以下是運動1小時的卡路里消耗量")) {
+                ForEach(fetcher.users) { user in
+                    HStack {
+                        Text(user.name)
+                        Spacer()
+                        Text("\(user.cal) cal")
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+struct User: Codable, Identifiable {
+    public var id: Int
+    public var name: String
+    public var cal: String
+    
+    enum CodingKeys: String, CodingKey {
+           case id = "id"
+           case name = "name"
+           case cal = "cal"
+        }
 }
 

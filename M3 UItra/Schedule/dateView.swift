@@ -10,13 +10,19 @@ import SwiftUI
 
 struct dateView: View {
     let defaults = UserDefaults.standard
-    @ObservedObject var datas = ReadData()
     @State var date: String
     @State var item1 = ""
     @State var item2 = ""
     @State var item3 = ""
     @State var item4 = ""
-    @State var cal = ""
+    @State var cal1 = ""
+    @State var cal2 = ""
+    @State var cal3 = ""
+    @State var cal4 = ""
+    @State var cal1done = false
+    @State var cal2done = false
+    @State var cal3done = false
+    @State var cal4done = false
     @State var starttime = ""
     @State var endtime = ""
     @State var holiday = false
@@ -38,6 +44,8 @@ struct dateView: View {
     @State var itemeditdata2 = false
     @State var itemeditdata3 = false
     @State var itemeditdata4 = false
+    
+    @State var calmem = ""
     
     @State var today = false
     
@@ -268,12 +276,12 @@ struct dateView: View {
                                                     HStack {
                                                         Spacer()
                                                         VStack {
-                                                            if cal == "" {
+                                                            if "\(Int(stringtofloat(string: cal1)+stringtofloat(string: cal2)+stringtofloat(string: cal3)+stringtofloat(string: cal4)))" == "" {
                                                                 Text("0")
                                                                     .bold()
                                                                     .foregroundColor(.black)
                                                             } else {
-                                                                Text(cal)
+                                                                Text("\(Int(stringtofloat(string: cal1)+stringtofloat(string: cal2)+stringtofloat(string: cal3)+stringtofloat(string: cal4)))")
                                                                     .bold()
                                                                     .foregroundColor(.black)
                                                                 
@@ -391,55 +399,112 @@ struct dateView: View {
                                             }
                                             if item1 != "" {
                                                 HStack {
-                                                    Text(" · \(item1)")
-                                                        .font(.largeTitle)
-                                                        .foregroundColor(.black)
-                                                        .onTapGesture(perform: {
-                                                            popover = false
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                                                itemeditdata1 = true
-                                                            }
-                                                        })
+                                                    if cal1 != "" {
+                                                        let n = cal1
+                                                        let n2 = "\(item1) - \(n)cal"
+                                                        Text(" · \(n2)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata1 = true
+                                                                }
+                                                            })
+                                                    } else {
+                                                        Text(" · \(item1)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata1 = true
+                                                                }
+                                                            })
+                                                    }
+                                                    
                                                 }
                                                 
                                             }
                                             if item2 != "" {
                                                 HStack {
-                                                    Text(" · \(item2)")
-                                                        .font(.largeTitle)
-                                                        .foregroundColor(.black)
-                                                        .onTapGesture(perform: {
-                                                            popover = false
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                                                itemeditdata2 = true
-                                                            }
-                                                        })
+                                                    if cal2 != "" {
+                                                        let n = cal2
+                                                        let n2 = "\(item2) - \(n)cal"
+                                                        Text(" · \(n2)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata2 = true
+                                                                }
+                                                            })
+                                                    } else {
+                                                        Text(" · \(item2)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata2 = true
+                                                                }
+                                                            })
+                                                    }
                                                 }
                                             }
                                             if item3 != "" {
                                                 HStack {
-                                                    Text(" · \(item3)")
-                                                        .font(.largeTitle)
-                                                        .foregroundColor(.black)
-                                                        .onTapGesture(perform: {
-                                                            popover = false
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                                                itemeditdata3 = true
-                                                            }
-                                                        })
+                                                    if cal3 != "" {
+                                                        let n = cal3
+                                                        let n2 = "\(item3) - \(n)cal"
+                                                        Text(" · \(n2)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata3 = true
+                                                                }
+                                                            })
+                                                    } else {
+                                                        Text(" · \(item3)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata3 = true
+                                                                }
+                                                            })
+                                                    }
                                                 }
                                             }
                                             if item4 != "" {
                                                 HStack {
-                                                    Text(" · \(item4)")
-                                                        .font(.largeTitle)
-                                                        .foregroundColor(.black)
-                                                        .onTapGesture(perform: {
-                                                            popover = false
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                                                itemeditdata4 = true
-                                                            }
-                                                        })
+                                                    if cal4 != "" {
+                                                        let n = cal4
+                                                        let n2 = "\(item4) - \(n)cal"
+                                                        Text(" · \(n2)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata4 = true
+                                                                }
+                                                            })
+                                                    } else {
+                                                        Text(" · \(item4)")
+                                                            .font(.largeTitle)
+                                                            .foregroundColor(.black)
+                                                            .onTapGesture(perform: {
+                                                                popover = false
+                                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                                                    itemeditdata4 = true
+                                                                }
+                                                            })
+                                                    }
                                                 }
                                             }
                                         }
@@ -450,23 +515,25 @@ struct dateView: View {
                 }
                 .navigationTitle("已編排")
                 .navigationBarTitleDisplayMode(.inline)
+                .interactiveDismissDisabled()
                 .navigationBarItems(leading:
-                                        Button("完成") {
-                    loadalldata()
+                Button("完成") {
                     popover = false
+                    savealldata()
                 },
-                                    trailing: Button(action: {
-                                        popover = false
-                                        itemeditdata = ""
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                            add = true
-                                        }
-                                    }, label: {
-                                        Image(systemName: "plus")
-                                            .resizable()
-                                            .frame(width: 20, height: 20)
-                                            .padding()
-                                    }))
+                trailing: Button(action: {
+                    calmem = ""
+                    popover = false
+                    itemeditdata = ""
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                        add = true
+                    }
+                }, label: {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding()
+                }))
             }
         }
         .onDisappear() {
@@ -481,17 +548,24 @@ struct dateView: View {
                 List {
                     Section {
                         TextField("請輸入要新增的活動", text: $itemeditdata)
-                        NavigationLink(destination: sectionView()) {
-                            Text("要新增的活動")
-                        }
                     }
-                    
+                    Section {
+                        TextField("請輸入運動的卡路里", text: $calmem)
+                            .keyboardType(.numberPad)
+                    }
+                    Section {
+                        NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
+                            Text("如何計算卡路里消耗量")
+                        }
+                        
+                    }
                     Section {
                         HStack {
                             Spacer()
                             Button("新增", action: {
                                 if item1 == "" {
                                     item1 = itemeditdata
+                                    cal1 = calmem
                                     alertdata = 1
                                     add = false
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -499,6 +573,7 @@ struct dateView: View {
                                     }
                                 } else if item2 == "" {
                                     item2 = itemeditdata
+                                    cal2 = calmem
                                     alertdata = 2
                                     add = false
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -506,6 +581,7 @@ struct dateView: View {
                                     }
                                 } else if item3 == "" {
                                     item3 = itemeditdata
+                                    cal3 = calmem
                                     alertdata = 3
                                     add = false
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -513,6 +589,7 @@ struct dateView: View {
                                     }
                                 } else if item4 == "" {
                                     item4 = itemeditdata
+                                    cal4 = calmem
                                     alertdata = 4
                                     add = false
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -544,7 +621,7 @@ struct dateView: View {
                     
                 }
                 .navigationTitle("請輸入要新增的活動:")
-//                .interactiveDismissDisabled()
+                .interactiveDismissDisabled()
                 
             }
             
@@ -578,6 +655,16 @@ struct dateView: View {
                         TextField("請輸入要新增的活動", text: $item1)
                     }
                     Section {
+                        TextField("請輸入運動的卡路里", text: $cal1)
+                            .keyboardType(.numberPad)
+                    }
+                    Section {
+                        NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
+                            Text("如何計算卡路里消耗量")
+                        }
+                        
+                    }
+                    Section {
                         HStack {
                             Spacer()
                             Button("完成") {
@@ -593,12 +680,18 @@ struct dateView: View {
                             Spacer()
                             Button("刪除") {
                                 item1 = ""
+                                cal1 = ""
                                 item1 = item2
+                                cal1 = cal2
                                 item2 = item3
+                                cal2 = cal3
                                 item3 = item4
+                                cal3 = cal4
                                 item4 = ""
+                                cal4 = ""
                                 itemeditdata1 = false
                                 savealldata()
+                                loadalldata()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                                     popover = true
                                 }
@@ -619,6 +712,16 @@ struct dateView: View {
                         TextField("請輸入要新增的活動", text: $item2)
                     }
                     Section {
+                        TextField("請輸入運動的卡路里", text: $cal2)
+                            .keyboardType(.numberPad)
+                    }
+                    Section {
+                        NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
+                            Text("如何計算卡路里消耗量")
+                        }
+                        
+                    }
+                    Section {
                         HStack {
                             Spacer()
                             Button("完成") {
@@ -627,6 +730,7 @@ struct dateView: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                                     popover = true
                                 }
+                                
                             }
                             Spacer()
                         }
@@ -634,11 +738,16 @@ struct dateView: View {
                             Spacer()
                             Button("刪除") {
                                 item2 = ""
+                                cal2 = ""
                                 item2 = item3
+                                cal2 = cal3
                                 item3 = item4
+                                cal3 = cal4
                                 item4 = ""
+                                cal4 = ""
                                 itemeditdata2 = false
                                 savealldata()
+                                loadalldata()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                                     popover = true
                                 }
@@ -660,6 +769,16 @@ struct dateView: View {
                         TextField("請輸入要新增的活動", text: $item3)
                     }
                     Section {
+                        TextField("請輸入運動的卡路里", text: $cal3)
+                            .keyboardType(.numberPad)
+                    }
+                    Section {
+                        NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
+                            Text("如何計算卡路里消耗量")
+                        }
+                        
+                    }
+                    Section {
                         HStack {
                             Spacer()
                             Button("完成") {
@@ -675,10 +794,14 @@ struct dateView: View {
                             Spacer()
                             Button("刪除") {
                                 item3 = ""
+                                cal3 = ""
                                 item3 = item4
+                                cal3 = cal4
                                 item4 = ""
+                                cal4 = ""
                                 itemeditdata3 = false
                                 savealldata()
+                                loadalldata()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                                     popover = true
                                 }
@@ -696,10 +819,17 @@ struct dateView: View {
             NavigationView {
                 List {
                     Section {
-                        Text("更改已編排的活動")
+                        TextField("請輸入要新增的活動", text: $item4)
                     }
                     Section {
-                        TextField("請輸入要新增的活動", text: $item4)
+                        TextField("請輸入運動的卡路里", text: $cal4)
+                            .keyboardType(.numberPad)
+                    }
+                    Section {
+                        NavigationLink(destination: jsondatatest().navigationTitle("卡路里消耗量")) {
+                            Text("如何計算卡路里消耗量")
+                        }
+                        
                     }
                     Section {
                         HStack {
@@ -717,8 +847,10 @@ struct dateView: View {
                             Spacer()
                             Button("刪除") {
                                 item4 = ""
+                                cal4 = ""
                                 itemeditdata4 = false
                                 savealldata()
+                                loadalldata()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                                     popover = true
                                 }
@@ -744,13 +876,19 @@ struct dateView: View {
         let dataitem3 = defaults.string(forKey: "\(datedatanow)dataitem3")
         let dataitem4 = defaults.string(forKey: "\(datedatanow)dataitem4")
         let dataholiday = defaults.bool(forKey: "\(datedatanow)dataholiday")
-        let datacal = defaults.string(forKey: "\(datedatanow)datacal")
+        let datacal1 = defaults.string(forKey: "\(datedatanow)datacal1")
+        let datacal2 = defaults.string(forKey: "\(datedatanow)datacal2")
+        let datacal3 = defaults.string(forKey: "\(datedatanow)datacal3")
+        let datacal4 = defaults.string(forKey: "\(datedatanow)datacal4")
         item1 = dataitem1 ?? ""
         item2 = dataitem2 ?? ""
         item3 = dataitem3 ?? ""
         item4 = dataitem4 ?? ""
         holiday = dataholiday
-        cal = datacal ?? ""
+        cal1 = datacal1 ?? ""
+        cal2 = datacal2 ?? ""
+        cal3 = datacal3 ?? ""
+        cal4 = datacal4 ?? ""
     }
     func savealldata() -> Void {
         let today = getrightdate()
@@ -782,10 +920,25 @@ struct dateView: View {
         } else {
             defaults.removeObject(forKey: "\(datedatanow)dataholiday")
         }
-        if cal != "" {
-            defaults.set(cal, forKey: "\(datedatanow)datacal")
+        if cal1 != "" {
+            defaults.set(cal1, forKey: "\(datedatanow)datacal1")
         } else {
-            defaults.removeObject(forKey: "\(datedatanow)datacal")
+            defaults.removeObject(forKey: "\(datedatanow)datacal1")
+        }
+        if cal2 != "" {
+            defaults.set(cal2, forKey: "\(datedatanow)datacal2")
+        } else {
+            defaults.removeObject(forKey: "\(datedatanow)datacal3")
+        }
+        if cal3 != "" {
+            defaults.set(cal3, forKey: "\(datedatanow)datacal3")
+        } else {
+            defaults.removeObject(forKey: "\(datedatanow)datacal3")
+        }
+        if cal4 != "" {
+            defaults.set(cal4, forKey: "\(datedatanow)datacal4")
+        } else {
+            defaults.removeObject(forKey: "\(datedatanow)datacal4")
         }
         print("data saved")
     }
@@ -891,16 +1044,6 @@ struct dateView: View {
         return num
     }
     
-}
-
-struct sectionView: View {
-    @ObservedObject var datas = ReadData()
-    var body: some View {
-        List(datas.caldatas) { caldatas in
-            Text("\(caldatas.name)")
-        }
-        
-    }
 }
 
 struct dateView_Previews: PreviewProvider {
