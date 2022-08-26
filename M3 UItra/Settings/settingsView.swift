@@ -166,7 +166,6 @@ struct settingsView: View {
                     defaults.removeObject(forKey: key)
                 }
                 refresh = true
-                print(Array(defaults.dictionaryRepresentation().keys))
                 exit(0)
                 
                 

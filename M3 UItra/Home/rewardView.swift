@@ -70,8 +70,22 @@ struct rewardcellView: View {
                     .font(.title)
             }
             .padding()
+            .onAppear() {
+                printnow(message: "buttonpressed")
+            }
         }
         
+        
+    }
+    func printnow(message: String){
+        let today = Date()
+        let hours   = (Calendar.current.component(.hour, from: today))
+        let minutes = (Calendar.current.component(.minute, from: today))
+        let seconds = (Calendar.current.component(.second, from: today))
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        print("rewardView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
         
     }
 }

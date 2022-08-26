@@ -59,10 +59,10 @@ struct barchartView: View {
                                     VStack {
                                         Spacer()
                                         Text("今")
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.green)
                                             .padding(.top)
                                         Text("天")
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.green)
                                             .padding(.bottom)
                                     }
                                 }

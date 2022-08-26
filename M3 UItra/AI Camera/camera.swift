@@ -46,7 +46,7 @@ final class CameraViewController: UIViewController {
             }
             cameraSession?.startRunning()
         } catch {
-            print(error.localizedDescription)
+            //error
         }
     }
     override func viewWillDisappear(_ animated: Bool) {

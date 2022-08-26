@@ -28,10 +28,10 @@ public class UserFetcher: ObservableObject {
                         self.users = decodedLists
                     }
                 }else {
-                    print("No Data")
+                    //no data
                 }
             } catch {
-                print ("Error")
+                //error
             }
             
         }.resume()

@@ -182,19 +182,19 @@ struct developerView: View {
                 for i in 0...366 {
                     let int = Int.random(in: 1...4)
                     if int == 1 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高6")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
                     } else if int == 2 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高7")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
                     } else if int == 3 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩8")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "240")
                     }
                 }
@@ -245,6 +245,107 @@ struct saveddata: View {
                 Text("\(i)")
             }
         }
+    }
+}
+
+struct debugbutton: View {
+    let defaults = UserDefaults.standard
+    @State var demo = false
+    var body: some View {
+        Group {
+#if DEBUG
+            Button("引入測試隨機數據(按鈕僅在調試模式下出現)") {
+                demo = true
+            }
+#endif
+        }
+        .alert("演示模式將清除此應用的所有數據，是否繼續 ?", isPresented: $demo, actions: {
+            Button("取消") {
+                
+            }
+            Button("是") {
+                let dictionary = defaults.dictionaryRepresentation()
+                dictionary.keys.forEach { key in
+                    defaults.removeObject(forKey: key)
+                }
+                defaults.set(Int(6), forKey: "reward")
+                defaults.set(String("John Appleseed"), forKey: "username")
+                defaults.set(String(""), forKey: "firstopen")
+                defaults.set(Bool(true), forKey: "showwelcome")
+                defaults.set(Bool(false), forKey: "notifyon")
+                for i in 0...366 {
+                    let int = Int.random(in: 1...3)
+                    if int == 1 {
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                    } else if int == 2 {
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+                    } else if int == 3 {
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+                    }
+                }
+                for i in 0...366 {
+                    let int = Int.random(in: 1...4)
+                    if int == 1 {
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高6")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                    } else if int == 2 {
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高7")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+                    } else if int == 3 {
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩8")
+                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "240")
+                    }
+                }
+                exit(0)
+            }
+        })
+    }
+    func yesterDay(pre: Int) -> Date {
+        var dayComponent = DateComponents()
+        dayComponent.day = Int(String("-\(Int(pre))"))
+        let calendar = Calendar.current
+        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
+        return nextDay
+    }
+    func folDay(pre: Int) -> Date {
+        var dayComponent = DateComponents()
+        dayComponent.day = Int(String("\(Int(pre))"))
+        let calendar = Calendar.current
+        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
+        return nextDay
+    }
+    func testdata(datatoday: Date, datacal: Int) -> Void {
+        let today = datatoday
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        defaults.set(datacal, forKey: "\(datedatanow)datacal")
+    }
+    func otherdata(datatoday: Date, datainfo: String, datastring: String) -> Void {
+        let today = datatoday
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        defaults.set(datastring, forKey: "\(datedatanow)\(datainfo)")
     }
 }
 

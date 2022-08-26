@@ -44,6 +44,7 @@
 		79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C9349728B0C40F006592AC /* AirPlayController.swift */; };
 		79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D0AAD228AAAB5000E60B4C /* CloudKit.framework */; };
 		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
+		79D12BE828B8769F00C06D48 /* gettime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D12BE728B8769F00C06D48 /* gettime.swift */; };
 		79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432B28AEA2E500E1853E /* usernameView.swift */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		79D0AAD028AA95A000E60B4C /* M3 UItra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "M3 UItra.entitlements"; sourceTree = "<group>"; };
 		79D0AAD228AAAB5000E60B4C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		79D12BE728B8769F00C06D48 /* gettime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gettime.swift; sourceTree = "<group>"; };
 		79DC432B28AEA2E500E1853E /* usernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usernameView.swift; sourceTree = "<group>"; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +204,7 @@
 				792AE62E28AF37D20002F750 /* Constants.swift */,
 				7943A97928AFAE5E006E7F19 /* AirplayView.swift */,
 				79C9349728B0C40F006592AC /* AirPlayController.swift */,
+				79D12BE728B8769F00C06D48 /* gettime.swift */,
 				7971A78428B33875007302A1 /* barchartView.swift */,
 				7971A78628B3460B007302A1 /* calchartView.swift */,
 			);
@@ -366,6 +369,7 @@
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
 				79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */,
 				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
+				79D12BE828B8769F00C06D48 /* gettime.swift in Sources */,
 				7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */,
 				799CB78C28AEB425004076AD /* notifyView.swift in Sources */,
 				79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */,
@@ -521,7 +525,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.33;
+				MARKETING_VERSION = 1.3.36;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -557,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.33;
+				MARKETING_VERSION = 1.3.36;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

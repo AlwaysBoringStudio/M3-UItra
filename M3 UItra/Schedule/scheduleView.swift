@@ -96,7 +96,6 @@ struct monthView: View {
         .edgesIgnoringSafeArea(.all)
     }
     func getdate(importdate: String) -> Date {
-        print(importdate)
         let isoDate = importdate
 
         let dateFormatter = DateFormatter()

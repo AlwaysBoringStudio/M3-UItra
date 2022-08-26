@@ -64,7 +64,7 @@ class PoseEstimator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Obs
               on: sampleBuffer,
                 orientation: .right)
         } catch {
-          print(error.localizedDescription)
+          //error
         }
     }
     func detectedBodyPose(request: VNRequest, error: Error?) {

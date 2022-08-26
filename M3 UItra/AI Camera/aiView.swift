@@ -215,7 +215,6 @@ struct aiView: View {
     
     func changeOrientation(to orientation: UIInterfaceOrientation) {
             UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
-            print("Changing to", orientation.isPortrait ? "Portrait" : "Landscape")
         }
 }
 

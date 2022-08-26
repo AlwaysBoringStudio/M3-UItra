@@ -131,6 +131,7 @@ struct homeView: View {
                     // MARK: 七天的卡路里圖表
                     calchartView()
                 }
+                debugbutton()
             }
             // MARK: 標題
             .navigationTitle(navtitle)
@@ -154,13 +155,13 @@ struct homeView: View {
                     }
                     if message == 1 {
                         runwelcome()
-                        print("1")
+                        printnow(message: "歡迎, \(username)")
                     } else if message == 2{
                         navtitle = "已完成\(Int(health*100))%任務"
-                        print("2")
+                        printnow(message: "已完成\(Int(health*100))%任務")
                     } else if message == 3 {
                         navtitle = "已消耗\(Int(caltoday))卡路里"
-                        print("3")
+                        printnow(message: "已消耗\(Int(caltoday))卡路里")
                     }
                 }
             }
@@ -175,6 +176,7 @@ struct homeView: View {
     }
     // MARK: 刷新數據
     func loadcaldata() -> Float {
+        printnow(message: "loadcaldata()")
         let today = Date()
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
@@ -189,6 +191,7 @@ struct homeView: View {
     }
     // MARK: 檢查是否有在設定中打開"歡迎訊息"
     func runwelcome() -> Void {
+        printnow(message: "runwelcome()")
         username = defaults.string(forKey: "username") ?? "USERNAME"
         showwelcome = defaults.bool(forKey: "showwelcome")
         if showwelcome == true {
@@ -201,7 +204,18 @@ struct homeView: View {
         let numberFloatValue = number?.floatValue ?? 0
         return numberFloatValue
     }
-    
+
+    func printnow(message: String){
+        let today = Date()
+        let hours   = (Calendar.current.component(.hour, from: today))
+        let minutes = (Calendar.current.component(.minute, from: today))
+        let seconds = (Calendar.current.component(.second, from: today))
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        print("homeView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
+        
+    }
     
 }
 

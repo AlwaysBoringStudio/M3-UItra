@@ -66,9 +66,9 @@ struct backgroundView: View {
             .onAppear() {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
+                        //done
+                    } else if error != nil {
+                        //error
                     }
                 }
             }

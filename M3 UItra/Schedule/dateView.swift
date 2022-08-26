@@ -537,9 +537,6 @@ struct dateView: View {
                 }))
             }
         }
-        .onDisappear() {
-            savealldata()
-        }
         .onAppear() {
             loadalldata()
             
@@ -547,11 +544,11 @@ struct dateView: View {
         .sheet(isPresented: $add) {
             NavigationView {
                 List {
-                    Section {
+                    Section(header: Text("請輸入要新增的活動")) {
                         TextField("請輸入要新增的活動", text: $itemeditdata)
                     }
-                    Section {
-                        TextField("請輸入運動的卡路里", text: $calmem)
+                    Section(header: Text("請輸入運動的卡路里消耗量")) {
+                        TextField("請輸入運動的卡路里消耗量", text: $calmem)
                             .keyboardType(.decimalPad)
                             
                     }
@@ -653,11 +650,11 @@ struct dateView: View {
         .sheet(isPresented: $itemeditdata1) {
             NavigationView {
                 List {
-                    Section {
+                    Section(header: Text("請輸入要新增的活動")) {
                         TextField("請輸入要新增的活動", text: $item1)
                     }
-                    Section {
-                        TextField("請輸入運動的卡路里", text: $cal1)
+                    Section(header: Text("請輸入運動的卡路里消耗量")) {
+                        TextField("請輸入運動的卡路里消耗量", text: $cal1)
                             .keyboardType(.decimalPad)
                     }
                     Section {
@@ -710,11 +707,11 @@ struct dateView: View {
         .sheet(isPresented: $itemeditdata2) {
             NavigationView {
                 List {
-                    Section {
+                    Section(header: Text("請輸入要新增的活動")) {
                         TextField("請輸入要新增的活動", text: $item2)
                     }
-                    Section {
-                        TextField("請輸入運動的卡路里", text: $cal2)
+                    Section(header: Text("請輸入運動的卡路里消耗量")) {
+                        TextField("請輸入運動的卡路里消耗量", text: $cal2)
                             .keyboardType(.decimalPad)
                     }
                     Section {
@@ -767,11 +764,11 @@ struct dateView: View {
         .sheet(isPresented: $itemeditdata3) {
             NavigationView {
                 List {
-                    Section {
+                    Section(header: Text("請輸入要新增的活動")) {
                         TextField("請輸入要新增的活動", text: $item3)
                     }
-                    Section {
-                        TextField("請輸入運動的卡路里", text: $cal3)
+                    Section(header: Text("請輸入運動的卡路里消耗量")) {
+                        TextField("請輸入運動的卡路里消耗量", text: $cal3)
                             .keyboardType(.decimalPad)
                     }
                     Section {
@@ -820,11 +817,11 @@ struct dateView: View {
         .sheet(isPresented: $itemeditdata4) {
             NavigationView {
                 List {
-                    Section {
+                    Section(header: Text("請輸入要新增的活動")) {
                         TextField("請輸入要新增的活動", text: $item4)
                     }
-                    Section {
-                        TextField("請輸入運動的卡路里", text: $cal4)
+                    Section(header: Text("請輸入運動的卡路里消耗量")) {
+                        TextField("請輸入運動的卡路里消耗量", text: $cal4)
                             .keyboardType(.decimalPad)
                     }
                     Section {
@@ -892,6 +889,7 @@ struct dateView: View {
         cal2 = datacal2 ?? ""
         cal3 = datacal3 ?? ""
         cal4 = datacal4 ?? ""
+        printnow(message: "data loaded")
     }
     func savealldata() -> Void {
         let today = getrightdate()
@@ -943,7 +941,7 @@ struct dateView: View {
         } else {
             defaults.removeObject(forKey: "\(datedatanow)datacal4")
         }
-        print("data saved")
+        printnow(message: "data saved")
     }
     
     func stringtofloat(string: String) -> Float {
@@ -1007,8 +1005,7 @@ struct dateView: View {
     func getrightdate() -> Date {
         let datecorrect = correctdate(num: month)
         let datecorrectday = correctdate(num: date)
-        print("\(fullyear)年\(datecorrect)月\(datecorrectday)日")
-        
+                
         let string = "\(datecorrectday)/\(datecorrect)/\(fullyear)"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -1045,6 +1042,17 @@ struct dateView: View {
             num = 5
         }
         return num
+    }
+    func printnow(message: String){
+        let today = Date()
+        let hours   = (Calendar.current.component(.hour, from: today))
+        let minutes = (Calendar.current.component(.minute, from: today))
+        let seconds = (Calendar.current.component(.second, from: today))
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        print("dateView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
+        
     }
     
 }
