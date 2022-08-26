@@ -20,10 +20,6 @@ struct dateView: View {
     @State var cal2 = ""
     @State var cal3 = ""
     @State var cal4 = ""
-    @State var cal1done = false
-    @State var cal2done = false
-    @State var cal3done = false
-    @State var cal4done = false
     @State var starttime = ""
     @State var endtime = ""
     @State var holiday = false
@@ -889,7 +885,7 @@ struct dateView: View {
         cal2 = datacal2 ?? ""
         cal3 = datacal3 ?? ""
         cal4 = datacal4 ?? ""
-        printnow(message: "data loaded")
+        printnow(message: "data loaded Cell:\(datedatanow)")
     }
     func savealldata() -> Void {
         let today = getrightdate()

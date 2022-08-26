@@ -29,7 +29,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("訓練", systemImage: "figure.walk")
                     }
-                scheduleView()
+                scheduleView(refresh: $refresh)
                     .tabItem {
                         Label("日程表", systemImage: "calendar")
                     }

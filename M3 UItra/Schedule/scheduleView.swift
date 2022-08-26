@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 
 struct scheduleView: View {
+    @Binding var refresh: Bool
     var month = nowdate(format: "MM")
     var year = nowdate(format: "yyyy")
     @State var selection = nowdate(format: "MM")
@@ -33,6 +34,9 @@ struct scheduleView: View {
             
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .onDisappear() {
+            refresh = true
+        }
     }
     func correctdate(num: String) -> String {
         let add0 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -108,10 +112,4 @@ struct monthView: View {
 
 
 
-
-struct scheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        scheduleView()
-    }
-}
 

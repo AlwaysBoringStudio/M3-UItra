@@ -259,7 +259,7 @@ struct debugbutton: View {
             }
 #endif
         }
-        .alert("演示模式將清除此應用的所有數據，是否繼續 ?", isPresented: $demo, actions: {
+        .alert("引入測試隨機數據將清除此應用的所有數據，是否繼續 ?", isPresented: $demo, actions: {
             Button("取消") {
                 
             }
@@ -299,19 +299,19 @@ struct debugbutton: View {
                 for i in 0...366 {
                     let int = Int.random(in: 1...4)
                     if int == 1 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高6")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
                     } else if int == 2 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高7")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
                     } else if int == 3 {
-                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩8")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
                         otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "240")
                     }
                 }
