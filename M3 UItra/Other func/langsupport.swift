@@ -28,6 +28,30 @@ struct langView: View {
                 }
                 Spacer()
             }
+            HStack {
+                Spacer()
+                Button("中文(繁體)") {
+                    UserDefaults.standard.set(["zh-Hant"], forKey: "AppleLanguages")
+                    quit = true
+                }
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Button("中文(簡體)") {
+                    UserDefaults.standard.set(["zh-Hans"], forKey: "AppleLanguages")
+                    quit = true
+                }
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Button("한국인") {
+                    UserDefaults.standard.set(["ko"], forKey: "AppleLanguages")
+                    quit = true
+                }
+                Spacer()
+            }
             
         }
         .navigationTitle("語言")

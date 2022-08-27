@@ -54,7 +54,7 @@ struct classView: View {
                             Spacer()
                             Text("輸入課堂連接代碼")
                                 .foregroundColor(.black)
-                                .font(.title)
+                                .font(.title3)
                                 .bold()
                             Spacer()
                             HStack {

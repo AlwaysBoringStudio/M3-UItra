@@ -76,6 +76,9 @@
 		7912388228ACFBA000CE4E0B /* trainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainView.swift; sourceTree = "<group>"; };
 		7912388428ACFBE300CE4E0B /* classView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classView.swift; sourceTree = "<group>"; };
 		791FD04C28AE5D1600E7845B /* welcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeView.swift; sourceTree = "<group>"; };
+		79207EBB28BAB5D700EF4461 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		79207EBC28BAB5DD00EF4461 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		79207EBD28BAB91F00EF4461 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		792AE62A28AF379B0002F750 /* RingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		792AE62C28AF37BA0002F750 /* ActivityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityData.swift; sourceTree = "<group>"; };
 		792AE62E28AF37D20002F750 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -324,6 +327,9 @@
 				"zh-HK",
 				Base,
 				en,
+				"zh-Hant",
+				"zh-Hans",
+				ko,
 			);
 			mainGroup = 4932CD8928A4C89D000E7443;
 			productRefGroup = 4932CD9328A4C89D000E7443 /* Products */;
@@ -401,6 +407,9 @@
 			children = (
 				795C818028BA8DD50080CD26 /* zh-HK */,
 				795C818428BA8E0F0080CD26 /* en */,
+				79207EBB28BAB5D700EF4461 /* zh-Hant */,
+				79207EBC28BAB5DD00EF4461 /* zh-Hans */,
+				79207EBD28BAB91F00EF4461 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -549,7 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.42;
+				MARKETING_VERSION = 1.3.45;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -585,7 +594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.42;
+				MARKETING_VERSION = 1.3.45;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

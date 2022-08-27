@@ -329,7 +329,7 @@ struct dateView: View {
                                         if today == true {
                                             VStack {
                                                 Spacer()
-                                                Text("今天 (\(getdayofweeknow()))")
+                                                Text("\(NSLocalizedString("今天", comment: "今天")) (\(getdayofweeknow()))")
                                                     .foregroundColor(.black)
                                                     .font(.largeTitle)
                                                     .bold()
@@ -339,7 +339,7 @@ struct dateView: View {
                                         } else if getrightdate() == getdatecom() {
                                             VStack {
                                                 Spacer()
-                                                Text("今天 (\(getdayofweeknow()))")
+                                                Text("\(NSLocalizedString("今天", comment: "今天")) (\(getdayofweeknow()))")
                                                     .foregroundColor(.black)
                                                     .font(.largeTitle)
                                                     .bold()

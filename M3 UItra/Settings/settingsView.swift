@@ -111,7 +111,7 @@ struct settingsView: View {
                     }
                 }, label: {
                     HStack {
-                        Text("Version:")
+                        Text("版本:")
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                         Spacer()
                         Text(UIApplication.appVersion ?? "")
