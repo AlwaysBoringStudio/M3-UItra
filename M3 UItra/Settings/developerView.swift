@@ -184,21 +184,20 @@ struct developerView: View {
                     if int == 1 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal2", datastring: "240")
                     } else if int == 2 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal3", datastring: "400")
                     } else if int == 3 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "240")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "240")
                     }
                 }
-                refresh = true
                 exit(0)
             }
         })
@@ -238,16 +237,145 @@ struct developerView: View {
 
 struct saveddata: View {
     let defaults = UserDefaults.standard
+    @State var refresh = false
     var body: some View {
         let alldata = Array(defaults.dictionaryRepresentation().keys)
         List {
-            ForEach(alldata, id: \.self) { i  in
-                Text("\(i)")
+            if refresh == true {
+                refreshhelper(refresh: $refresh)
+            } else {
+                ForEach(alldata, id: \.self) { i  in
+                    NavigationLink(destination: saveddataread(name: i, datastr: defaults.string(forKey: "\(i)") ?? "", dataint: defaults.integer(forKey: "\(i)"), refresh: $refresh)) {
+                        HStack {
+                            Text("\(i)")
+                            Spacer()
+                            let dataint = defaults.integer(forKey: "\(i)")
+                            let datastr = defaults.string(forKey: "\(i)")
+                            
+                            if dataint != 0 {
+                                Text("\(dataint)")
+                            } else if datastr != "" {
+                                Text(datastr ?? "")
+                            } else {
+                                
+                            }
+                            
+                        }
+                    }
+                }
             }
+        }
+        .refreshable {
+            refresh = true
         }
     }
 }
 
+
+struct saveddataread: View {
+    let defaults = UserDefaults.standard
+    @State var name: String
+    @State var datastr = String("")
+    @State var dataint = Int(0)
+    @State var dataintstr = ""
+    @Binding var refresh: Bool
+    var body: some View {
+        VStack {
+            Spacer()
+            if dataint != 0 {
+                Rectangle()
+                    .frame(width: 340, height: 500)
+                    .foregroundColor(.green)
+                    .cornerRadius(15)
+                    .padding()
+                    .overlay() {
+                        VStack {
+                            Spacer()
+                            Text(name)
+                                .foregroundColor(.black)
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                            HStack {
+                                TextField("Int", text: $dataintstr)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                            }.frame(maxWidth: 200)
+                            Spacer()
+                            Button(action: {
+                                defaults.set(datastr, forKey: "\(name)")
+                            }, label: {
+                                Rectangle()
+                                    .frame(width: 150, height: 50)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(25)
+                                    .overlay() {
+                                        Text("儲存")
+                                            .font(.title)
+                                            .bold()
+                                    }
+                            })
+                            Spacer()
+                        }
+                    }
+            } else if datastr != "" {
+                Rectangle()
+                    .frame(width: 340, height: 500)
+                    .foregroundColor(.green)
+                    .cornerRadius(15)
+                    .padding()
+                    .overlay() {
+                        VStack {
+                            Spacer()
+                            Text(name)
+                                .foregroundColor(.black)
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                            HStack {
+                                TextField("String", text: $datastr)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                            }.frame(maxWidth: 200)
+                            Spacer()
+                            Button(action: {
+                                defaults.set(datastr, forKey: "\(name)")
+                            }, label: {
+                                Rectangle()
+                                    .frame(width: 150, height: 50)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(25)
+                                    .overlay() {
+                                        Text("儲存")
+                                            .font(.title)
+                                            .bold()
+                                    }
+                            })
+                            Spacer()
+                        }
+                    }
+            } else {
+                
+            }
+            Spacer()
+        }
+        .onAppear() {
+            dataintstr = "\(dataint)"
+        }
+        .onDisappear() {
+            refresh = true
+        }
+        
+    }
+    func stringtofloat(string: String) -> Float {
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: string)
+        let numberFloatValue = number?.floatValue ?? 0
+        return numberFloatValue
+    }
+}
 struct debugbutton: View {
     let defaults = UserDefaults.standard
     @State var demo = false
@@ -301,18 +429,18 @@ struct debugbutton: View {
                     if int == 1 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal2", datastring: "240")
                     } else if int == 2 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "170")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal2", datastring: "240")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal3", datastring: "400")
                     } else if int == 3 {
                         otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
-                        otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "240")
+                        otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "240")
                     }
                 }
                 exit(0)
@@ -361,4 +489,5 @@ struct readmeView: UIViewRepresentable {
     uiView.loadHTMLString(text, baseURL: nil)
   }
 }
+
 
