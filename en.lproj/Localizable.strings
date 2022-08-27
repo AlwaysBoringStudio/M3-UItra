@@ -1,0 +1,87 @@
+/* 
+  Localizable.strings
+  AI教你做運動
+
+  Created by HingTatTsang on 28/8/2022.
+ 
+*/
+"過去七天的卡路里消耗量" = "Calorie burned in past 7 days";
+"主頁" = "Home";
+"訓練" = "Training";
+"日程表" = "Schedule";
+"歡迎" = "Hi";
+"設定" = "Settings";
+"成就" = "Achievement";
+"今天" = "Today";
+"今" = "To";
+"天" = "day";
+"任務" = "Mision";
+"卡路里" = "cal";
+"掌上壓" = "Push up";
+"代碼" = "Code";
+"輸入課堂連接代碼" = "Enter the class connection code";
+"連接" = "Connect";
+"課程" = "Courses";
+"可選項目" = "Optional items";
+"仰臥起坐" = "Sit-ups";
+"退出" = "exit";
+"頁面開發中" = "page development in progress";
+"星期日" = "Sunday";
+"星期一" = "Monday";
+"星期二" = "Tuesday";
+"星期三" = "Wednesday";
+"星期四" = "Thursday";
+"星期五" = "Friday";
+"星期六" = "Saturday";
+"設定你的名稱" = "Set your name";
+"通知" = "Notification";
+"開發人員選項" = "Developer options";
+"清除所有數據" = "clear all data";
+"清除此應用的所有數據" = "Clear all data for this app";
+"恭喜你, 你已經成為開發人員 !" = "Congratulations, you are a developer now !";
+"不需要了, 你已經是開發人員 !" = "No need, you are already a developer!";
+"好" = "OK";
+"清除此應用的所有數據，是否繼續 ?" = "Clear all data for this app, continue?";
+"取消" = "Cancel";
+"是" = "Yes";
+"允許通知" = "Allow notifications";
+"你的名稱：" = "Your name:";
+"在主頁顯示歡迎及其他訊息" = "Display welcome and other messages on home page";
+"名稱設定" = "Name setting";
+"其他參數" = "Other variable";
+"所有已儲存的變數" = "all stored variables";
+"已知的Bug" = "Known bugs";
+"按此查看已知的Bug" = "Click here to view known bugs";
+"演示模式" = "Demo mode";
+"Demo mode will clear all data for this app, continue ?" = "";
+"完成" = "done";
+"新增" = "add";
+"已完成" = "Task completion: ";
+"%任務" = "%";
+"已消耗" = "Burned calories: ";
+"歡迎使用" = "Welcome to";
+"代碼無效 !" = "Invalid code !";
+"返回" = "back";
+"未編排任何活動" = "No events";
+"已編排:" = "Scheduled:";
+"請輸入要新增的活動" = "Please enter an event to add";
+"請輸入運動的卡路里消耗量" = "Please enter how many calorie will burnt for exercise";
+"卡路里消耗量" = "How many calorie will burnt ?";
+"如何計算卡路里消耗量" = "How many calorie will burnt ? (Chinese)";
+"每天只能計劃四個活動" = "Only four activities can be planned per day";
+"刪除" = "delete";
+"更改已編排的活動" = "Change a scheduled event";
+"得獎等級(0-6)參數修改器" = "Rewarding level (0-6) parameter modifier";
+"獎勵將顯示在這裡..." = "Rewards will appear here...";
+"演示模式將清除此應用的所有數據，是否繼續 ?" = "Demo mode will clear all data for this app, continue ?";
+"取消開發人員模式" = "Turn off developer mode";
+"語言" = "languages";
+"退出此App以保存更改" = "Exit this app to save changes";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+

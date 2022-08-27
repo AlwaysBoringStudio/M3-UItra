@@ -20,7 +20,7 @@ struct welcomeView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                Text("M3-Ultra")
+                Text("AI教你做運動")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)

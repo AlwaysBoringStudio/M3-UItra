@@ -100,13 +100,13 @@ struct todayView: View {
     func getDayOfWeektoday() -> String {
         
         let weekDays = [
-            "星期日",
-            "星期一",
-            "星期二",
-            "星期三",
-            "星期四",
-            "星期五",
-            "星期六"
+            NSLocalizedString("星期日", comment: "星期日"),
+            NSLocalizedString("星期一", comment: "星期一"),
+            NSLocalizedString("星期二", comment: "星期二"),
+            NSLocalizedString("星期三", comment: "星期三"),
+            NSLocalizedString("星期四", comment: "星期四"),
+            NSLocalizedString("星期五", comment: "星期五"),
+            NSLocalizedString("星期六", comment: "星期六")
         ]
 
         let myDate = Date()
@@ -117,6 +117,7 @@ struct todayView: View {
         
         return weekDays[weekDay-1]
     }
+    
 }
 
 

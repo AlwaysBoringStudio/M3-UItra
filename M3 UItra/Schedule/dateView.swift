@@ -205,9 +205,9 @@ struct dateView: View {
                                             VStack {
                                                 Text("\(correctdate(num: date))日")
                                                     .bold()
-                                                    .font(.title3)
                                                     .foregroundColor(.black)
                                                 Text(getdayofweeknow())
+                                                    .font(.subheadline)
                                                     .bold()
                                                     .foregroundColor(.black)
                                                 
@@ -957,13 +957,13 @@ struct dateView: View {
     func getDayOfWeek(_ date:String, format: String) -> String? {
         
         let weekDays = [
-            "星期日",
-            "星期一",
-            "星期二",
-            "星期三",
-            "星期四",
-            "星期五",
-            "星期六"
+            NSLocalizedString("星期日", comment: "星期日"),
+            NSLocalizedString("星期一", comment: "星期一"),
+            NSLocalizedString("星期二", comment: "星期二"),
+            NSLocalizedString("星期三", comment: "星期三"),
+            NSLocalizedString("星期四", comment: "星期四"),
+            NSLocalizedString("星期五", comment: "星期五"),
+            NSLocalizedString("星期六", comment: "星期六")
         ]
 
         let formatter  = DateFormatter()

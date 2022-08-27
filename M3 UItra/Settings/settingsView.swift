@@ -88,6 +88,17 @@ struct settingsView: View {
                     
                     
                 }
+                Section {
+                    NavigationLink(destination: langView()) {
+                        HStack {
+                            Image(systemName: "globe")
+                            Text("語言")
+                        }
+                    }
+                    
+                    
+                }
+                
                 
                 Button(action: {
                     if developermode == 0 {
@@ -142,6 +153,7 @@ struct settingsView: View {
             username = defaults.string(forKey: "username") ?? "USERNAME"
             notifyon = defaults.bool(forKey: "notifyon")
             health = defaults.float(forKey: "health")
+            
             
         }
         

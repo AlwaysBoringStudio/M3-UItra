@@ -13,7 +13,7 @@ struct homeView: View {
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     @State var showwelcome = false
     @State var username = ""
-    @State var navtitle = "成就"
+    @State var navtitle = NSLocalizedString("成就", comment: "成就")
     @State var health = Float(0)
     @State var caltoday = Float(0)
     @State var reward = 0
@@ -131,7 +131,6 @@ struct homeView: View {
                     // MARK: 七天的卡路里圖表
                     calchartView()
                 }
-                debugbutton()
             }
             // MARK: 標題
             .navigationTitle(navtitle)
@@ -157,10 +156,10 @@ struct homeView: View {
                         runwelcome()
                         printnow(message: "歡迎, \(username)")
                     } else if message == 2{
-                        navtitle = "已完成\(Int(health*100))%任務"
+                        navtitle = "\(NSLocalizedString("已完成", comment: "已完成"))\(Int(health*100))\(NSLocalizedString("%任務", comment: "%任務"))"
                         printnow(message: "已完成\(Int(health*100))%任務")
                     } else if message == 3 {
-                        navtitle = "已消耗\(Int(caltoday))卡路里"
+                        navtitle = "\(NSLocalizedString("已消耗", comment: "已消耗"))\(Int(caltoday))\(NSLocalizedString("卡路里", comment: "卡路里"))"
                         printnow(message: "已消耗\(Int(caltoday))卡路里")
                     }
                 }
@@ -195,7 +194,7 @@ struct homeView: View {
         username = defaults.string(forKey: "username") ?? "USERNAME"
         showwelcome = defaults.bool(forKey: "showwelcome")
         if showwelcome == true {
-            navtitle = "歡迎, \(username)"
+            navtitle = "\(NSLocalizedString("歡迎", comment: "歡迎")), \(username)"
         }
     }
     func stringtofloat(string: String) -> Float {

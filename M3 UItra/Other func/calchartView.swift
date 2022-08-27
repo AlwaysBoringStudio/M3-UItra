@@ -11,8 +11,12 @@ struct calchartView: View {
     let defaults = UserDefaults.standard
     var body: some View {
         VStack {
-            Text("過去七天的卡路里消耗量")
-                .font(.title)
+            HStack {
+                Spacer()
+                Text("過去七天的卡路里消耗量")
+                    .font(.title3)
+                Spacer()
+            }
             HStack {
                 barchartView(data: loaddata(datecal: yesterDay(pre: 6)), per: 2000)
                 barchartView(data: loaddata(datecal: yesterDay(pre: 5)), per: 2000)
