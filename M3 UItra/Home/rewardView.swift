@@ -66,7 +66,7 @@ struct rewardcellView: View {
                             .foregroundColor(.black)
                             .padding()
                     }
-                Text(name)
+                Text("\(NSLocalizedString("\(name)", comment: "\(name)"))")
                     .font(.title)
             }
             .padding()

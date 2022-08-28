@@ -279,6 +279,7 @@ struct saveddataread: View {
     @State var dataint = Int(0)
     @State var dataintstr = ""
     @Binding var refresh: Bool
+    @State var textsize = CGFloat(300)
     var body: some View {
         VStack {
             Spacer()
@@ -295,13 +296,14 @@ struct saveddataread: View {
                                 .foregroundColor(.black)
                                 .font(.title)
                                 .bold()
+                                .frame(maxWidth: textsize)
                             Spacer()
                             HStack {
                                 TextField("Int", text: $dataintstr)
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.black)
                                     .font(.title)
-                            }.frame(maxWidth: 200)
+                            }.frame(maxWidth: 150)
                             Spacer()
                             Button(action: {
                                 defaults.set(datastr, forKey: "\(name)")
@@ -332,13 +334,14 @@ struct saveddataread: View {
                                 .foregroundColor(.black)
                                 .font(.title)
                                 .bold()
+                                .frame(maxWidth: textsize)
                             Spacer()
                             HStack {
                                 TextField("String", text: $datastr)
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.black)
                                     .font(.title)
-                            }.frame(maxWidth: 200)
+                            }.frame(maxWidth: 150)
                             Spacer()
                             Button(action: {
                                 defaults.set(datastr, forKey: "\(name)")
@@ -357,10 +360,49 @@ struct saveddataread: View {
                         }
                     }
             } else {
-                
+                Rectangle()
+                    .frame(width: 340, height: 500)
+                    .foregroundColor(.green)
+                    .cornerRadius(15)
+                    .padding()
+                    .overlay() {
+                        VStack {
+                            Spacer()
+                            Text(name)
+                                .foregroundColor(.black)
+                                .font(.title3)
+                                .bold()
+                                .frame(maxWidth: textsize)
+                            Spacer()
+                            HStack {
+                                TextField("系統變數", text: $datastr)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                    .allowsHitTesting(false)
+                            }.frame(maxWidth: 250)
+                            Spacer()
+                            Button(action: {
+                                
+                            }, label: {
+                                Rectangle()
+                                    .frame(width: 300, height: 50)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(25)
+                                    .overlay() {
+                                        Text("無法編輯系統變數")
+                                            .font(.title3)
+                                            .bold()
+                                    }
+                            })
+                            Spacer()
+                        }
+                    }
             }
             Spacer()
         }
+        .navigationTitle("\(name)")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear() {
             dataintstr = "\(dataint)"
         }

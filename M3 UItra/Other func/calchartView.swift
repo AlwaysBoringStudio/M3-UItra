@@ -77,7 +77,7 @@ struct calchartView_Previews: PreviewProvider {
                 barchartView(data: 1080, per: 2000)
                 barchartView(data: 720, per: 2000)
                 barchartView(data: 1280, per: 2000)
-                barchartView(data: 2000, per: 2000)
+                barchartView(data: 1200, per: 2000)
                 barchartView(data: 1685, per: 2000)
             }
         }

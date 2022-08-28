@@ -79,7 +79,7 @@ struct barchartView: View {
                     HStack {
                         Text("\(Int(data))")
                     }
-                    Text("00000")
+                    Text("0000")
                         .opacity(0)
                 }
             }

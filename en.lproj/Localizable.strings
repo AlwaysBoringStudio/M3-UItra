@@ -63,14 +63,15 @@
 "返回" = "Back";
 "未編排任何活動" = "No events";
 "已編排:" = "Scheduled:";
-"請輸入要新增的活動" = "Please enter an event to add";
-"請輸入要新增的活動:" = "Please enter an event to add:";
-"請輸入運動的卡路里消耗量" = "Please enter how many calorie will burnt for exercise";
-"卡路里消耗量" = "How many calorie will burnt ?";
-"如何計算卡路里消耗量" = "How many calorie will burnt ? (Chinese)";
+"已編排" = "Scheduled";
+"請輸入要新增的活動" = "Add an event";
+"請輸入要新增的活動:" = "Add an event:";
+"請輸入運動的卡路里消耗量" = "Calories burned for exercise";
+"卡路里消耗量" = "Calculate calories";
+"如何計算卡路里消耗量" = "How many calories will burnt ? (Chinese)";
 "每天只能計劃四個活動" = "Only four activities can be planned per day";
 "刪除" = "Delete";
-"更改已編排的活動" = "Change a scheduled event";
+"更改已編排的活動" = "Edit an event";
 "得獎等級(0-6)參數修改器" = "Rewarding level (0-6) parameter modifier";
 "獎勵將顯示在這裡..." = "Rewards will appear here...";
 "演示模式將清除此應用的所有數據，是否繼續 ?" = "Demo mode will clear all data for this app, continue ?";
@@ -82,5 +83,8 @@
 "鐵肺" = "Iron Lung";
 "步行者" = "Walker";
 "烈火戰士" = "Fire Warrior";
+"瘋狂心臟" = "Crazy heart";
 "摘星者" = "Star Catcher";
-
+"儲存" = "Save";
+"無法編輯系統變數" = "Cannot edit system variables";
+"系統變數" = "System Variables";
