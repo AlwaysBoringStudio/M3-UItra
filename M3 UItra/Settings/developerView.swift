@@ -283,122 +283,45 @@ struct saveddataread: View {
     var body: some View {
         VStack {
             Spacer()
-            if dataint != 0 {
-                Rectangle()
-                    .frame(width: 340, height: 500)
-                    .foregroundColor(.green)
-                    .cornerRadius(15)
-                    .padding()
-                    .overlay() {
-                        VStack {
-                            Spacer()
-                            Text(name)
+            Rectangle()
+                .frame(width: 340, height: 500)
+                .foregroundColor(.green)
+                .cornerRadius(15)
+                .padding()
+                .overlay() {
+                    VStack {
+                        Spacer()
+                        Text(name)
+                            .foregroundColor(.black)
+                            .font(.title3)
+                            .bold()
+                            .frame(maxWidth: textsize)
+                        Spacer()
+                        HStack {
+                            TextField("系統變數", text: $datastr)
+                                .multilineTextAlignment(.center)
                                 .foregroundColor(.black)
                                 .font(.title)
-                                .bold()
-                                .frame(maxWidth: textsize)
-                            Spacer()
-                            HStack {
-                                TextField("Int", text: $dataintstr)
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .font(.title)
-                            }.frame(maxWidth: 150)
-                            Spacer()
-                            Button(action: {
-                                defaults.set(datastr, forKey: "\(name)")
-                            }, label: {
-                                Rectangle()
-                                    .frame(width: 150, height: 50)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(25)
-                                    .overlay() {
-                                        Text("儲存")
-                                            .font(.title)
-                                            .bold()
-                                    }
-                            })
-                            Spacer()
+                                .allowsHitTesting(false)
                         }
+                        .frame(maxWidth: 250)
+                        Spacer()
+                        Button(action: {
+                            
+                        }, label: {
+                            Rectangle()
+                                .frame(width: 300, height: 50)
+                                .foregroundColor(.white)
+                                .cornerRadius(25)
+                                .overlay() {
+                                    Text("無法編輯系統變數")
+                                        .font(.title3)
+                                        .bold()
+                                }
+                        })
+                        Spacer()
                     }
-            } else if datastr != "" {
-                Rectangle()
-                    .frame(width: 340, height: 500)
-                    .foregroundColor(.green)
-                    .cornerRadius(15)
-                    .padding()
-                    .overlay() {
-                        VStack {
-                            Spacer()
-                            Text(name)
-                                .foregroundColor(.black)
-                                .font(.title)
-                                .bold()
-                                .frame(maxWidth: textsize)
-                            Spacer()
-                            HStack {
-                                TextField("String", text: $datastr)
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .font(.title)
-                            }.frame(maxWidth: 150)
-                            Spacer()
-                            Button(action: {
-                                defaults.set(datastr, forKey: "\(name)")
-                            }, label: {
-                                Rectangle()
-                                    .frame(width: 150, height: 50)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(25)
-                                    .overlay() {
-                                        Text("儲存")
-                                            .font(.title)
-                                            .bold()
-                                    }
-                            })
-                            Spacer()
-                        }
-                    }
-            } else {
-                Rectangle()
-                    .frame(width: 340, height: 500)
-                    .foregroundColor(.green)
-                    .cornerRadius(15)
-                    .padding()
-                    .overlay() {
-                        VStack {
-                            Spacer()
-                            Text(name)
-                                .foregroundColor(.black)
-                                .font(.title3)
-                                .bold()
-                                .frame(maxWidth: textsize)
-                            Spacer()
-                            HStack {
-                                TextField("系統變數", text: $datastr)
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .font(.title)
-                                    .allowsHitTesting(false)
-                            }.frame(maxWidth: 250)
-                            Spacer()
-                            Button(action: {
-                                
-                            }, label: {
-                                Rectangle()
-                                    .frame(width: 300, height: 50)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(25)
-                                    .overlay() {
-                                        Text("無法編輯系統變數")
-                                            .font(.title3)
-                                            .bold()
-                                    }
-                            })
-                            Spacer()
-                        }
-                    }
-            }
+                }
             Spacer()
         }
         .navigationTitle("\(name)")

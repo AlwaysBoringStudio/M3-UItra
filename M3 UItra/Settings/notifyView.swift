@@ -46,7 +46,7 @@ struct notifyView: View {
 //                                // add our notification request
 //                                UNUserNotificationCenter.current().add(request)
 //
-//                                print("All set!")
+//                                NSLog("All set!")
 //                            }
 //                        }
 //                    }

@@ -98,26 +98,49 @@ struct settingsView: View {
                     
                     
                 }
+                Section {
+                    NavigationLink(destination: JoinSessionView().navigationBarTitle("轉移數據")) {
+                        HStack {
+                            Image(systemName: "iphone.and.arrow.forward")
+                            Text("轉移數據")
+                            Spacer()
+                        }
+                    }
+                    
+                    
+                }
+                
+                Section {
+                    Button(action: {
+                        if developermode == 0 {
+                            showAlert2 = true
+                        } else if developermode == 1 {
+                            showAlert = true
+                            developermode = developermode - 1
+                        } else {
+                            developermode = developermode - 1
+                        }
+                    }, label: {
+                        HStack {
+                            Text("版本:")
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                            Spacer()
+                            Text(UIApplication.appVersion ?? "")
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                        }
+                    })
+                    
+                    NavigationLink(destination: infoView()) {
+                        HStack {
+                            Text("版本資訊")
+                        }
+                    }
+                    
+                    
+                }
                 
                 
-                Button(action: {
-                    if developermode == 0 {
-                        showAlert2 = true
-                    } else if developermode == 1 {
-                        showAlert = true
-                        developermode = developermode - 1
-                    } else {
-                        developermode = developermode - 1
-                    }
-                }, label: {
-                    HStack {
-                        Text("版本:")
-                            .foregroundColor(colorScheme == .dark ? .white : .black)
-                        Spacer()
-                        Text(UIApplication.appVersion ?? "")
-                            .foregroundColor(colorScheme == .dark ? .white : .black)
-                    }
-                })
+                
                 
                 Group {
                     if developermode == 0 {
@@ -192,3 +215,38 @@ struct settingsView: View {
 
 
 
+struct infoView: View {
+    var body: some View {
+        List {
+            Section {
+                VStack {
+                    HStack {
+                        Text("版本:")
+                            .bold()
+                            .font(.title3)
+                        Text("\(UIApplication.appVersion ?? "")")
+                            .bold()
+                            .font(.title3)
+                        Spacer()
+                    }
+                    
+                }
+                HStack {
+                    Text("此更新包括改進和錯誤修復。")
+                    Spacer()
+                }
+                HStack {
+                    Text("此更新改進了部份翻譯錯誤")
+                    Spacer()
+                }
+                HStack {
+                    Text("此更新新增了轉移數據的功能")
+                    Spacer()
+                }
+                    
+            }
+        }
+        .navigationTitle("版本資訊")
+    }
+
+}

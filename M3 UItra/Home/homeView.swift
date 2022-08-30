@@ -159,8 +159,8 @@ struct homeView: View {
                         navtitle = "\(NSLocalizedString("已完成", comment: "已完成"))\(Int(health*100))\(NSLocalizedString("%任務", comment: "%任務"))"
                         printnow(message: "已完成\(Int(health*100))%任務")
                     } else if message == 3 {
-                        navtitle = "\(NSLocalizedString("已消耗", comment: "已消耗"))\(Int(caltoday))\(NSLocalizedString("卡路里", comment: "卡路里"))"
-                        printnow(message: "已消耗\(Int(caltoday))卡路里")
+                        navtitle = "\(NSLocalizedString("已消耗", comment: "已消耗")) \(Int(caltoday)) \(NSLocalizedString("卡路里", comment: "卡路里"))"
+                        printnow(message: "已消耗 \(Int(caltoday)) 卡路里")
                     }
                 }
             }
@@ -212,7 +212,7 @@ struct homeView: View {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
-        print("homeView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
+        NSLog("homeView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
         
     }
     

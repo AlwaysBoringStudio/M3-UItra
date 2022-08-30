@@ -71,13 +71,13 @@ struct rewardcellView: View {
             }
             .padding()
             .onAppear() {
-                printnow(message: "buttonpressed")
+                lognow(message: "buttonpressed")
             }
         }
         
         
     }
-    func printnow(message: String){
+    func lognow(message: String){
         let today = Date()
         let hours   = (Calendar.current.component(.hour, from: today))
         let minutes = (Calendar.current.component(.minute, from: today))
@@ -85,7 +85,7 @@ struct rewardcellView: View {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
-        print("rewardView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
+        NSLog("rewardView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
         
     }
 }

@@ -37,6 +37,7 @@
 		79AB308128ACECA60001C091 /* webView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308028ACECA60001C091 /* webView.swift */; };
 		79AB308928ACEE200001C091 /* developerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308828ACEE200001C091 /* developerView.swift */; };
 		79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308A28ACF6D90001C091 /* rewardView.swift */; };
+		79AF1EC928BD2F0B0005E062 /* transapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF1EC828BD2F0B0005E062 /* transapp.swift */; };
 		79C8582328AA378500A37B5E /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582228AA378500A37B5E /* dateView.swift */; };
 		79C8582528AA37C200A37B5E /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582428AA37C200A37B5E /* homeView.swift */; };
 		79C8582928AA380B00A37B5E /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582828AA380B00A37B5E /* settingsView.swift */; };
@@ -48,6 +49,9 @@
 		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
 		79D12BE828B8769F00C06D48 /* gettime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D12BE728B8769F00C06D48 /* gettime.swift */; };
 		79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432B28AEA2E500E1853E /* usernameView.swift */; };
+		79E78EE428BD4F8600081240 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 79E78EE328BD4F8600081240 /* Swifter */; };
+		79FA35B028BDD317002750AE /* TransAppManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AE28BDD317002750AE /* TransAppManger.swift */; };
+		79FA35B128BDD317002750AE /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AF28BDD317002750AE /* ChatListView.swift */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +105,7 @@
 		79AB308028ACECA60001C091 /* webView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webView.swift; sourceTree = "<group>"; };
 		79AB308828ACEE200001C091 /* developerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = developerView.swift; sourceTree = "<group>"; };
 		79AB308A28ACF6D90001C091 /* rewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardView.swift; sourceTree = "<group>"; };
+		79AF1EC828BD2F0B0005E062 /* transapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transapp.swift; sourceTree = "<group>"; };
 		79C8582228AA378500A37B5E /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
 		79C8582428AA37C200A37B5E /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		79C8582828AA380B00A37B5E /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
@@ -115,6 +120,8 @@
 		79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		79D12BE728B8769F00C06D48 /* gettime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gettime.swift; sourceTree = "<group>"; };
 		79DC432B28AEA2E500E1853E /* usernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usernameView.swift; sourceTree = "<group>"; };
+		79FA35AE28BDD317002750AE /* TransAppManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransAppManger.swift; sourceTree = "<group>"; };
+		79FA35AF28BDD317002750AE /* ChatListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79E78EE428BD4F8600081240 /* Swifter in Frameworks */,
 				79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */,
 				792AE63328AF3E920002F750 /* HealthKit.framework in Frameworks */,
 			);
@@ -217,6 +225,9 @@
 				7971A78428B33875007302A1 /* barchartView.swift */,
 				7971A78628B3460B007302A1 /* calchartView.swift */,
 				795C818528BA90FF0080CD26 /* langsupport.swift */,
+				79AF1EC828BD2F0B0005E062 /* transapp.swift */,
+				79FA35AE28BDD317002750AE /* TransAppManger.swift */,
+				79FA35AF28BDD317002750AE /* ChatListView.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -297,6 +308,9 @@
 			dependencies = (
 			);
 			name = "AI教你做運動";
+			packageProductDependencies = (
+				79E78EE328BD4F8600081240 /* Swifter */,
+			);
 			productName = "M3 UItra";
 			productReference = 4932CD9228A4C89D000E7443 /* AI教你做運動.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +346,9 @@
 				ko,
 			);
 			mainGroup = 4932CD8928A4C89D000E7443;
+			packageReferences = (
+				79E78EE228BD4F8600081240 /* XCRemoteSwiftPackageReference "swifter" */,
+			);
 			productRefGroup = 4932CD9328A4C89D000E7443 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -371,10 +388,12 @@
 				79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */,
 				7971A78728B3460B007302A1 /* calchartView.swift in Sources */,
 				79C8582528AA37C200A37B5E /* homeView.swift in Sources */,
+				79FA35B028BDD317002750AE /* TransAppManger.swift in Sources */,
 				79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */,
 				792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */,
 				792AE62F28AF37D20002F750 /* Constants.swift in Sources */,
 				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
+				79AF1EC928BD2F0B0005E062 /* transapp.swift in Sources */,
 				7971A78528B33875007302A1 /* barchartView.swift in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
 				79AB308128ACECA60001C091 /* webView.swift in Sources */,
@@ -383,6 +402,7 @@
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
 				79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */,
+				79FA35B128BDD317002750AE /* ChatListView.swift in Sources */,
 				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
 				79D12BE828B8769F00C06D48 /* gettime.swift in Sources */,
 				7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */,
@@ -558,7 +578,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.46.1;
+				MARKETING_VERSION = 1.3.52;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -594,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.46.1;
+				MARKETING_VERSION = 1.3.52;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -627,6 +647,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79E78EE228BD4F8600081240 /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79E78EE328BD4F8600081240 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79E78EE228BD4F8600081240 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */ = {

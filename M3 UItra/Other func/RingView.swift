@@ -33,7 +33,7 @@ struct RingView: View {
                 .shadow(radius: 2)
                 .drawingGroup()
                 .onAppear() {
-                    printnow(message: "RingShape Apper")
+                    lognow(message: "RingShape Apper")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation(self.animation) {
                             self.currentPercentage = self.percentage
@@ -45,7 +45,7 @@ struct RingView: View {
                 .fill(currentPercentage > 1 ? endColor : .clear)
                 .rotationEffect(.init(degrees: -90))
                 .onAppear() {
-                    printnow(message: "RingTipShape Apper")
+                    lognow(message: "RingTipShape Apper")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation(self.animation) {
                             self.currentPercentage = self.percentage
@@ -54,7 +54,7 @@ struct RingView: View {
                 }
         }
     }
-    func printnow(message: String){
+    func lognow(message: String){
         let today = Date()
         let hours   = (Calendar.current.component(.hour, from: today))
         let minutes = (Calendar.current.component(.minute, from: today))
@@ -62,7 +62,7 @@ struct RingView: View {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
-        print("RingView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
+        NSLog("RingView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
         
     }
     

@@ -26,6 +26,8 @@ struct dateView: View {
     @State var month: String
     @State var fullyear: String
     
+    @State var cn = true
+    
     @State var popover = false
     
     @State var weekday = ""
@@ -860,6 +862,18 @@ struct dateView: View {
                 .interactiveDismissDisabled()
             }
         }
+        .onAppear() {
+            let lang = defaults.string(forKey: "AppleLanguages") ?? ""
+            if lang == "zh-HK"{
+                cn = true
+            } else if lang == "zh-Hant"{
+                cn = true
+            } else if lang == "zh-Hans"{
+                cn = true
+            } else {
+                cn = false
+            }
+        }
         
     }
     func loadalldata() -> Void {
@@ -885,7 +899,7 @@ struct dateView: View {
         cal2 = datacal2 ?? ""
         cal3 = datacal3 ?? ""
         cal4 = datacal4 ?? ""
-        printnow(message: "data loaded Cell:\(datedatanow)")
+        lognow(message: "data loaded Cell:\(datedatanow)")
     }
     func savealldata() -> Void {
         let today = getrightdate()
@@ -937,7 +951,7 @@ struct dateView: View {
         } else {
             defaults.removeObject(forKey: "\(datedatanow)datacal4")
         }
-        printnow(message: "data saved")
+        lognow(message: "data saved")
     }
     
     func stringtofloat(string: String) -> Float {
@@ -1039,7 +1053,7 @@ struct dateView: View {
         }
         return num
     }
-    func printnow(message: String){
+    func lognow(message: String){
         let today = Date()
         let hours   = (Calendar.current.component(.hour, from: today))
         let minutes = (Calendar.current.component(.minute, from: today))
@@ -1047,7 +1061,7 @@ struct dateView: View {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "dd/MM/yyyy"
         let datedatanow = "\(formatter1.string(from: today))"
-        print("dateView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
+        NSLog("dateView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
         
     }
     
