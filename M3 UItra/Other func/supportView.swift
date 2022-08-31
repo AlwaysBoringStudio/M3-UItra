@@ -10,7 +10,7 @@ import Foundation
 
 struct supportView: View {
     var body: some View {
-        jsondatatest()
+        jsondata()
     }
 }
 
@@ -31,9 +31,7 @@ public class SupportFetcher: ObservableObject {
     }
     
     func load() {
-        let url = URL(string: "https://alwaysboringstudio.site/M3-UItra/M3%20UItra/Data.json")!
-
-    
+        let url = URL(string: "https://alwaysboringstudio.site/M3-UItra/M3%20UItra/support.json")!
         URLSession.shared.dataTask(with: url) {(data,response,error) in
             do {
                 if let d = data {
@@ -59,9 +57,8 @@ struct jsondata: View {
         List {
             Section {
                 ForEach(fetcher.supports) { support in
-                    HStack {
+                    NavigationLink(destination: WebView(url: URL(string:"\(support.stringurl)")!).navigationTitle(support.name).navigationBarTitleDisplayMode(.inline)) {
                         Text(support.name)
-                        Spacer()
                     }
                 }
             }
@@ -78,7 +75,7 @@ struct Support: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
            case id = "id"
            case name = "name"
-           case stringurl = "url"
+           case stringurl = "stringurl"
         }
 }
 
