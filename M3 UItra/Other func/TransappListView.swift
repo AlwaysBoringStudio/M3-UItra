@@ -47,7 +47,48 @@ struct ChatListView: View {
         }
     }
   }
+    
 }
+
+class getLocalNetworkAccessState : NSObject {
+    var service: NetService
+    var denied: DispatchWorkItem?
+    var completion: ((Bool) -> Void)
+    
+    @discardableResult
+    init(completion: @escaping (Bool) -> Void) {
+        self.completion = completion
+        
+        service = NetService(domain: "local.", type:"_lnp._tcp.", name: "LocalNetworkPrivacy", port: 1100)
+        
+        super.init()
+        
+        denied = DispatchWorkItem {
+            self.completion(false)
+            self.service.stop()
+            self.denied = nil
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: denied!)
+        
+        service.delegate = self
+        self.service.publish()
+    }
+}
+
+extension getLocalNetworkAccessState : NetServiceDelegate {
+    
+    func netServiceDidPublish(_ sender: NetService) {
+        denied?.cancel()
+        denied = nil
+
+        completion(true)
+    }
+    
+    func netService(_ sender: NetService, didNotPublish errorDict: [String : NSNumber]) {
+        print("Error: \(errorDict)")
+    }
+}
+
 
 struct MessageBodyView: View {
     let message: ChatMessage
@@ -71,13 +112,17 @@ struct MessageBodyView2: View {
           VStack {
             Text(message.body)
           }.onAppear() {
-              loadalldata(str: message.body)
               quit = true
               
           }
         }
         .alert("退出此App以保存更改", isPresented: $quit, actions: {
             Button("退出") {
+                let dictionary = defaults.dictionaryRepresentation()
+                dictionary.keys.forEach { key in
+                    defaults.removeObject(forKey: key)
+                }
+                loadalldata(str: message.body)
                 exit(0)
             }
         })
@@ -92,6 +137,7 @@ struct MessageBodyView2: View {
         for i in 0..<arraykey.count {
             defaults.set("\(arraystr[i])", forKey: "\(arraykey[i])")
         }
+        defaults.set(true, forKey: "transapp")
     }
 }
 struct ChatView: View {
@@ -121,6 +167,7 @@ struct ChatView: View {
               savealldata()
               let all = ["\(alldatakey.joined(separator: "-key-"))", "\(alldatastring.joined(separator: "-string-"))"]
               chatConnectionManager.send("\(all.joined(separator: "-all-"))")
+              print("\(all.joined(separator: "-all-"))")
           }
           
       }
@@ -131,8 +178,26 @@ struct ChatView: View {
         let alldata = Array(defaults.dictionaryRepresentation().keys)
         for i in alldata {
             let datastr = defaults.string(forKey: "\(i)")
-            alldatakey.append(i)
-            alldatastring.append(datastr ?? "nil")
+            if i.contains("data") == true {
+                alldatakey.append(i)
+                alldatastring.append(datastr ?? "nil")
+            } else if i.contains("reward") == true {
+                alldatakey.append(i)
+                alldatastring.append(datastr ?? "nil")
+            } else if i.contains("showwelcome") == true {
+                alldatakey.append(i)
+                alldatastring.append(datastr ?? "nil")
+            } else if i.contains("username") == true {
+                alldatakey.append(i)
+                alldatastring.append(datastr ?? "nil")
+            } else if i.contains("notifyon") == true {
+                alldatakey.append(i)
+                alldatastring.append(datastr ?? "nil")
+            } else if i.contains("firstopen") == true {
+                alldatakey.append(i)
+                alldatastring.append(datastr ?? "nil")
+            }
+            
         }
         
     }

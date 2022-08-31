@@ -13,6 +13,7 @@ struct welcomeView: View {
     let defaults = UserDefaults.standard
     @Binding var showWelcomeScreen: Bool
     @State var isOnline = false
+    @ObservedObject private var chatConnectionManager = ChatConnectionManager()
     var body: some View {
         NavigationView {
             VStack {
@@ -29,12 +30,35 @@ struct welcomeView: View {
                     FeatureCell(image: "info.circle.fill", title: "Version", subtitle: UIApplication.appVersion ?? "", color: .gray)                  
                     FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
                 }
+                Spacer()
+                let transapp = defaults.bool(forKey: "transapp")
+                if transapp == false {
+                    Button(
+                      action: {
+                        chatConnectionManager.host()
+                      }, label: {
+                        Rectangle()
+                          .frame(width: 350, height: 50)
+                          .foregroundColor(.green)
+                          .cornerRadius(25)
+                          .overlay() {
+                            Label("轉移數據到此裝置", systemImage: "square.and.arrow.down.fill")
+                          }
+                      })
+                }
+                NavigationLink(
+                  destination: ChatView()
+                    .environmentObject(chatConnectionManager),
+                  isActive: $chatConnectionManager.connectedToChat) {
+                    EmptyView()
+                }
                 .padding(.leading)
                 Spacer()
                 Spacer()
                 Button(action: {
                     defaults.set(UIApplication.appVersion ?? "", forKey: "firstopen")
                     self.showWelcomeScreen = false
+                    defaults.set(true, forKey: "transapp")
                 }) {
                     HStack {
                         Spacer()
@@ -53,7 +77,9 @@ struct welcomeView: View {
         
     }
     
+    
 }
+
 
 
 struct FeatureCell: View {

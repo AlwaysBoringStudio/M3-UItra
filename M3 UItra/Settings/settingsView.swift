@@ -15,7 +15,6 @@ struct settingsView: View {
     @State var showwelcome = false
     @Binding var refresh: Bool
     
-    
     @State var health = Float(0)
     
     @State var clear = false
@@ -52,7 +51,6 @@ struct settingsView: View {
                         """
     
     @Environment(\.colorScheme) var colorScheme
-    
     var body: some View {
         NavigationView {
             List {
@@ -109,7 +107,17 @@ struct settingsView: View {
                     
                     
                 }
-                
+                Section {
+                    NavigationLink(destination: supportView().navigationBarTitle("支持")) {
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                            Text("支持")
+                            Spacer()
+                        }
+                    }
+                    
+                    
+                }
                 Section {
                     Button(action: {
                         if developermode == 0 {
@@ -139,7 +147,7 @@ struct settingsView: View {
                     
                 }
                 
-                
+
                 
                 
                 Group {
@@ -232,7 +240,7 @@ struct infoView: View {
                     
                 }
                 HStack {
-                    Text("此更新包括改進和錯誤修復。")
+                    Text("此更新包括改進和錯誤修復")
                     Spacer()
                 }
                 HStack {
@@ -240,7 +248,7 @@ struct infoView: View {
                     Spacer()
                 }
                 HStack {
-                    Text("此更新新增了轉移數據的功能")
+                    Text("此更新改進了轉移數據的功能")
                     Spacer()
                 }
                     

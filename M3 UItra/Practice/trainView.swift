@@ -135,7 +135,7 @@ struct trainView: View {
         }
         // MARK: Action after tapped 可選項目 Button
         .sheet(isPresented: $view3) {
-            errorView(errorcode: "頁面開發中")
+            errorView()
         }
         
     }

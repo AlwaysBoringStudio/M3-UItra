@@ -26,6 +26,9 @@
 		7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */; };
 		795C817F28BA8DD50080CD26 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 795C818128BA8DD50080CD26 /* Localizable.strings */; };
 		795C818628BA90FF0080CD26 /* langsupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795C818528BA90FF0080CD26 /* langsupport.swift */; };
+		79650C4828BF757900D5BFC2 /* supportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79650C4728BF757900D5BFC2 /* supportView.swift */; };
+		79650C4A28BF77D200D5BFC2 /* support.json in Resources */ = {isa = PBXBuildFile; fileRef = 79650C4928BF77D200D5BFC2 /* support.json */; };
+		796AC94728BDEA8F0014BBE3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AC94628BDEA8F0014BBE3 /* NetworkExtension.framework */; };
 		7971A78528B33875007302A1 /* barchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78428B33875007302A1 /* barchartView.swift */; };
 		7971A78728B3460B007302A1 /* calchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78628B3460B007302A1 /* calchartView.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
@@ -49,9 +52,8 @@
 		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
 		79D12BE828B8769F00C06D48 /* gettime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D12BE728B8769F00C06D48 /* gettime.swift */; };
 		79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432B28AEA2E500E1853E /* usernameView.swift */; };
-		79E78EE428BD4F8600081240 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 79E78EE328BD4F8600081240 /* Swifter */; };
 		79FA35B028BDD317002750AE /* TransAppManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AE28BDD317002750AE /* TransAppManger.swift */; };
-		79FA35B128BDD317002750AE /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AF28BDD317002750AE /* ChatListView.swift */; };
+		79FA35B128BDD317002750AE /* TransappListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AF28BDD317002750AE /* TransappListView.swift */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,9 @@
 		795C818028BA8DD50080CD26 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		795C818428BA8E0F0080CD26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		795C818528BA90FF0080CD26 /* langsupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = langsupport.swift; sourceTree = "<group>"; };
+		79650C4728BF757900D5BFC2 /* supportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = supportView.swift; sourceTree = "<group>"; };
+		79650C4928BF77D200D5BFC2 /* support.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = support.json; sourceTree = "<group>"; };
+		796AC94628BDEA8F0014BBE3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		7971A78428B33875007302A1 /* barchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barchartView.swift; sourceTree = "<group>"; };
 		7971A78628B3460B007302A1 /* calchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calchartView.swift; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
@@ -121,7 +126,7 @@
 		79D12BE728B8769F00C06D48 /* gettime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gettime.swift; sourceTree = "<group>"; };
 		79DC432B28AEA2E500E1853E /* usernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usernameView.swift; sourceTree = "<group>"; };
 		79FA35AE28BDD317002750AE /* TransAppManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransAppManger.swift; sourceTree = "<group>"; };
-		79FA35AF28BDD317002750AE /* ChatListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		79FA35AF28BDD317002750AE /* TransappListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransappListView.swift; sourceTree = "<group>"; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79E78EE428BD4F8600081240 /* Swifter in Frameworks */,
+				796AC94728BDEA8F0014BBE3 /* NetworkExtension.framework in Frameworks */,
 				79D0AAD328AAAB5000E60B4C /* CloudKit.framework in Frameworks */,
 				792AE63328AF3E920002F750 /* HealthKit.framework in Frameworks */,
 			);
@@ -174,6 +179,7 @@
 				79AB308328ACED2C0001C091 /* Other func */,
 				79AB308228ACECFA0001C091 /* AI Camera */,
 				79996AF328AE198E000E1FF0 /* Data.json */,
+				79650C4928BF77D200D5BFC2 /* support.json */,
 				4932CD9928A4C89E000E7443 /* Assets.xcassets */,
 				79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */,
 				4932CD9B28A4C89E000E7443 /* Preview Content */,
@@ -227,7 +233,8 @@
 				795C818528BA90FF0080CD26 /* langsupport.swift */,
 				79AF1EC828BD2F0B0005E062 /* transapp.swift */,
 				79FA35AE28BDD317002750AE /* TransAppManger.swift */,
-				79FA35AF28BDD317002750AE /* ChatListView.swift */,
+				79FA35AF28BDD317002750AE /* TransappListView.swift */,
+				79650C4728BF757900D5BFC2 /* supportView.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 		79D0AAD128AAAB5000E60B4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				796AC94628BDEA8F0014BBE3 /* NetworkExtension.framework */,
 				792AE63228AF3E920002F750 /* HealthKit.framework */,
 				79D0AAD228AAAB5000E60B4C /* CloudKit.framework */,
 			);
@@ -309,7 +317,6 @@
 			);
 			name = "AI教你做運動";
 			packageProductDependencies = (
-				79E78EE328BD4F8600081240 /* Swifter */,
 			);
 			productName = "M3 UItra";
 			productReference = 4932CD9228A4C89D000E7443 /* AI教你做運動.app */;
@@ -366,6 +373,7 @@
 				79996AF628AE1AA9000E1FF0 /* Data.json in Resources */,
 				795C817F28BA8DD50080CD26 /* Localizable.strings in Resources */,
 				4932CD9D28A4C89E000E7443 /* Preview Assets.xcassets in Resources */,
+				79650C4A28BF77D200D5BFC2 /* support.json in Resources */,
 				4932CD9A28A4C89E000E7443 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,12 +405,13 @@
 				7971A78528B33875007302A1 /* barchartView.swift in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
 				79AB308128ACECA60001C091 /* webView.swift in Sources */,
+				79650C4828BF757900D5BFC2 /* supportView.swift in Sources */,
 				79996AF828AE1C0D000E1FF0 /* Calendar.swift in Sources */,
 				79AB308928ACEE200001C091 /* developerView.swift in Sources */,
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
 				79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */,
-				79FA35B128BDD317002750AE /* ChatListView.swift in Sources */,
+				79FA35B128BDD317002750AE /* TransappListView.swift in Sources */,
 				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
 				79D12BE828B8769F00C06D48 /* gettime.swift in Sources */,
 				7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */,
@@ -569,6 +578,7 @@
 				INFOPLIST_FILE = "M3-UItra-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AI教你做運動";
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Data transfer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -578,7 +588,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.52;
+				MARKETING_VERSION = 1.3.55;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -605,6 +615,7 @@
 				INFOPLIST_FILE = "M3-UItra-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AI教你做運動";
 				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Data transfer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -614,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.52;
+				MARKETING_VERSION = 1.3.55;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -658,14 +669,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		79E78EE328BD4F8600081240 /* Swifter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79E78EE228BD4F8600081240 /* XCRemoteSwiftPackageReference "swifter" */;
-			productName = Swifter;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */ = {

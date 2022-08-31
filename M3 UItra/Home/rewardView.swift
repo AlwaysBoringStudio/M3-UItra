@@ -36,6 +36,7 @@ struct rewardcellView: View {
     var systemname: String
     var name: String
     var color: Color
+    var contenttext = "測試文本"
     @State var buttonpressed = false
     var body: some View {
         Button(action: {
@@ -68,6 +69,9 @@ struct rewardcellView: View {
                     }
                 Text("\(NSLocalizedString("\(name)", comment: "\(name)"))")
                     .font(.title)
+                
+                Text(contenttext)
+                    .font(.title2)
             }
             .padding()
             .onAppear() {

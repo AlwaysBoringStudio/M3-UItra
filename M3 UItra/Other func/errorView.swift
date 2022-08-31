@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct errorView: View {
-    var errorcode = "頁面開發中"
+    var errorcode = ""
     var body: some View {
-        Text("Error: \(errorcode)")
-            .font(.largeTitle)
-            .bold()
-            .foregroundColor(.blue)
-            .padding()
+        HStack {
+            Text("Error:")
+                .font(.largeTitle)
+                .bold()
+                .foregroundColor(.blue)
+            if errorcode == "" {
+                Text("頁面開發中")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.blue)
+            } else {
+                Text("\(errorcode)")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.blue)
+            }
+        }
+        .padding()
     }
 }
 

@@ -50,8 +50,8 @@ struct transappread: View {
         VStack {
             TextEditor(text: $text)
             Button("ok") {
-                loadalldata(str: text)
-                exit(0)
+//                loadalldata(str: text)
+//                exit(0)
             }
         }
     }
