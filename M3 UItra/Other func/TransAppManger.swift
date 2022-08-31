@@ -3,154 +3,144 @@
 import Foundation
 import MultipeerConnectivity
 
-class ChatConnectionManager: NSObject, ObservableObject {
+class RemoteConnectionManager: NSObject, ObservableObject {
   private static let service = "datatrans"
 
-  @Published var messages: [ChatMessage] = []
+  @Published var messages: [RemoteMessage] = []
   @Published var peers: [MCPeerID] = []
-  @Published var connectedToChat = false
+  @Published var connectedToRemote = false
   @Published var isHosting = false
   let myPeerId = MCPeerID(displayName: UIDevice.current.name)
   private var advertiserAssistant: MCNearbyServiceAdvertiser?
   private var session: MCSession?
 
   func send(_ message: String) {
-    let chatMessage = ChatMessage(displayName: myPeerId.displayName, body: message)
-    messages.append(chatMessage)
-    guard
-      let session = session,
-      let data = message.data(using: .utf8),
-      !session.connectedPeers.isEmpty
-    else { return }
+      let RemoteMessage = RemoteMessage(displayName: myPeerId.displayName, body: message)
+      messages.append(RemoteMessage)
+      guard
+        let session = session,
+        let data = message.data(using: .utf8),
+        !session.connectedPeers.isEmpty
+      else { return }
 
-    do {
-      try session.send(data, toPeers: session.connectedPeers, with: .reliable)
-    } catch {
-      print(error.localizedDescription)
-    }
-  }
-
-  func sendHistory(to peer: MCPeerID) {
-    let tempFile = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("messages.data")
-    guard let historyData = try? JSONEncoder().encode(messages) else { return }
-    try? historyData.write(to: tempFile)
-    session?.sendResource(at: tempFile, withName: "Chat_History", toPeer: peer) { error in
-      if let error = error {
-        print(error.localizedDescription)
+      do {
+        try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+      } catch {
+            
       }
-    }
   }
-
   func join() {
-    peers.removeAll()
-    messages.removeAll()
-    session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: .required)
-    session?.delegate = self
-    guard
-      let window = UIApplication.shared.windows.first,
-      let session = session
-    else { return }
+      peers.removeAll()
+      messages.removeAll()
+      session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: .required)
+      session?.delegate = self
+      guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+      }
 
-    let mcBrowserViewController = MCBrowserViewController(serviceType: ChatConnectionManager.service, session: session)
-    mcBrowserViewController.delegate = self
-    window.rootViewController?.present(mcBrowserViewController, animated: true)
+      guard let firstWindow = firstScene.windows.first else {
+            return
+      }
+      guard
+        let session = session
+      else { return }
+
+      let mcBrowserViewController = MCBrowserViewController(serviceType: RemoteConnectionManager.service, session: session)
+      mcBrowserViewController.delegate = self
+      firstWindow.rootViewController?.present(mcBrowserViewController, animated: true)
   }
 
   func host() {
-    isHosting = true
-    peers.removeAll()
-    messages.removeAll()
-    connectedToChat = true
-    session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: .required)
-    session?.delegate = self
-    advertiserAssistant = MCNearbyServiceAdvertiser(
-      peer: myPeerId,
-      discoveryInfo: nil,
-      serviceType: ChatConnectionManager.service)
-    advertiserAssistant?.delegate = self
-    advertiserAssistant?.startAdvertisingPeer()
+      isHosting = true
+      peers.removeAll()
+      messages.removeAll()
+      connectedToRemote = true
+      session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: .required)
+      session?.delegate = self
+      advertiserAssistant = MCNearbyServiceAdvertiser(
+        peer: myPeerId,
+        discoveryInfo: nil,
+        serviceType: RemoteConnectionManager.service)
+      advertiserAssistant?.delegate = self
+      advertiserAssistant?.startAdvertisingPeer()
   }
 
-  func leaveChat() {
-    isHosting = false
-    connectedToChat = false
-    advertiserAssistant?.stopAdvertisingPeer()
-    messages.removeAll()
-    session = nil
-    advertiserAssistant = nil
+  func leaveRemote() {
+      isHosting = false
+      connectedToRemote = false
+      advertiserAssistant?.stopAdvertisingPeer()
+      messages.removeAll()
+      session = nil
+      advertiserAssistant = nil
   }
 }
 
-extension ChatConnectionManager: MCNearbyServiceAdvertiserDelegate {
+extension RemoteConnectionManager: MCNearbyServiceAdvertiserDelegate {
   func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-    invitationHandler(true, session)
+      invitationHandler(true, session)
   }
 }
 
-extension ChatConnectionManager: MCSessionDelegate {
+extension RemoteConnectionManager: MCSessionDelegate {
   func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-    guard let message = String(data: data, encoding: .utf8) else { return }
-    let chatMessage = ChatMessage(displayName: peerID.displayName, body: message)
-    DispatchQueue.main.async {
-      self.messages.append(chatMessage)
-    }
+      guard let message = String(data: data, encoding: .utf8) else { return }
+      let RemoteMessage = RemoteMessage(displayName: peerID.displayName, body: message)
+      DispatchQueue.main.async {
+        self.messages.append(RemoteMessage)
+      }
   }
 
   func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-    switch state {
-    case .connected:
-      if !peers.contains(peerID) {
+      switch state {
+      case .connected:
+        if !peers.contains(peerID) {
+            DispatchQueue.main.async {
+              self.peers.insert(peerID, at: 0)
+            }
+        }
+      case .notConnected:
         DispatchQueue.main.async {
-          self.peers.insert(peerID, at: 0)
+            if let index = self.peers.firstIndex(of: peerID) {
+              self.peers.remove(at: index)
+            }
+            if self.peers.isEmpty && !self.isHosting {
+              self.connectedToRemote = false
+            }
         }
-        if isHosting {
-          sendHistory(to: peerID)
-        }
+      case .connecting:
+        NSLog("\(peerID.displayName)")
+      @unknown default:
+        NSLog("Unknown state: \(state)")
       }
-    case .notConnected:
-      DispatchQueue.main.async {
-        if let index = self.peers.firstIndex(of: peerID) {
-          self.peers.remove(at: index)
-        }
-        if self.peers.isEmpty && !self.isHosting {
-          self.connectedToChat = false
-        }
-      }
-    case .connecting:
-      print("Connecting to: \(peerID.displayName)")
-    @unknown default:
-      print("Unknown state: \(state)")
-    }
   }
 
   func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {}
 
   func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-    print("Receiving chat history")
   }
 
   func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-    guard
-      let localURL = localURL,
-      let data = try? Data(contentsOf: localURL),
-      let messages = try? JSONDecoder().decode([ChatMessage].self, from: data)
-    else { return }
+      guard
+        let localURL = localURL,
+        let data = try? Data(contentsOf: localURL),
+        let messages = try? JSONDecoder().decode([RemoteMessage].self, from: data)
+      else { return }
 
-    DispatchQueue.main.async {
-      self.messages.insert(contentsOf: messages, at: 0)
-    }
+      DispatchQueue.main.async {
+        self.messages.insert(contentsOf: messages, at: 0)
+      }
   }
 }
 
-extension ChatConnectionManager: MCBrowserViewControllerDelegate {
+extension RemoteConnectionManager: MCBrowserViewControllerDelegate {
   func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-    browserViewController.dismiss(animated: true) {
-      self.connectedToChat = true
-    }
+      browserViewController.dismiss(animated: true) {
+        self.connectedToRemote = true
+      }
   }
 
   func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-    session?.disconnect()
-    browserViewController.dismiss(animated: true)
+      session?.disconnect()
+      browserViewController.dismiss(animated: true)
   }
 }

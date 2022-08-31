@@ -1,8 +1,8 @@
 
 import SwiftUI
 
-struct ChatListView: View {
-  @EnvironmentObject var chatConnectionManager: ChatConnectionManager
+struct RemoteListView: View {
+  @EnvironmentObject var remoteConnectionManager: RemoteConnectionManager
 
   var body: some View {
     ZStack {
@@ -10,7 +10,7 @@ struct ChatListView: View {
             Text("正在等待連線")
                 .font(.largeTitle)
             Button("返回") {
-                chatConnectionManager.leaveChat()
+                remoteConnectionManager.leaveRemote()
             }
             .padding()
             ProgressView()
@@ -19,19 +19,19 @@ struct ChatListView: View {
             Group {
                 ScrollViewReader { reader in
                   VStack(alignment: .leading, spacing: 20) {
-                    ForEach(chatConnectionManager.messages) { message in
-                        if chatConnectionManager.isHosting == false {
+                    ForEach(remoteConnectionManager.messages) { message in
+                        if remoteConnectionManager.isHosting == false {
                             MessageBodyView(message: message)
                               .onAppear {
-                                if message == chatConnectionManager.messages.last {
+                                if message == remoteConnectionManager.messages.last {
                                   reader.scrollTo(message.id)
                                 }
-                                  chatConnectionManager.leaveChat()
+                                  remoteConnectionManager.leaveRemote()
                               }
                         } else {
                             MessageBodyView2(message: message)
                               .onAppear {
-                                if message == chatConnectionManager.messages.last {
+                                if message == remoteConnectionManager.messages.last {
                                   reader.scrollTo(message.id)
                                 }
                                   
@@ -85,13 +85,13 @@ extension getLocalNetworkAccessState : NetServiceDelegate {
     }
     
     func netService(_ sender: NetService, didNotPublish errorDict: [String : NSNumber]) {
-        print("Error: \(errorDict)")
+        NSLog("Error: \(errorDict)")
     }
 }
 
 
 struct MessageBodyView: View {
-    let message: ChatMessage
+    let message: RemoteMessage
     let defaults = UserDefaults.standard
 
       var body: some View {
@@ -104,7 +104,7 @@ struct MessageBodyView: View {
 }
 
 struct MessageBodyView2: View {
-    let message: ChatMessage
+    let message: RemoteMessage
     let defaults = UserDefaults.standard
     @State var quit = false
       var body: some View {
@@ -140,8 +140,8 @@ struct MessageBodyView2: View {
         defaults.set(true, forKey: "transapp")
     }
 }
-struct ChatView: View {
-    @EnvironmentObject var chatConnectionManager: ChatConnectionManager
+struct RemoteView: View {
+    @EnvironmentObject var remoteConnectionManager: RemoteConnectionManager
     
     let defaults = UserDefaults.standard
     @State var alldatakey = ["ismoved"]
@@ -149,8 +149,8 @@ struct ChatView: View {
 
   var body: some View {
     VStack {
-      ChatListView()
-        .environmentObject(chatConnectionManager)
+      RemoteListView()
+        .environmentObject(remoteConnectionManager)
       messageField
             .opacity(0)
     }
@@ -161,13 +161,13 @@ struct ChatView: View {
     VStack(spacing: 0) {
         Text("loading")
       .onAppear() {
-          if chatConnectionManager.isHosting == true {
+          if remoteConnectionManager.isHosting == true {
               
           } else {
               savealldata()
               let all = ["\(alldatakey.joined(separator: "-key-"))", "\(alldatastring.joined(separator: "-string-"))"]
-              chatConnectionManager.send("\(all.joined(separator: "-all-"))")
-              print("\(all.joined(separator: "-all-"))")
+              remoteConnectionManager.send("\(all.joined(separator: "-all-"))")
+              NSLog("\(all.joined(separator: "-all-"))")
           }
           
       }
@@ -208,13 +208,13 @@ struct ChatView: View {
 
 
 struct JoinSessionView: View {
-  @ObservedObject private var chatConnectionManager = ChatConnectionManager()
+  @ObservedObject private var remoteConnectionManager = RemoteConnectionManager()
 
   var body: some View {
     VStack(spacing: 24) {
       Button(
         action: {
-          chatConnectionManager.join()
+          remoteConnectionManager.join()
         }, label: {
           Rectangle()
             .frame(width: 350, height: 50)
@@ -227,7 +227,7 @@ struct JoinSessionView: View {
       
       Button(
         action: {
-          chatConnectionManager.host()
+          remoteConnectionManager.host()
         }, label: {
           Rectangle()
             .frame(width: 350, height: 50)
@@ -238,16 +238,16 @@ struct JoinSessionView: View {
             }
         })
       NavigationLink(
-        destination: ChatView()
-          .environmentObject(chatConnectionManager),
-        isActive: $chatConnectionManager.connectedToChat) {
+        destination: RemoteView()
+          .environmentObject(remoteConnectionManager),
+        isActive: $remoteConnectionManager.connectedToRemote) {
           EmptyView()
       }
     }
   }
 }
 
-struct ChatMessage: Identifiable, Equatable, Codable {
+struct RemoteMessage: Identifiable, Equatable, Codable {
   var id = UUID()
   let displayName: String
   let body: String

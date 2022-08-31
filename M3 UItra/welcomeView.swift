@@ -13,7 +13,7 @@ struct welcomeView: View {
     let defaults = UserDefaults.standard
     @Binding var showWelcomeScreen: Bool
     @State var isOnline = false
-    @ObservedObject private var chatConnectionManager = ChatConnectionManager()
+    @ObservedObject private var remoteConnectionManager = RemoteConnectionManager()
     var body: some View {
         NavigationView {
             VStack {
@@ -35,7 +35,7 @@ struct welcomeView: View {
                 if transapp == false {
                     Button(
                       action: {
-                        chatConnectionManager.host()
+                        remoteConnectionManager.host()
                       }, label: {
                         Rectangle()
                           .frame(width: 350, height: 50)
@@ -47,9 +47,9 @@ struct welcomeView: View {
                       })
                 }
                 NavigationLink(
-                  destination: ChatView()
-                    .environmentObject(chatConnectionManager),
-                  isActive: $chatConnectionManager.connectedToChat) {
+                  destination: RemoteView()
+                    .environmentObject(remoteConnectionManager),
+                  isActive: $remoteConnectionManager.connectedToRemote) {
                     EmptyView()
                 }
                 .padding(.leading)
