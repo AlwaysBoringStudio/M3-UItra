@@ -90,12 +90,12 @@ struct aiView: View {
     var body: some View {
         VStack {
             ZStack {
-                barView
                 GeometryReader { geo in
                     CameraViewWrapper(poseEstimator: poseEstimator)
                     StickFigureView(poseEstimator: poseEstimator, size: geo.size)
                     
                 }
+                barView
             }
             
             if debugapp == true {
