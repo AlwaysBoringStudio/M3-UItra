@@ -108,10 +108,10 @@ struct settingsView: View {
                     
                 }
                 Section {
-                    NavigationLink(destination: supportView().navigationBarTitle("支持")) {
+                    NavigationLink(destination: supportView().navigationBarTitle("支援")) {
                         HStack {
                             Image(systemName: "questionmark.circle")
-                            Text("支持")
+                            Text("支援")
                             Spacer()
                         }
                     }

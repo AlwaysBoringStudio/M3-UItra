@@ -1,4 +1,9 @@
-
+//
+//  TransAppManger.swift
+//  AI教你做運動
+//
+//  Created by HingTatTsang on 30/8/2022.
+//
 
 import Foundation
 import MultipeerConnectivity

@@ -31,6 +31,7 @@
 		796AC94728BDEA8F0014BBE3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AC94628BDEA8F0014BBE3 /* NetworkExtension.framework */; };
 		7971A78528B33875007302A1 /* barchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78428B33875007302A1 /* barchartView.swift */; };
 		7971A78728B3460B007302A1 /* calchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78628B3460B007302A1 /* calchartView.swift */; };
+		79722B4828C0D1D900CC5265 /* decode utf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79722B4728C0D1D900CC5265 /* decode utf8.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
@@ -101,6 +102,7 @@
 		796AC94628BDEA8F0014BBE3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		7971A78428B33875007302A1 /* barchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barchartView.swift; sourceTree = "<group>"; };
 		7971A78628B3460B007302A1 /* calchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calchartView.swift; sourceTree = "<group>"; };
+		79722B4728C0D1D900CC5265 /* decode utf8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "decode utf8.swift"; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				79FA35AE28BDD317002750AE /* TransAppManger.swift */,
 				79FA35AF28BDD317002750AE /* TransappListView.swift */,
 				79650C4728BF757900D5BFC2 /* supportView.swift */,
+				79722B4728C0D1D900CC5265 /* decode utf8.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				79996AF828AE1C0D000E1FF0 /* Calendar.swift in Sources */,
 				79AB308928ACEE200001C091 /* developerView.swift in Sources */,
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
+				79722B4828C0D1D900CC5265 /* decode utf8.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
 				79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */,
 				79FA35B128BDD317002750AE /* TransappListView.swift in Sources */,

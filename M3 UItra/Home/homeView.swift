@@ -204,7 +204,7 @@ struct homeView: View {
         return numberFloatValue
     }
 
-    func printnow(message: String){
+    func printnow(message: String) {
         let today = Date()
         let hours   = (Calendar.current.component(.hour, from: today))
         let minutes = (Calendar.current.component(.minute, from: today))

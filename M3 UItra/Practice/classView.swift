@@ -13,52 +13,53 @@ struct classView: View {
     @State var text = String("")
     @State var view1 = false
     @State var lesson = false
+    @State var point = 0
     var body: some View {
         // MARK: 連接課堂
         Group {
             if lesson == true {
+                VStack {
+                    Rectangle()
+                        .frame(width: 340, height: 70)
+                        .foregroundColor(.green)
+                        .cornerRadius(15)
+                        .padding()
+                        .overlay() {
+                            VStack {
+                                Spacer()
+                                Text("荔景天主教中學")
+                                    .foregroundColor(.black)
+                                    .font(.largeTitle)
+                                    .bold()
+                                Spacer()
+                            }
+                        }
+                }
                 Button(action: {
                     view1 = true
                 }) {
-                    VStack {
-                        Rectangle()
-                            .frame(width: 340, height: 70)
-                            .foregroundColor(.green)
-                            .cornerRadius(15)
-                            .padding()
-                            .overlay() {
+                    Image("push")
+                        .resizable()
+                        .frame(width: 340, height: 240)
+                        .foregroundColor(.pink)
+                        .cornerRadius(15)
+                        .padding()
+                        .overlay() {
+                            ZStack {
                                 VStack {
                                     Spacer()
-                                    Text("荔景天主教中學")
-                                        .foregroundColor(.black)
-                                        .font(.largeTitle)
-                                        .bold()
-                                    Spacer()
-                                }
-                            }
-                        Image("push")
-                            .resizable()
-                            .frame(width: 340, height: 240)
-                            .foregroundColor(.pink)
-                            .cornerRadius(15)
-                            .padding()
-                            .overlay() {
-                                ZStack {
-                                    VStack {
+                                    HStack {
+                                        Text("掌上壓")
+                                            .foregroundColor(.white)
+                                            .font(.title)
+                                            .bold()
+                                            .padding(25)
                                         Spacer()
-                                        HStack {
-                                            Text("掌上壓")
-                                                .foregroundColor(.white)
-                                                .font(.title)
-                                                .bold()
-                                                .padding(25)
-                                            Spacer()
-                                        }
                                     }
-                                    
                                 }
+                                
                             }
-                    }
+                        }
                 }
             } else {
                 Rectangle()
@@ -105,7 +106,7 @@ struct classView: View {
         }
         .fullScreenCover(isPresented: $view1) {
             NavigationView {
-                aiView()
+                aiView(fullpoint: 20)
                     .navigationTitle("掌上壓")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar() {

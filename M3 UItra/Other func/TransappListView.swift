@@ -1,3 +1,9 @@
+//
+//  TransappListView.swift
+//  AI教你做運動
+//
+//  Created by HingTatTsang on 30/8/2022.
+//
 
 import SwiftUI
 
@@ -218,10 +224,11 @@ struct JoinSessionView: View {
         }, label: {
           Rectangle()
             .frame(width: 350, height: 50)
-            .foregroundColor(.green)
+            .foregroundColor(.blue)
             .cornerRadius(25)
             .overlay() {
               Label("轉移數據到另一部裝置", systemImage: "square.and.arrow.up.fill")
+                    .foregroundColor(.black)
             }
         })
       
@@ -231,10 +238,11 @@ struct JoinSessionView: View {
         }, label: {
           Rectangle()
             .frame(width: 350, height: 50)
-            .foregroundColor(.green)
+            .foregroundColor(.blue)
             .cornerRadius(25)
             .overlay() {
               Label("轉移數據到此裝置", systemImage: "square.and.arrow.down.fill")
+                    .foregroundColor(.black)
             }
         })
       NavigationLink(

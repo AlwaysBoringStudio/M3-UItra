@@ -10,7 +10,7 @@ import UIKit
 
 
 struct aiView: View {
-    
+    @State var debugapp = false
     private let rotationChangePublisher = NotificationCenter.default
             .publisher(for: UIDevice.orientationDidChangeNotification)
     
@@ -19,6 +19,10 @@ struct aiView: View {
     @StateObject var poseEstimator = PoseEstimator()
     
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
+    
+    @State var point = 0
+    @State var fullpoint: Int
+    @State var done = false
   
     @State var x11 = CGFloat(0)
     @State var y11 = CGFloat(0)
@@ -57,11 +61,36 @@ struct aiView: View {
     @State var slope7 = Double(0)
     @State var slope8 = Double(0)
     //let the var of formula angle
+    var barView: some View {
+        VStack {
+            Spacer()
+            VStack {
+                Spacer()
+                Rectangle()
+                    .foregroundColor(Color(red: 0, green: 60/255, blue: 0))
+                    .frame(width: 360, height: 120)
+                    .cornerRadius(30)
+                    .padding()
+                    .overlay() {
+                        if done != true {
+                            Text("Point: \(point)")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                        } else {
+                            Text("Done")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                        }
+                    }
+            }
+            
+        }
+    }
     
     var body: some View {
         VStack {
             ZStack {
-                
+                barView
                 GeometryReader { geo in
                     CameraViewWrapper(poseEstimator: poseEstimator)
                     StickFigureView(poseEstimator: poseEstimator, size: geo.size)
@@ -69,46 +98,26 @@ struct aiView: View {
                 }
             }
             
-            HStack {
-                VStack {
-                    if poseEstimator.rightKneeconfidence != nil {
-                      //   let rightKneeconfidenceString: String = String(format: "%.1f", poseEstimator.rightKneeconfidence!)
-                      //   let leftKneeconfidenceString: String = String(format: "%.1f", poseEstimator.leftKneeconfidence!)
-                      //   let rightHipconfidenceString: String = String(format: "%.1f", poseEstimator.rightHipconfidence!)
-//                         let rightAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.rightAnkleconfidence!)
-//                         let leftAnkleconfidenceString: String = String(format: "%.1f", poseEstimator.leftAnkleconfidence!)
-                         
-                         
-                         //Text("rightKneeconfidence:\(rightKneeconfidenceString)").font(.title)
-                         //Text("leftKneeconfidence:\(leftKneeconfidenceString)").font(.title)
-                        // Text("rightHipconfidence:\(rightHipconfidenceString)").font(.title)
-                        // Text("rightAnkleconfidence:\(rightAnkleconfidenceString)").font(.title)
-                        // Text("leftAnkleconfidence:\(leftAnkleconfidenceString)").font(.title)
-                        
-//                        let qx1 = poseEstimator.rightAnkle.x
-//                        let qy1 = poseEstimator.rightAnkle.y
-//                        let qx2 = poseEstimator.rightKnee.x
-//                        let qy2 = poseEstimator.rightKnee.y
-//                        let qx3 = poseEstimator.rightHip.x
-//                        let qy3 = poseEstimator.rightHip.y
-                        
-                        //Text("\(qx1), \(qx2), \(qx3), \(qy1), \(qy2), \(qy3)")
-                        //    .font(.largeTitle)
-                        
-                        Text("左腳角度\(poseEstimator.angleOfRightLeg)").font(.largeTitle)
-                        Text("右腳角度\(poseEstimator.angleOfLeftLeg)").font(.largeTitle)
-                        Text("右手角度\(poseEstimator.angleOfRArm)").font(.largeTitle)
-                        Text("左手角度\(poseEstimator.angleOfLArm)").font(.largeTitle)
-                         
-                     } else {
-                         Text("左腳角度\(" nil")").font(.largeTitle)
-                         Text("右腳角度\(" nil")").font(.largeTitle)
-                         Text("右手角度\(" nil")").font(.largeTitle)
-                         Text("左手角度\(" nil")").font(.largeTitle)
-                         
-                         
-                         
-                     }
+            if debugapp == true {
+                HStack {
+                    VStack {
+                        if poseEstimator.rightKneeconfidence != nil {
+                            Text("左腳角度\(poseEstimator.angleOfRightLeg)").font(.largeTitle)
+                            Text("右腳角度\(poseEstimator.angleOfLeftLeg)").font(.largeTitle)
+                            Text("右手角度\(poseEstimator.angleOfRArm)").font(.largeTitle)
+                            Text("左手角度\(poseEstimator.angleOfLArm)").font(.largeTitle)
+                             
+                         } else {
+                             Text("左腳角度\(" nil")").font(.largeTitle)
+                             Text("右腳角度\(" nil")").font(.largeTitle)
+                             Text("右手角度\(" nil")").font(.largeTitle)
+                             Text("左手角度\(" nil")").font(.largeTitle)
+                             
+                         }
+                        Button("ADD POINT") {
+                            addpoint()
+                        }
+                    }
                 }
             }
             
@@ -214,8 +223,17 @@ struct aiView: View {
     }
     
     func changeOrientation(to orientation: UIInterfaceOrientation) {
-            UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
+        UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
+    }
+    func addpoint() -> Void {
+        point = point+1
+        if point >= fullpoint {
+            donepoint()
         }
+    }
+    func donepoint() -> Void {
+        done = true
+    }
 }
 
 
@@ -223,7 +241,7 @@ struct aiView: View {
 
 struct calendar_Previews: PreviewProvider {
     static var previews: some View {
-        aiView()
+        aiView(fullpoint: 20)
         
     }
 }

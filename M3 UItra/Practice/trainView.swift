@@ -11,6 +11,7 @@ struct trainView: View {
     @State var view1 = false
     @State var view2 = false
     @State var view3 = false
+    @State var view4 = false
     var body: some View {
         // MARK: 可選項目 Button
         Button(action: {
@@ -96,10 +97,37 @@ struct trainView: View {
                     }
                 }
         }
+        // MARK: Debug Button
+        Button(action: {
+            view4 = true
+        }) {
+            Image("swift")
+                .resizable()
+                .frame(width: 340, height: 240)
+                .foregroundColor(.pink)
+                .cornerRadius(15)
+                .padding()
+                .overlay() {
+                    ZStack {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Text("Debug")
+                                    .foregroundColor(.white)
+                                    .font(.title)
+                                    .bold()
+                                    .padding(25)
+                                Spacer()
+                            }
+                        }
+                        
+                    }
+                }
+        }
         // MARK: Action after tapped 掌上壓 Button
         .fullScreenCover(isPresented: $view1) {
             NavigationView {
-                aiView()
+                aiView(fullpoint: 20)
                     .navigationTitle("掌上壓")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar() {
@@ -117,7 +145,7 @@ struct trainView: View {
         // MARK: Action after tapped 仰臥起坐 Button
         .fullScreenCover(isPresented: $view2) {
             NavigationView {
-                aiView()
+                aiView(fullpoint: 20)
                     .navigationTitle("仰臥起坐")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar() {
@@ -125,6 +153,25 @@ struct trainView: View {
                             HStack {
                                 Button(action: {
                                     view2 = false
+                                }, label: {
+                                    Text("退出")
+                                })
+                            }
+                        }
+                    }
+            }
+        }
+        // MARK: Action after tapped Debug Button
+        .fullScreenCover(isPresented: $view4) {
+            NavigationView {
+                aiView(debugapp: true, fullpoint: 20)
+                    .navigationTitle("Debug")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar() {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            HStack {
+                                Button(action: {
+                                    view4 = false
                                 }, label: {
                                     Text("退出")
                                 })

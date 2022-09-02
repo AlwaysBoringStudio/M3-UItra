@@ -216,13 +216,6 @@ struct developerView: View {
         let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
         return nextDay
     }
-    func testdata(datatoday: Date, datacal: Int) -> Void {
-        let today = datatoday
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM/yyyy"
-        let datedatanow = "\(formatter1.string(from: today))"
-        defaults.set(datacal, forKey: "\(datedatanow)datacal")
-    }
     func otherdata(datatoday: Date, datainfo: String, datastring: String) -> Void {
         let today = datatoday
         let formatter1 = DateFormatter()

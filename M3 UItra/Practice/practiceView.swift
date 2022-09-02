@@ -14,7 +14,7 @@ struct practiceView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     if view == true {
                         trainView()
                     } else {
