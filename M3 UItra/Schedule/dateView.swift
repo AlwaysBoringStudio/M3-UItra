@@ -47,10 +47,104 @@ struct dateView: View {
     @State var calmem = ""
     
     @State var today = false
+    @State var home = false
     
     var body: some View {
         VStack {
-            if today == true {
+            if home == true {
+                ZStack {
+                    HStack {
+                        VStack {
+                            Button(action: {
+                                popover = true
+                            }, label: {
+                                Rectangle()
+                                    .cornerRadius(25)
+                                    .foregroundColor(.yellow)
+                                    .opacity(0.7)
+                                    .frame(height: 140)
+                                    .overlay() {
+                                        HStack {
+                                            ZStack {
+                                                VStack {
+                                                    Spacer()
+                                                    HStack {
+                                                        Text("\(fullyear)年 \(getdayofweeknow())")
+                                                            .foregroundColor(.black)
+                                                            .padding(.horizontal)
+                                                    }
+                                                    Text("\(month)月\(date)日 ")
+                                                        .font(.title)
+                                                        .bold()
+                                                        .foregroundColor(.black)
+                                                    Spacer()
+
+
+                                                }
+                                                .frame(width: 173.5)
+                                            }
+                                            VStack {
+                                                if isnil() == true {
+                                                    HStack {
+                                                        Text("未編排任何活動")
+                                                            .bold()
+                                                            .foregroundColor(.black)
+                                                        
+                                                    }
+                                                }
+                                                if item1 != "" {
+                                                    HStack {
+                                                        Text(" · \(item1)")
+                                                            .bold()
+                                                            .foregroundColor(.black)
+                                                        Spacer()
+                                                        
+                                                    }
+                                                }
+                                                if item2 != "" {
+                                                    HStack {
+                                                        Text(" · \(item2)")
+                                                            .bold()
+                                                            .foregroundColor(.black)
+                                                        Spacer()
+                                                        
+                                                    }
+                                                }
+                                                if item3 != "" {
+                                                    HStack {
+                                                        Text(" · \(item3)")
+                                                            .bold()
+                                                            .foregroundColor(.black)
+                                                        Spacer()
+                                                        
+                                                    }
+                                                }
+                                                if item4 != "" {
+                                                    HStack {
+                                                        Text(" · \(item4)")
+                                                            .bold()
+                                                            .foregroundColor(.black)
+                                                        Spacer()
+                                                        
+                                                    }
+                                                }
+                                                
+                                            }
+                                            .frame(width: 173.5)
+                                        }
+
+                                    }
+                                    .cornerRadius(25)
+                                
+                            })
+                        }
+                    
+                    }
+                    .background(.white)
+                    .cornerRadius(25)
+                    .padding()
+                }
+            } else if today == true {
                 HStack {
                     VStack {
                         Spacer()
@@ -136,7 +230,6 @@ struct dateView: View {
                     }
                 
                 }
-                
             } else {
                 if holiday == true {
                     Rectangle()

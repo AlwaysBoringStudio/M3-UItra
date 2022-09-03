@@ -357,7 +357,6 @@
 			);
 			mainGroup = 4932CD8928A4C89D000E7443;
 			packageReferences = (
-				79E78EE228BD4F8600081240 /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			productRefGroup = 4932CD9328A4C89D000E7443 /* Products */;
 			projectDirPath = "";
@@ -662,17 +661,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		79E78EE228BD4F8600081240 /* XCRemoteSwiftPackageReference "swifter" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/httpswift/swifter";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */ = {

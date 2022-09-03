@@ -12,6 +12,7 @@ struct todayView: View {
     var year: String
     var month: String
     var istoday = false
+    @State var home = false
     @State var refresh = false
     var body: some View {
         // MARK: Today
@@ -20,7 +21,7 @@ struct todayView: View {
                 if refresh == true {
                     refreshhelper(refresh: $refresh)
                 } else {
-                    dateView(date: getday(), month: getmonth(), fullyear: getyear(), today: true)
+                    dateView(date: getday(), month: getmonth(), fullyear: getyear(), today: true, home: home)
                     
                 }
             }
