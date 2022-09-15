@@ -17,6 +17,7 @@ struct welcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Text("歡迎使用")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -53,7 +54,6 @@ struct welcomeView: View {
                     EmptyView()
                 }
                 .padding(.leading)
-                Spacer()
                 Spacer()
                 Button(action: {
                     defaults.set(UIApplication.appVersion ?? "", forKey: "firstopen")

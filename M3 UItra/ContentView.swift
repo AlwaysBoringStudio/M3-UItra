@@ -13,9 +13,10 @@ struct ContentView: View {
     let defaults = UserDefaults.standard
     @State var welcome = false
     @State var refresh = false
+    @State private var selection = 1
     var body: some View {
         ZStack {
-            TabView {
+            TabView(selection: $selection) {
                 Group {
                     if refresh == true {
                         refreshhelper(refresh: $refresh)
@@ -26,23 +27,30 @@ struct ContentView: View {
                     .tabItem {
                         Label("主頁", systemImage: "house")
                     }
+                    .tag(1)
                 practiceView()
                     .tabItem {
                         Label("訓練", systemImage: "figure.walk")
                     }
+                    .tag(2)
                 scheduleView(refresh: $refresh)
                     .tabItem {
                         Label("日程表", systemImage: "calendar")
                     }
+                    .tag(3)
                 settingsView(refresh: $refresh)
                     .tabItem {
                         Label("設定", systemImage: "command.circle")
                     }
+                    .tag(4)
                 
             }
         }
         .sheet(isPresented: $welcome) {
             welcomeView(showWelcomeScreen: $welcome)
+        }
+        .refreshable {
+            refresh = true
         }
         
         .onAppear() {
@@ -50,7 +58,6 @@ struct ContentView: View {
             if hi != UIApplication.appVersion ?? "" {
                 welcome = true
             }
-            
             
         }
 

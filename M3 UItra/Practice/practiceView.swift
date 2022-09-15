@@ -23,66 +23,82 @@ struct practiceView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
             }
-            VStack {
-                // MARK: 訓練 Button
-                HStack {
-                    if view == true {
-                        Rectangle()
-                            .frame(width: size, height: 35)
-                            .foregroundColor(.blue)
-                            .cornerRadius(25)
-                            .overlay() {
-                                Text("訓練")
-                                    .bold()
-                            }
-                            .onTapGesture {
-                                view = true
-                            }
-                    } else {
-                        Rectangle()
-                            .frame(width: size, height: 35)
-                            .foregroundColor(.gray)
-                            .cornerRadius(25)
-                            .overlay() {
-                                Text("訓練")
-                            }
-                            .onTapGesture {
-                                view = true
-                            }
+            ZStack {
+                VStack {
+                    Color.white
+                        .frame(height: 110)
+                        .opacity(0.9)
+                        .ignoresSafeArea(.all)
+                    Spacer()
+                }
+                VStack {
+                    Color.gray
+                        .frame(height: 110)
+                        .opacity(0.5)
+                        .ignoresSafeArea(.all)
+                    Spacer()
+                }
+                VStack {
+                    // MARK: 訓練 Button
+                    HStack {
+                        if view == true {
+                            Rectangle()
+                                .frame(width: size, height: 35)
+                                .foregroundColor(.blue)
+                                .cornerRadius(25)
+                                .overlay() {
+                                    Text("訓練")
+                                        .bold()
+                                }
+                                .onTapGesture {
+                                    view = true
+                                }
+                        } else {
+                            Rectangle()
+                                .frame(width: size, height: 35)
+                                .foregroundColor(.gray)
+                                .cornerRadius(25)
+                                .overlay() {
+                                    Text("訓練")
+                                }
+                                .onTapGesture {
+                                    view = true
+                                }
+                        }
+                        Spacer()
+                        // MARK: 課程 Button
+                        if view == true {
+                            Rectangle()
+                                .frame(width: size, height: 35)
+                                .foregroundColor(.gray)
+                                .cornerRadius(25)
+                                .overlay() {
+                                    Text("課程")
+                                        
+                                }
+                                .onTapGesture {
+                                    view = false
+                                }
+                        } else {
+                            Rectangle()
+                                .frame(width: size, height: 35)
+                                .foregroundColor(.blue)
+                                .cornerRadius(25)
+                                .overlay() {
+                                    Text("課程")
+                                        .bold()
+                                }
+                                .onTapGesture {
+                                    view = false
+                                }
+                        }
+                        
+                        
                     }
                     Spacer()
-                    // MARK: 課程 Button
-                    if view == true {
-                        Rectangle()
-                            .frame(width: size, height: 35)
-                            .foregroundColor(.gray)
-                            .cornerRadius(25)
-                            .overlay() {
-                                Text("課程")
-                                    
-                            }
-                            .onTapGesture {
-                                view = false
-                            }
-                    } else {
-                        Rectangle()
-                            .frame(width: size, height: 35)
-                            .foregroundColor(.blue)
-                            .cornerRadius(25)
-                            .overlay() {
-                                Text("課程")
-                                    .bold()
-                            }
-                            .onTapGesture {
-                                view = false
-                            }
-                    }
-                    
-                    
                 }
-                Spacer()
+                .frame(width: 340)
             }
-            .frame(width: 340)
                 
             
         }

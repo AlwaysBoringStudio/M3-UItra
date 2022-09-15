@@ -14,6 +14,8 @@ struct trainView: View {
     @State var view4 = false
     var body: some View {
         // MARK: 可選項目 Button
+        Spacer()
+            .frame(height: 50)
         Button(action: {
             view3 = true
         }) {

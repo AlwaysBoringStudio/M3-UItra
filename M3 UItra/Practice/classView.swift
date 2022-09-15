@@ -15,6 +15,8 @@ struct classView: View {
     @State var lesson = false
     @State var point = 0
     var body: some View {
+        Spacer()
+            .frame(height: 50)
         // MARK: 連接課堂
         Group {
             if lesson == true {

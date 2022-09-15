@@ -33,33 +33,8 @@ struct homeView: View {
                             if reward != 0 {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack {
-                                        if reward == 1 {
-                                            rewardView(number: 1)
-                                        } else if reward == 2 {
-                                            rewardView(number: 1)
-                                            rewardView(number: 2)
-                                        } else if reward == 3 {
-                                            rewardView(number: 1)
-                                            rewardView(number: 2)
-                                            rewardView(number: 3)
-                                        } else if reward == 4 {
-                                            rewardView(number: 1)
-                                            rewardView(number: 2)
-                                            rewardView(number: 3)
-                                            rewardView(number: 4)
-                                        } else if reward == 5 {
-                                            rewardView(number: 1)
-                                            rewardView(number: 2)
-                                            rewardView(number: 3)
-                                            rewardView(number: 4)
-                                            rewardView(number: 5)
-                                        } else if reward == 6 {
-                                            rewardView(number: 1)
-                                            rewardView(number: 2)
-                                            rewardView(number: 3)
-                                            rewardView(number: 4)
-                                            rewardView(number: 5)
-                                            rewardView(number: 6)
+                                        ForEach((1...reward), id: \.self) { i in
+                                            rewardView(number: i)
                                         }
                                     }
                                 }

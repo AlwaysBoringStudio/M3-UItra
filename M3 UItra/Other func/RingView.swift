@@ -37,6 +37,7 @@ struct RingView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation(self.animation) {
                             self.currentPercentage = self.percentage
+                            lognow(message: "RingShape Apper in")
                         }
                     }
                     
@@ -49,6 +50,7 @@ struct RingView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation(self.animation) {
                             self.currentPercentage = self.percentage
+                            lognow(message: "RingTipShape Apper in")
                         }
                     }
                 }

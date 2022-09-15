@@ -64,14 +64,30 @@ struct backgroundView: View {
     var body: some View {
         Text("")
             .onAppear() {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                        //done
-                    } else if error != nil {
-                        //error
-                    }
-                }
+                aythorizeNotifications()
+//                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+//                    if success {
+//                        //done
+//                    } else if error != nil {
+//                        //error
+//                    }
+//                }
             }
+    }
+    func aythorizeNotifications() -> Void {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) {_, _ in
+            
+            
+        }
+    }
+    
+    
+}
+
+extension Data {
+    var hexString: String {
+        let hexString = map { String(format: "%02.2hhx", $0) }.joined()
+        return hexString
     }
 }
 

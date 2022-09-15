@@ -9,25 +9,13 @@ import SwiftUI
 
 struct rewardView: View {
     var number = 1
+    let name = ["生命於心跳", "鐵肺", "步行者", "烈火戰士", "瘋狂心臟", "摘星者"]
+    let systemname = ["heart", "lungs", "figure.walk", "flame.fill", "bolt.heart.fill", "star"]
+    let color = [Color.pink, Color.green, Color.yellow, Color.blue, Color.green, Color.pink]
     var body: some View {
         // MARK: 偵測獎勵等級
-        switch number {
-        case 1:
-            rewardcellView(systemname: "heart", name: "生命於心跳", color: .pink)
-        case 2:
-            rewardcellView(systemname: "lungs", name: "鐵肺", color: .green)
-        case 3:
-            rewardcellView(systemname: "figure.walk", name: "步行者", color: .yellow)
-        case 4:
-            rewardcellView(systemname: "flame.fill", name: "烈火戰士", color: .blue)
-        case 5:
-            rewardcellView(systemname: "bolt.heart.fill", name: "瘋狂心臟", color: .green)
-        case 6:
-            rewardcellView(systemname: "star", name: "摘星者",color: .pink)
-        default:
-            errorView(errorcode: "No reward no data.")
-                .frame(width: 120, height: 120)
-        }
+        rewardcellView(systemname: systemname[number-1], name: name[number-1], color: color[number-1])
+        
     }
 }
 
@@ -93,6 +81,8 @@ struct rewardcellView: View {
         
     }
 }
+
+
 
 struct rewardView_Previews: PreviewProvider {
     static var previews: some View {
