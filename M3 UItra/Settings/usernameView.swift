@@ -37,7 +37,7 @@ struct usernameView: View {
             defaults.set(username, forKey: "username")
             defaults.set(showwelcome, forKey: "showwelcome")
             refresh = true
-            
+
         }
         .onAppear() {
             showwelcome = defaults.bool(forKey: "showwelcome")

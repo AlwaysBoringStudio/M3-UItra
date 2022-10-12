@@ -14,29 +14,63 @@ struct practiceView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                ScrollView(showsIndicators: false) {
-                    if view == true {
-                        trainView()
-                    } else {
+                if view == true {
+                    trainView()
+                        .navigationBarTitleDisplayMode(.inline)
+                } else {
+                    ScrollView(showsIndicators: false) {
                         classView()
+                            .navigationBarTitleDisplayMode(.inline)
                     }
+                    
                 }
-                .navigationBarTitleDisplayMode(.inline)
+                
             }
             ZStack {
-                VStack {
-                    Color.white
-                        .frame(height: 110)
-                        .opacity(0.9)
-                        .ignoresSafeArea(.all)
-                    Spacer()
-                }
-                VStack {
-                    Color.gray
-                        .frame(height: 110)
-                        .opacity(0.5)
-                        .ignoresSafeArea(.all)
-                    Spacer()
+                if UIDevice.isIPhone == true {
+                    if UIDevice.current.hasNotch {
+                        VStack {
+                            Color.white
+                                .frame(height: 110)
+                                .opacity(0.9)
+                                .ignoresSafeArea(.all)
+                            Spacer()
+                        }
+                        VStack {
+                            Color.gray
+                                .frame(height: 110)
+                                .opacity(0.5).ignoresSafeArea(.all)
+                            Spacer()
+                        }
+                    } else {
+                        VStack {
+                            Color.white
+                                .frame(height: 65)
+                                .opacity(0.9)
+                                .ignoresSafeArea(.all)
+                            Spacer()
+                        }
+                        VStack {
+                            Color.gray
+                                .frame(height: 65)
+                                .opacity(0.5).ignoresSafeArea(.all)
+                            Spacer()
+                        }
+                    }
+                } else {
+                    VStack {
+                        Color.white
+                            .frame(height: 65)
+                            .opacity(0.9)
+                            .ignoresSafeArea(.all)
+                        Spacer()
+                    }
+                    VStack {
+                        Color.gray
+                            .frame(height: 65)
+                            .opacity(0.5).ignoresSafeArea(.all)
+                        Spacer()
+                    }
                 }
                 VStack {
                     // MARK: 訓練 Button
@@ -103,8 +137,25 @@ struct practiceView: View {
             
         }
         .navigationViewStyle(.stack)
+        #if DEBUG
+        .onAppear() {
+            notify()
+        }
+        #endif
         
     }
+    #if DEBUG
+    func notify() -> Void {
+        let content = UNMutableNotificationContent()
+        content.title = "DEBUG"
+        content.body = "Debug mode turned on."
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+
+        NSLog("All set!")
+    }
+    #endif
 }
 
 
@@ -114,4 +165,28 @@ struct practiceView_Preview: PreviewProvider {
         practiceView()
     }
 }
+
+
+
+extension UIDevice {
+    var hasNotch: Bool {
+        let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+        let bottom = keyWindow?.safeAreaInsets.bottom ?? 0
+        return bottom > 0
+    }
+    static var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    static var isIPhone: Bool {
+        UIDevice.current.userInterfaceIdiom == .phone
+    }
+}
+
+
 

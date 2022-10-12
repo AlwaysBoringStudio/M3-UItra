@@ -23,7 +23,7 @@
 "連接" = "Connect";
 "課程" = "Courses";
 "可選項目" = "Optional items";
-"仰臥起坐" = "Sit-ups";
+"仰臥起坐" = "Sit-up";
 "退出" = "Exit";
 "頁面開發中" = "Page development in progress";
 "星期日" = "Sunday";
@@ -94,3 +94,4 @@
 "轉移數據到此裝置" = "Transfer data to this device";
 "正在等待連線" = "Waiting for connection";
 "支援" = "Support";
+"請求發送測試訊息" = "Request to send a test message";

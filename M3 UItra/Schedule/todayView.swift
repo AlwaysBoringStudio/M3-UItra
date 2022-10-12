@@ -53,30 +53,8 @@ struct todayView: View {
 
                         }
                 }
-//                    Rectangle()
-//                        .foregroundColor(.blue)
-//                        .opacity(0.5)
-//                        .frame(width: 90, height: 100)
-//                        .overlay() {
-//                            VStack {
-//                                HStack {
-//                                    Text("是日課程")
-//                                        .font(.title3)
-//                                        .foregroundColor(.black)
-//                                }
-//                                Text(" \(name)")
-//                                    .bold()
-//                                    .foregroundColor(.black)
-//                                Text(" \(starttime)")
-//                                    .bold()
-//                                    .foregroundColor(.black)
-//                                Text(" \(endtime)")
-//                                    .bold()
-//                                    .foregroundColor(.black)
-//                            }
-//                        }
-//
-                }
+
+            }
             
         }
     }
@@ -123,12 +101,11 @@ struct todayView: View {
 
 
 
-
 struct todayView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.black
-            todayView(year: "2022", month: "08", istoday: true)
+            todayView(year: "2022", month: "08", istoday: true, home: true)
         }
         
     }

@@ -27,12 +27,14 @@ struct M3_UItraApp: App {
                         }
                     }
                     .ignoresSafeArea()
+                    
                 }
                 .onReceive(NotificationCenter.default.publisher(for: Notification.Name("NOTIFY"))) { output in
                     if let content = output.userInfo?["content"] as? UNNotificationContent {
                         let newNotification = NotifitionValue(content: content)
                         notifications.append(newNotification)
                     }
+                    
                 }
         }
     }
@@ -122,7 +124,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
     private func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) -> String {
         let deviceTokenString = deviceToken.hexString
-        print(deviceTokenString)
+        print("func here: \(deviceTokenString)")
         return deviceTokenString
     }
     
@@ -136,3 +138,4 @@ extension UIApplication {
         return UIDevice.current.name
     }
 }
+

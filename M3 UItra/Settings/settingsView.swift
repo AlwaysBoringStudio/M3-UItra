@@ -76,6 +76,8 @@ struct settingsView: View {
                         }
                     }
                 }
+                
+                #if DEBUG
                 Section {
                     NavigationLink(destination: notifyView(notifyon: $notifyon)) {
                         HStack {
@@ -86,6 +88,8 @@ struct settingsView: View {
                     
                     
                 }
+                #endif
+                
                 Section {
                     NavigationLink(destination: langView()) {
                         HStack {
@@ -249,6 +253,14 @@ struct infoView: View {
                 }
                 HStack {
                     Text("此更新改進了轉移數據的功能")
+                    Spacer()
+                }
+                HStack {
+                    Text("此更新新增了對 iOS 16 / iPadOS 16 的支援")
+                    Spacer()
+                }
+                HStack {
+                    Text("此更新新增了對 iPhone 14 Pro / iPhone 14 Pro Max, Dynmaic Island 的支援")
                     Spacer()
                 }
                     

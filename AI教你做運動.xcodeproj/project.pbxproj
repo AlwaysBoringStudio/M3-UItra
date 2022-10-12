@@ -33,6 +33,12 @@
 		7971A78728B3460B007302A1 /* calchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971A78628B3460B007302A1 /* calchartView.swift */; };
 		79722B4828C0D1D900CC5265 /* decode utf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79722B4728C0D1D900CC5265 /* decode utf8.swift */; };
 		7983409528D34F3D0071EF92 /* dynmaicisland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983409428D34F3D0071EF92 /* dynmaicisland.swift */; };
+		79941A8528DB24B900FA9A93 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79941A5528DB233900FA9A93 /* WidgetKit.framework */; };
+		79941A8628DB24B900FA9A93 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79941A5728DB233900FA9A93 /* SwiftUI.framework */; };
+		79941A8928DB24B900FA9A93 /* Widget_ai_sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79941A8828DB24B900FA9A93 /* Widget_ai_sports.swift */; };
+		79941A8B28DB24BA00FA9A93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79941A8A28DB24BA00FA9A93 /* Assets.xcassets */; };
+		79941A8F28DB24BA00FA9A93 /* Widget-ai-sportsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 79941A8428DB24B900FA9A93 /* Widget-ai-sportsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7994DCDA28E7457C00CA0941 /* getdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7994DCD928E7457C00CA0941 /* getdata.swift */; };
 		79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AEF28ADFBEE000E1FF0 /* get today date.swift */; };
 		79996AF228AE10F5000E1FF0 /* todayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF128AE10F5000E1FF0 /* todayView.swift */; };
 		79996AF528AE19AD000E1FF0 /* decode json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79996AF428AE19AD000E1FF0 /* decode json.swift */; };
@@ -42,7 +48,6 @@
 		79AB308128ACECA60001C091 /* webView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308028ACECA60001C091 /* webView.swift */; };
 		79AB308928ACEE200001C091 /* developerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308828ACEE200001C091 /* developerView.swift */; };
 		79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB308A28ACF6D90001C091 /* rewardView.swift */; };
-		79AF1EC928BD2F0B0005E062 /* transapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF1EC828BD2F0B0005E062 /* transapp.swift */; };
 		79C8582328AA378500A37B5E /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582228AA378500A37B5E /* dateView.swift */; };
 		79C8582528AA37C200A37B5E /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582428AA37C200A37B5E /* homeView.swift */; };
 		79C8582928AA380B00A37B5E /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8582828AA380B00A37B5E /* settingsView.swift */; };
@@ -54,12 +59,36 @@
 		79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D0AAD428AAB18F00E60B4C /* Data.xcdatamodeld */; };
 		79D12BE828B8769F00C06D48 /* gettime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D12BE728B8769F00C06D48 /* gettime.swift */; };
 		79DC432C28AEA2E500E1853E /* usernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC432B28AEA2E500E1853E /* usernameView.swift */; };
+		79E8838228DA993B0047B280 /* optionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8838128DA993B0047B280 /* optionalView.swift */; };
+		79F40CC128E20087006A4D7C /* headmovingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F40CC028E20087006A4D7C /* headmovingView.swift */; };
 		79FA35B028BDD317002750AE /* TransAppManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AE28BDD317002750AE /* TransAppManger.swift */; };
 		79FA35B128BDD317002750AE /* TransappListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA35AF28BDD317002750AE /* TransappListView.swift */; };
 		79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC50C028A8FE2A00F8CC50 /* aiView.swift */; };
+		79FFB77628D436CE00F1FBDC /* waterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FFB77528D436CE00F1FBDC /* waterView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		79941A8D28DB24BA00FA9A93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4932CD8A28A4C89D000E7443 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79941A8328DB24B900FA9A93;
+			remoteInfo = "Widget-ai-sportsExtension";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		79941A7F28DB247A00FA9A93 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				79941A8F28DB24BA00FA9A93 /* Widget-ai-sportsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79C934D928B0C8CC006592AC /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -94,7 +123,6 @@
 		792AE63228AF3E920002F750 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		7943A97928AFAE5E006E7F19 /* AirplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplayView.swift; sourceTree = "<group>"; };
 		7943A97B28AFBBF7006E7F19 /* airplaysettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = airplaysettingsView.swift; sourceTree = "<group>"; };
-		794603AE28B0C9A30083567D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		795C818028BA8DD50080CD26 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		795C818428BA8E0F0080CD26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		795C818528BA90FF0080CD26 /* langsupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = langsupport.swift; sourceTree = "<group>"; };
@@ -105,6 +133,13 @@
 		7971A78628B3460B007302A1 /* calchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calchartView.swift; sourceTree = "<group>"; };
 		79722B4728C0D1D900CC5265 /* decode utf8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "decode utf8.swift"; sourceTree = "<group>"; };
 		7983409428D34F3D0071EF92 /* dynmaicisland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dynmaicisland.swift; sourceTree = "<group>"; };
+		79941A5528DB233900FA9A93 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		79941A5728DB233900FA9A93 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		79941A8428DB24B900FA9A93 /* Widget-ai-sportsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget-ai-sportsExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79941A8828DB24B900FA9A93 /* Widget_ai_sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget_ai_sports.swift; sourceTree = "<group>"; };
+		79941A8A28DB24BA00FA9A93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79941A8C28DB24BA00FA9A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7994DCD928E7457C00CA0941 /* getdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getdata.swift; sourceTree = "<group>"; };
 		79996AEF28ADFBEE000E1FF0 /* get today date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "get today date.swift"; sourceTree = "<group>"; };
 		79996AF128AE10F5000E1FF0 /* todayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayView.swift; sourceTree = "<group>"; };
 		79996AF328AE198E000E1FF0 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -114,7 +149,6 @@
 		79AB308028ACECA60001C091 /* webView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webView.swift; sourceTree = "<group>"; };
 		79AB308828ACEE200001C091 /* developerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = developerView.swift; sourceTree = "<group>"; };
 		79AB308A28ACF6D90001C091 /* rewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardView.swift; sourceTree = "<group>"; };
-		79AF1EC828BD2F0B0005E062 /* transapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transapp.swift; sourceTree = "<group>"; };
 		79C8582228AA378500A37B5E /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
 		79C8582428AA37C200A37B5E /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		79C8582828AA380B00A37B5E /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
@@ -122,16 +156,19 @@
 		79C8582C28AA388B00A37B5E /* errorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorView.swift; sourceTree = "<group>"; };
 		79C8582E28AA38B500A37B5E /* scheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleView.swift; sourceTree = "<group>"; };
 		79C9349728B0C40F006592AC /* AirPlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayController.swift; sourceTree = "<group>"; };
-		79C9349D28B0C8CB006592AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79D0AACF28AA3B9A00E60B4C /* M3-UItra-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "M3-UItra-Info.plist"; sourceTree = SOURCE_ROOT; };
 		79D0AAD028AA95A000E60B4C /* M3 UItra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "M3 UItra.entitlements"; sourceTree = "<group>"; };
 		79D0AAD228AAAB5000E60B4C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		79D0AAD528AAB18F00E60B4C /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		79D0D19528DB293200E3E6D0 /* Widget-ai-sportsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widget-ai-sportsExtension.entitlements"; sourceTree = "<group>"; };
 		79D12BE728B8769F00C06D48 /* gettime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gettime.swift; sourceTree = "<group>"; };
 		79DC432B28AEA2E500E1853E /* usernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usernameView.swift; sourceTree = "<group>"; };
+		79E8838128DA993B0047B280 /* optionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionalView.swift; sourceTree = "<group>"; };
+		79F40CC028E20087006A4D7C /* headmovingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headmovingView.swift; sourceTree = "<group>"; };
 		79FA35AE28BDD317002750AE /* TransAppManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransAppManger.swift; sourceTree = "<group>"; };
 		79FA35AF28BDD317002750AE /* TransappListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransappListView.swift; sourceTree = "<group>"; };
 		79FC50C028A8FE2A00F8CC50 /* aiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiView.swift; sourceTree = "<group>"; };
+		79FFB77528D436CE00F1FBDC /* waterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,16 +182,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		79941A8128DB24B900FA9A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79941A8628DB24B900FA9A93 /* SwiftUI.framework in Frameworks */,
+				79941A8528DB24B900FA9A93 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		4932CD8928A4C89D000E7443 = {
 			isa = PBXGroup;
 			children = (
+				79D0D19528DB293200E3E6D0 /* Widget-ai-sportsExtension.entitlements */,
 				795C818128BA8DD50080CD26 /* Localizable.strings */,
 				4932CD9428A4C89D000E7443 /* M3 UItra */,
-				79C9349C28B0C8C9006592AC /* M3-Ultra */,
-				794603AD28B0C9A30083567D /* M3-Ultra */,
+				79941A8728DB24B900FA9A93 /* Widget-ai-sports */,
 				4932CD9328A4C89D000E7443 /* Products */,
 				79D0AAD128AAAB5000E60B4C /* Frameworks */,
 			);
@@ -164,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4932CD9228A4C89D000E7443 /* AI教你做運動.app */,
+				79941A8428DB24B900FA9A93 /* Widget-ai-sportsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,12 +246,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		794603AD28B0C9A30083567D /* M3-Ultra */ = {
+		79941A8728DB24B900FA9A93 /* Widget-ai-sports */ = {
 			isa = PBXGroup;
 			children = (
-				794603AE28B0C9A30083567D /* Assets.xcassets */,
+				79941A8828DB24B900FA9A93 /* Widget_ai_sports.swift */,
+				79941A8A28DB24BA00FA9A93 /* Assets.xcassets */,
+				79941A8C28DB24BA00FA9A93 /* Info.plist */,
 			);
-			path = "M3-Ultra";
+			path = "Widget-ai-sports";
 			sourceTree = "<group>";
 		};
 		79AB308228ACECFA0001C091 /* AI Camera */ = {
@@ -235,12 +284,14 @@
 				7971A78428B33875007302A1 /* barchartView.swift */,
 				7971A78628B3460B007302A1 /* calchartView.swift */,
 				795C818528BA90FF0080CD26 /* langsupport.swift */,
-				79AF1EC828BD2F0B0005E062 /* transapp.swift */,
 				79FA35AE28BDD317002750AE /* TransAppManger.swift */,
 				79FA35AF28BDD317002750AE /* TransappListView.swift */,
 				79650C4728BF757900D5BFC2 /* supportView.swift */,
 				79722B4728C0D1D900CC5265 /* decode utf8.swift */,
 				7983409428D34F3D0071EF92 /* dynmaicisland.swift */,
+				79FFB77528D436CE00F1FBDC /* waterView.swift */,
+				79F40CC028E20087006A4D7C /* headmovingView.swift */,
+				7994DCD928E7457C00CA0941 /* getdata.swift */,
 			);
 			path = "Other func";
 			sourceTree = "<group>";
@@ -250,6 +301,7 @@
 			children = (
 				79C8582A28AA384A00A37B5E /* practiceView.swift */,
 				7912388228ACFBA000CE4E0B /* trainView.swift */,
+				79E8838128DA993B0047B280 /* optionalView.swift */,
 				7912388428ACFBE300CE4E0B /* classView.swift */,
 			);
 			path = Practice;
@@ -287,20 +339,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		79C9349C28B0C8C9006592AC /* M3-Ultra */ = {
-			isa = PBXGroup;
-			children = (
-				79C9349D28B0C8CB006592AC /* Assets.xcassets */,
-			);
-			path = "M3-Ultra";
-			sourceTree = "<group>";
-		};
 		79D0AAD128AAAB5000E60B4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				796AC94628BDEA8F0014BBE3 /* NetworkExtension.framework */,
 				792AE63228AF3E920002F750 /* HealthKit.framework */,
 				79D0AAD228AAAB5000E60B4C /* CloudKit.framework */,
+				79941A5528DB233900FA9A93 /* WidgetKit.framework */,
+				79941A5728DB233900FA9A93 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -316,10 +362,12 @@
 				4932CD8F28A4C89D000E7443 /* Frameworks */,
 				4932CD9028A4C89D000E7443 /* Resources */,
 				79C934D928B0C8CC006592AC /* Embed Watch Content */,
+				79941A7F28DB247A00FA9A93 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				79941A8E28DB24BA00FA9A93 /* PBXTargetDependency */,
 			);
 			name = "AI教你做運動";
 			packageProductDependencies = (
@@ -327,6 +375,23 @@
 			productName = "M3 UItra";
 			productReference = 4932CD9228A4C89D000E7443 /* AI教你做運動.app */;
 			productType = "com.apple.product-type.application";
+		};
+		79941A8328DB24B900FA9A93 /* Widget-ai-sportsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79941A9028DB24BA00FA9A93 /* Build configuration list for PBXNativeTarget "Widget-ai-sportsExtension" */;
+			buildPhases = (
+				79941A8028DB24B900FA9A93 /* Sources */,
+				79941A8128DB24B900FA9A93 /* Frameworks */,
+				79941A8228DB24B900FA9A93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Widget-ai-sportsExtension";
+			productName = "Widget-ai-sportsExtension";
+			productReference = 79941A8428DB24B900FA9A93 /* Widget-ai-sportsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -338,11 +403,14 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					4932CD9128A4C89D000E7443 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					79941A8328DB24B900FA9A93 = {
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
@@ -366,6 +434,7 @@
 			projectRoot = "";
 			targets = (
 				4932CD9128A4C89D000E7443 /* AI教你做運動 */,
+				79941A8328DB24B900FA9A93 /* Widget-ai-sportsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -380,6 +449,14 @@
 				4932CD9D28A4C89E000E7443 /* Preview Assets.xcassets in Resources */,
 				79650C4A28BF77D200D5BFC2 /* support.json in Resources */,
 				4932CD9A28A4C89E000E7443 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79941A8228DB24B900FA9A93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79941A8B28DB24BA00FA9A93 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,21 +483,24 @@
 				792AE63128AF37FC0002F750 /* ColorExtension.swift in Sources */,
 				792AE62F28AF37D20002F750 /* Constants.swift in Sources */,
 				79D0AAD628AAB18F00E60B4C /* Data.xcdatamodeld in Sources */,
-				79AF1EC928BD2F0B0005E062 /* transapp.swift in Sources */,
+				7994DCDA28E7457C00CA0941 /* getdata.swift in Sources */,
 				7971A78528B33875007302A1 /* barchartView.swift in Sources */,
 				79C8582F28AA38B500A37B5E /* scheduleView.swift in Sources */,
 				79AB308128ACECA60001C091 /* webView.swift in Sources */,
 				79650C4828BF757900D5BFC2 /* supportView.swift in Sources */,
 				79996AF828AE1C0D000E1FF0 /* Calendar.swift in Sources */,
+				79E8838228DA993B0047B280 /* optionalView.swift in Sources */,
 				79AB308928ACEE200001C091 /* developerView.swift in Sources */,
 				79FC50C128A8FE2A00F8CC50 /* aiView.swift in Sources */,
 				79722B4828C0D1D900CC5265 /* decode utf8.swift in Sources */,
 				79C8582B28AA384A00A37B5E /* practiceView.swift in Sources */,
 				79C9349828B0C40F006592AC /* AirPlayController.swift in Sources */,
+				79FFB77628D436CE00F1FBDC /* waterView.swift in Sources */,
 				79FA35B128BDD317002750AE /* TransappListView.swift in Sources */,
 				7912388528ACFBE300CE4E0B /* classView.swift in Sources */,
 				79D12BE828B8769F00C06D48 /* gettime.swift in Sources */,
 				7943A97C28AFBBF7006E7F19 /* airplaysettingsView.swift in Sources */,
+				79F40CC128E20087006A4D7C /* headmovingView.swift in Sources */,
 				799CB78C28AEB425004076AD /* notifyView.swift in Sources */,
 				79996AF028ADFBEE000E1FF0 /* get today date.swift in Sources */,
 				79AB308B28ACF6D90001C091 /* rewardView.swift in Sources */,
@@ -435,7 +515,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		79941A8028DB24B900FA9A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79941A8928DB24B900FA9A93 /* Widget_ai_sports.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79941A8E28DB24BA00FA9A93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79941A8328DB24B900FA9A93 /* Widget-ai-sportsExtension */;
+			targetProxy = 79941A8D28DB24BA00FA9A93 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		795C818128BA8DD50080CD26 /* Localizable.strings */ = {
@@ -572,6 +668,7 @@
 		4932CDB728A4C89E000E7443 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "M3 UItra/M3 UItra.entitlements";
@@ -595,7 +692,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.57;
+				MARKETING_VERSION = 1.3.67;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -609,6 +706,7 @@
 		4932CDB828A4C89E000E7443 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "M3 UItra/M3 UItra.entitlements";
@@ -632,11 +730,75 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.57;
+				MARKETING_VERSION = 1.3.67;
 				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79941A9128DB24BA00FA9A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Widget-ai-sportsExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UGQBX3P3M8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Widget-ai-sports/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Widget-ai-sports";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.3.63;
+				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra.Widget-ai-sports";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79941A9228DB24BA00FA9A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Widget-ai-sportsExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UGQBX3P3M8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Widget-ai-sports/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Widget-ai-sports";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.3.63;
+				PRODUCT_BUNDLE_IDENTIFIER = "hingtattsang.app.M3-UItra.Widget-ai-sports";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,6 +822,15 @@
 			buildConfigurations = (
 				4932CDB728A4C89E000E7443 /* Debug */,
 				4932CDB828A4C89E000E7443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79941A9028DB24BA00FA9A93 /* Build configuration list for PBXNativeTarget "Widget-ai-sportsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79941A9128DB24BA00FA9A93 /* Debug */,
+				79941A9228DB24BA00FA9A93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

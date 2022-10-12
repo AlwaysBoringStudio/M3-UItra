@@ -20,32 +20,13 @@ struct developerView: View {
     @State var reward: Int = 0
     @State var textedit = Float(0)
     @State var demo = false
-    @State var text = """
-                        <meta name="viewport" content="width=device-width, initial-scale=0.9">
-                        <h1 id="m3-uitra">M3-UItra</h1>
-                        <h1 id="此-app-會用到下列的功能：">此 App 會用到下列的功能：</h1>
-                        <ol>
-                        <li>CoreML - Vision</li>
-                        <li>Bluetooth </li>
-                        <li>Internet</li>
-                        <li>Health Kit</li>
-                        <li>Cloud Kit</li>
-                        </ol>
-                        <h1 id="需要增加的功能：">需要增加的功能：</h1>
-                        <ol>
-                        <li>運動動作偵測</li>
-                        <li>支援 iPad UI</li>
-                        <li>支援 Dark Mode</li>
-                        <li>任務的 Pie Chart </li>
-                        <li>卡路里計算</li>
-                        <li>從 Healthy Kit 取得 Apple Watch 的心跳記錄</li>
-                        <li>便用 CloudKit 同步 iPhone 和 iPad 的使用者數據</li>
-                        <li>更改勳章名稱</li>
-                        <li>加入課程連接功能</li>
-                        <li>日程表</li>
-                        <li>帳戶，通知，和儲存空間感知器</li>
-                        </ol>
-                        """
+    @State var text = ""
+    @State var textnum = ""
+    @State var gettext = ""
+    @State var gettextnum = Int(0)
+    @State var get = false
+    @State var title = ""
+    @State var subtitle = ""
     var body: some View {
         List {
             Section(header: Text("得獎等級(0-6)參數修改器")) {
@@ -76,15 +57,39 @@ struct developerView: View {
                 }
                 
             }
+            
+            Section(header: Text("getdata API (beta)")) {
+                TextField("Date", text: $text)
+                TextField("datanum", text: $textnum)
+                HStack {
+                    Button("Get") {
+                        get = true
+                        gettext = text
+                        gettextnum = Int(textnum) ?? 0
+                    }
+                }
+                if get == true {
+                    Text("Output: \(getdata().getdata(date: gettext, datanum: gettextnum))")
+                } else {
+                    Text("Output: (nil : N/A)")
+                }
+                NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra/blob/main/api.pdf")!).navigationTitle("API Help").navigationBarTitleDisplayMode(.inline)) {
+                    Text("API Help")
+                }
+            }
+            Section(header: Text("sent message api (beta)")) {
+                TextField("title", text: $title)
+                TextField("subtitlem", text: $subtitle)
+                HStack {
+                    Button("Sent") {
+                        notifytest(title: title, subtitle: subtitle)
+                    }
+                }
+            }
             Section(header: Text("GitHub")) {
                 NavigationLink(destination: WebView(url: URL(string: "https://github.com/AlwaysBoringStudio/M3-UItra")!).navigationTitle("GitHub").navigationBarTitleDisplayMode(.inline)) {
                     Text("GitHub")
                 }
-                NavigationLink(destination: readmeView(text: $text).navigationTitle("README.md").navigationBarTitleDisplayMode(.inline)) {
-                    Text("README.md")
-                }
-                
-                
                 
             }
             Section(header: Text("Bug")) {
@@ -112,6 +117,15 @@ struct developerView: View {
                     }
                 }
             }
+            Section(header: Text("TEST")) {
+                HStack {
+                    Spacer()
+                    Button("請求發送測試訊息") {
+                        notify()
+                    }
+                    Spacer()
+                }
+            }
             Section(header: Text("演示模式")) {
                 Button(action: {
                     demo = true
@@ -133,6 +147,20 @@ struct developerView: View {
             refresh = true
         }
         .onAppear() {
+            username = defaults.string(forKey: "username") ?? "USERNAME"
+            notifyon = defaults.bool(forKey: "notifyon")
+            health = defaults.float(forKey: "health")
+            firstopen = defaults.string(forKey: "firstopen") ?? "ERROR"
+            showwelcome = defaults.bool(forKey: "showwelcome")
+            caltoday = defaults.float(forKey: "caltoday")
+            reward = defaults.integer(forKey: "reward")
+            textedit = Float(reward)
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            text = dateFormatter.string(from: date)
+            gettext = dateFormatter.string(from: date)
+        }
+        .refreshable {
             username = defaults.string(forKey: "username") ?? "USERNAME"
             notifyon = defaults.bool(forKey: "notifyon")
             health = defaults.float(forKey: "health")
@@ -202,6 +230,28 @@ struct developerView: View {
             }
         })
     }
+    func notifytest(title: String, subtitle: String) -> Void {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = subtitle
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+
+        NSLog("All set!")
+    }
+    func notify() -> Void {
+        let content = UNMutableNotificationContent()
+        content.title = "測試訊息"
+        content.body = "已收到測試請求"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+
+        NSLog("All set!")
+    }
     func yesterDay(pre: Int) -> Date {
         var dayComponent = DateComponents()
         dayComponent.day = Int(String("-\(Int(pre))"))
@@ -234,32 +284,25 @@ struct saveddata: View {
     var body: some View {
         let alldata = Array(defaults.dictionaryRepresentation().keys)
         List {
-            if refresh == true {
-                refreshhelper(refresh: $refresh)
-            } else {
-                ForEach(alldata, id: \.self) { i  in
-                    NavigationLink(destination: saveddataread(name: i, datastr: defaults.string(forKey: "\(i)") ?? "", dataint: defaults.integer(forKey: "\(i)"), refresh: $refresh)) {
-                        HStack {
-                            Text("\(i)")
-                            Spacer()
-                            let dataint = defaults.integer(forKey: "\(i)")
-                            let datastr = defaults.string(forKey: "\(i)")
-                            
-                            if dataint != 0 {
-                                Text("\(dataint)")
-                            } else if datastr != "" {
-                                Text(datastr ?? "")
-                            } else {
-                                
-                            }
+            ForEach(alldata, id: \.self) { i  in
+                NavigationLink(destination: saveddataread(name: i, datastr: defaults.string(forKey: "\(i)") ?? "", dataint: defaults.integer(forKey: "\(i)"), refresh: $refresh)) {
+                    HStack {
+                        Text("\(i)")
+                        Spacer()
+                        let dataint = defaults.integer(forKey: "\(i)")
+                        let datastr = defaults.string(forKey: "\(i)")
+                        
+                        if dataint != 0 {
+                            Text("\(dataint)")
+                        } else if datastr != "" {
+                            Text(datastr ?? "")
+                        } else {
                             
                         }
+                        
                     }
                 }
             }
-        }
-        .refreshable {
-            refresh = true
         }
     }
 }
@@ -335,17 +378,5 @@ struct saveddataread: View {
     }
 }
 
-
-struct readmeView: UIViewRepresentable {
-  @Binding var text: String
-   
-  func makeUIView(context: Context) -> WKWebView {
-    return WKWebView()
-  }
-   
-  func updateUIView(_ uiView: WKWebView, context: Context) {
-    uiView.loadHTMLString(text, baseURL: nil)
-  }
-}
 
 

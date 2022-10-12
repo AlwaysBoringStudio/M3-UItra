@@ -10,9 +10,8 @@ import Foundation
 
 // MARK: 分頁控制器
 struct ContentView: View {
-    let defaults = UserDefaults.standard
     @State var welcome = false
-    @State var refresh = false
+    @State var refresh = true
     @State private var selection = 1
     var body: some View {
         ZStack {
@@ -46,28 +45,17 @@ struct ContentView: View {
                 
             }
         }
-        .sheet(isPresented: $welcome) {
-            welcomeView(showWelcomeScreen: $welcome)
-        }
-        .refreshable {
-            refresh = true
-        }
-        
-        .onAppear() {
-            let hi = defaults.string(forKey: "firstopen")
-            if hi != UIApplication.appVersion ?? "" {
-                welcome = true
-            }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-        }
-
-        
     }
 }
 
 
 // MARK: 重新整理
 struct refreshhelper: View {
+    let defaults = UserDefaults.standard
+    @State var alldatakey = ["ismoved"]
+    @State var alldatastring = ["ismoved"]
     @Binding var refresh: Bool
     var body: some View {
         Text("refreshing")
@@ -77,6 +65,7 @@ struct refreshhelper: View {
         }
         
     }
+
 }
 
 struct Previews_ContentView_Previews: PreviewProvider {

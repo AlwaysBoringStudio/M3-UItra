@@ -123,6 +123,7 @@ struct classView: View {
             }
         }
         
+        
         // MARK: if error
         // if error run "showAlert = true"
             .alert("代碼無效 !", isPresented: $showAlert, actions: {

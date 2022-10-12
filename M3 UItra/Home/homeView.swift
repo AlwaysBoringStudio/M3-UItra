@@ -23,6 +23,7 @@ struct homeView: View {
     @State var cal3 = ""
     @State var cal4 = ""
     @State var showdate = false
+    @State var water = Double(0)
     var body: some View {
         NavigationView {
             VStack {
@@ -52,78 +53,60 @@ struct homeView: View {
                     if showdate == true {
                         todayView(year: "", month: "", istoday: true, home: true)
                     }
-                    // MARK: 任務 Pie Chart
-                    HStack {
-                        VStack {
-                            Image("cal")
-                                .resizable()
-                                .scaledToFit()
+                    if UIDevice.current.systemVersion.contains("16") == true {
+                        ZStack {
+                            Rectangle()
+                                .cornerRadius(25)
+                                .foregroundColor(.white)
+                                .frame(height: 140)
+                                .padding()
+                            Rectangle()
+                                .cornerRadius(25)
+                                .foregroundColor(.yellow)
+                                .opacity(0.7)
+                                .frame(height: 140)
+                                .padding()
                                 .overlay() {
                                     ZStack {
-                                        RingView(
-                                            percentage: Double(health),
-                                            backgroundColor: Color.moveRingBackground,
-                                            startColor: Color.moveRingStartColor,
-                                            endColor: Color.moveRingEndColor,
-                                            thickness: Constants.mainRingThickness
-                                        )
-                                        VStack {
-                                            Text("今天")
-                                                .font(.title3)
-                                            Text("\(Int(health*100))%")
-                                                .font(.title3)
-                                            Text("任務")
-                                                .font(.title3)
+                                        waterView(percent: $water)
+                                            .mask(Rectangle().cornerRadius(25).foregroundColor(.yellow).opacity(0.7).frame(height: 140).padding())
+                                        if caltoday >= 2000 {
+                                            Rectangle().cornerRadius(25).foregroundColor(.green).frame(height: 140).padding()
                                         }
+                                        tworing
                                     }
                                 }
-                           
-                        }
-                        // MARK: 卡路里
-                        VStack {
-                            Image("cal")
-                                .resizable()
-                                .scaledToFit()
-                                .overlay() {
-                                    ZStack {
-                                        RingView(
-                                            percentage: Double(caltoday/2000),
-                                            backgroundColor: Color.exerciseRingBackground,
-                                            startColor: Color.exerciseRingStartColor,
-                                            endColor: Color.exerciseRingEndColor,
-                                            thickness: Constants.mainRingThickness
-                                        )
-                                        VStack {
-                                            Text("今天")
-                                                .font(.title3)
-                                            Text("\(Int(loadcaldata()))/2,000")
-                                                .font(.title3)
-                                            Text("卡路里")
-                                                .font(.title3)
-                                        }
-                                    }
+                                .onAppear() {
+                                    water = Double((caltoday/2000)*100)
+                                    let newwater = Double(water)
+                                    printnow(message: "\(newwater)")
                                 }
                         }
-                        
+                            .environment(\.colorScheme, .light)
+                    } else {
+                        tworing
                     }
-                    
+                    // MARK: 七天的卡路里圖表
                     HStack {
-                        // MARK: 七天的卡路里圖表
                         calchartView()
                     }
                 }
+                
+                
                 // MARK: 標題
                 .navigationTitle(navtitle)
 
                 
                 // MARK: 載入數據
                 .onAppear() {
+                    #if DEBUG
+                    debug()
+                    #endif
                     runwelcome()
                     health = loadcaldata()/2000
                     caltoday = loadcaldata()
-                    reward = defaults.integer(forKey: "reward")
+                    reward = getdata().getdefaultsdataint(type: "reward")
                     showdateload()
-                    
                     
                 }
                 // MARK: 自動更變標題文字
@@ -153,17 +136,84 @@ struct homeView: View {
         .frame(maxWidth: 700)
         
     }
+    var tworing: some View {
+        // MARK: 任務 Pie Chart
+        HStack {
+            VStack {
+                Image("cal")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay() {
+                        ZStack {
+                            if UIDevice.current.systemVersion.contains("16") != true {
+                                RingView(
+                                    percentage: Double(health),
+                                    backgroundColor: Color.moveRingBackground,
+                                    startColor: Color.moveRingStartColor,
+                                    endColor: Color.moveRingEndColor,
+                                    thickness: Constants.mainRingThickness
+                                )
+                            }
+                            
+                            VStack {
+                                Text("今天")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                                Text("\(Int(health*100))%")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                                Text("任務")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                            }
+                        }
+                    }
+               
+            }
+            // MARK: 卡路里
+            VStack {
+                Image("cal")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay() {
+                        ZStack {
+                            if UIDevice.current.systemVersion.contains("16") != true {
+                                RingView(
+                                    percentage: Double(caltoday/2000),
+                                    backgroundColor: Color.exerciseRingBackground,
+                                    startColor: Color.exerciseRingStartColor,
+                                    endColor: Color.exerciseRingEndColor,
+                                    thickness: Constants.mainRingThickness
+                                )
+                            }
+                            VStack {
+                                Text("今天")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                                Text("\(Int(loadcaldata()))/2,000")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                                Text("卡路里")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                            }
+                        }
+                    }
+            }
+            
+        }
+    }
     // MARK: 刷新數據
     func loadcaldata() -> Float {
         printnow(message: "loadcaldata()")
         let today = Date()
         let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM/yyyy"
+        formatter1.dateFormat = "yyyy-MM-dd"
         let datedatanow = "\(formatter1.string(from: today))"
-        let sum1 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal1") ?? "")")
-        let sum2 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal2") ?? "")")
-        let sum3 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal3") ?? "")")
-        let sum4 = stringtofloat(string: "\(defaults.string(forKey: "\(datedatanow)datacal4") ?? "")")
+        let sum1 = stringtofloat(string: getdata().getdata(date: datedatanow, datanum: 5))
+        let sum2 = stringtofloat(string: getdata().getdata(date: datedatanow, datanum: 6))
+        let sum3 = stringtofloat(string: getdata().getdata(date: datedatanow, datanum: 7))
+        let sum4 = stringtofloat(string: getdata().getdata(date: datedatanow, datanum: 8))
         let datacal = String(sum1+sum2+sum3+sum4)
         let loaddata = datacal
         return Float(loaddata) ?? 0
@@ -210,6 +260,93 @@ struct homeView: View {
         NSLog("homeView: \(datedatanow) \(hours):\(minutes):\(seconds) - \(message)")
         
     }
+    #if DEBUG
+    func notify() -> Void {
+        let content = UNMutableNotificationContent()
+        content.title = "DEBUG"
+        content.body = "Debug mode turned on."
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+
+        NSLog("All set!")
+    }
+    func debug() -> Void {
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+        defaults.set(Int(6), forKey: "reward")
+        defaults.set(String("John Appleseed"), forKey: "username")
+        defaults.set(String(""), forKey: "firstopen")
+        defaults.set(Bool(true), forKey: "showwelcome")
+        defaults.set(Bool(false), forKey: "notifyon")
+        for i in 0...366 {
+            let int = Int.random(in: 1...3)
+            if int == 1 {
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+            } else if int == 2 {
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+            } else if int == 3 {
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal1", datastring: "170")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal2", datastring: "240")
+                otherdata(datatoday: yesterDay(pre: i), datainfo: "datacal3", datastring: "400")
+            }
+        }
+        for i in 0...366 {
+            let int = Int.random(in: 1...4)
+            if int == 1 {
+                otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "170")
+                otherdata(datatoday: folDay(pre: i), datainfo: "datacal2", datastring: "240")
+            } else if int == 2 {
+                otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳高")
+                otherdata(datatoday: folDay(pre: i), datainfo: "dataitem2", datastring: "跳繩")
+                otherdata(datatoday: folDay(pre: i), datainfo: "dataitem3", datastring: "滑板")
+                otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "170")
+                otherdata(datatoday: folDay(pre: i), datainfo: "datacal2", datastring: "240")
+                otherdata(datatoday: folDay(pre: i), datainfo: "datacal3", datastring: "400")
+            } else if int == 3 {
+                otherdata(datatoday: folDay(pre: i), datainfo: "dataitem1", datastring: "跳繩")
+                otherdata(datatoday: folDay(pre: i), datainfo: "datacal1", datastring: "240")
+            }
+        }
+        notify()
+    }
+    func yesterDay(pre: Int) -> Date {
+        var dayComponent = DateComponents()
+        dayComponent.day = Int(String("-\(Int(pre))"))
+        let calendar = Calendar.current
+        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
+        return nextDay
+    }
+    func folDay(pre: Int) -> Date {
+        var dayComponent = DateComponents()
+        dayComponent.day = Int(String("\(Int(pre))"))
+        let calendar = Calendar.current
+        let nextDay =  calendar.date(byAdding: dayComponent, to: Date())!
+        return nextDay
+    }
+    func otherdata(datatoday: Date, datainfo: String, datastring: String) -> Void {
+        let today = datatoday
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd/MM/yyyy"
+        let datedatanow = "\(formatter1.string(from: today))"
+        defaults.set(datastring, forKey: "\(datedatanow)\(datainfo)")
+    }
+    #endif
     
 }
 

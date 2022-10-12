@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: 歡迎頁面
 
 struct welcomeView: View {
-    let defaults = UserDefaults.standard
     @Binding var showWelcomeScreen: Bool
     @State var isOnline = false
     @ObservedObject private var remoteConnectionManager = RemoteConnectionManager()
@@ -32,7 +31,7 @@ struct welcomeView: View {
                     FeatureCell(image: "exclamationmark.triangle.fill", title: "develop in progress", subtitle: "This app is develop in progress.", color: .yellow)
                 }
                 Spacer()
-                let transapp = defaults.bool(forKey: "transapp")
+                let transapp = getdata().getdefaultsdatabool(type: "transapp")
                 if transapp == false {
                     Button(
                       action: {
@@ -56,9 +55,9 @@ struct welcomeView: View {
                 .padding(.leading)
                 Spacer()
                 Button(action: {
-                    defaults.set(UIApplication.appVersion ?? "", forKey: "firstopen")
+                    getdata().savedefaultsdata(type: "firstopen", data: UIApplication.appVersion ?? "")
                     self.showWelcomeScreen = false
-                    defaults.set(true, forKey: "transapp")
+                    getdata().savedefaultsdatabool(type: "transapp", data: true)
                 }) {
                     HStack {
                         Spacer()

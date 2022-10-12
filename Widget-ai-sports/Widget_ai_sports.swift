@@ -1,16 +1,183 @@
 //
-//  dateView.swift
-//  M3 UItra
+//  Widget_ai_sports.swift
+//  Widget-ai-sports
 //
-//  Created by HingTatTsang on 15/8/2022.
+//  Created by HingTatTsang on 21/9/2022.
 //
 
+import WidgetKit
 import SwiftUI
 import Combine
 
+struct Provider: TimelineProvider {
+    func placeholder(in context: Context) -> SimpleEntry {
+        SimpleEntry(date: Date())
+    }
+
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        let entry = SimpleEntry(date: Date())
+        completion(entry)
+    }
+
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        var entries: [SimpleEntry] = []
+
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 5 {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            let entry = SimpleEntry(date: entryDate)
+            entries.append(entry)
+        }
+ 
+        let timeline = Timeline(entries: entries, policy: .atEnd)
+        completion(timeline)
+    }
+}
+
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+}
+
+struct Widget_ai_sportsEntryView : View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        todayView(year: "", month: "", istoday: true, home: true)
+        
+    }
+}
+
+
+
+@main
+struct Widget_ai_sports: Widget {
+    let kind: String = "Widget_ai_sports"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            Widget_ai_sportsEntryView(entry: entry)
+        }
+        .supportedFamilies([.systemMedium])
+        .configurationDisplayName("My Widget")
+        .description("This is an example widget.")
+    }
+}
+
+struct Widget_ai_sports_Previews: PreviewProvider {
+    static var previews: some View {
+        Widget_ai_sportsEntryView(entry: SimpleEntry(date: Date()))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
+
+
+struct todayView: View {
+    var year: String
+    var month: String
+    var istoday = false
+    @State var home = false
+    @State var refresh = false
+    var body: some View {
+        // MARK: Today
+        if istoday == true {
+            ZStack {
+                if refresh == true {
+                    refreshhelper(refresh: $refresh)
+                } else {
+                    dateView(date: getday(), month: getmonth(), fullyear: getyear(), today: true, home: home)
+                    
+                }
+            }
+        } else {
+            HStack {
+                VStack {
+                    Spacer()
+                        .frame(height: 10)
+                    Rectangle()
+                        .foregroundColor(.yellow)
+                        .opacity(0.7)
+                        .frame(width: 347, height: 140)
+                        .overlay() {
+                            HStack {
+                                VStack {
+                                    Spacer()
+                                    HStack {
+                                        Text(" \(year)年 \(month)月 ")
+                                            .font(.largeTitle)
+                                            .bold()
+                                            .foregroundColor(.black)
+                                    }
+                                    Spacer()
+
+                                }
+                                
+                            }
+                            
+
+                        }
+                }
+
+            }
+            
+        }
+    }
+    func getmonth() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        return dateFormatter.string(from: date)
+    }
+    func getday() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        return dateFormatter.string(from: date)
+    }
+    func getyear() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter.string(from: date)
+    }
+    func getDayOfWeektoday() -> String {
+        
+        let weekDays = [
+            NSLocalizedString("星期日", comment: "星期日"),
+            NSLocalizedString("星期一", comment: "星期一"),
+            NSLocalizedString("星期二", comment: "星期二"),
+            NSLocalizedString("星期三", comment: "星期三"),
+            NSLocalizedString("星期四", comment: "星期四"),
+            NSLocalizedString("星期五", comment: "星期五"),
+            NSLocalizedString("星期六", comment: "星期六")
+        ]
+
+        let myDate = Date()
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: myDate)
+        
+        
+        return weekDays[weekDay-1]
+    }
+    
+}
+
+
+// MARK: 重新整理
+struct refreshhelper: View {
+    @Binding var refresh: Bool
+    var body: some View {
+        Text("refreshing")
+        
+        .onAppear() {
+            refresh = false
+        }
+        
+    }
+}
 
 struct dateView: View {
-    let defaults = UserDefaults.standard
     @State var date: String
     @State var item1 = ""
     @State var item2 = ""
@@ -38,7 +205,6 @@ struct dateView: View {
     @State var alertdata = 0
     
     @State var itemeditdata = ""
-    @State var itemeditcaldata = ""
     
     @State var itemeditdata1 = false
     @State var itemeditdata2 = false
@@ -50,8 +216,6 @@ struct dateView: View {
     @State var today = false
     @State var home = false
     
-    @State var blocktouch = true
-    
     var body: some View {
         VStack {
             if home == true {
@@ -62,10 +226,8 @@ struct dateView: View {
                                 popover = true
                             }, label: {
                                 Rectangle()
-                                    .cornerRadius(25)
                                     .foregroundColor(.yellow)
                                     .opacity(0.7)
-                                    .frame(height: 140)
                                     .overlay() {
                                         HStack {
                                             ZStack {
@@ -81,8 +243,8 @@ struct dateView: View {
                                                         .bold()
                                                         .foregroundColor(.black)
                                                     Spacer()
-                                                    
-                                                    
+
+
                                                 }
                                                 .frame(width: 173.5)
                                             }
@@ -133,19 +295,14 @@ struct dateView: View {
                                                 }
                                                 
                                             }
-                                            .frame(width: 173.5)
                                         }
-                                        
+
                                     }
-                                    .cornerRadius(25)
                                 
                             })
                         }
-                        
+                    
                     }
-                    .background(.white)
-                    .cornerRadius(25)
-                    .padding()
                 }
             } else if today == true {
                 HStack {
@@ -174,8 +331,8 @@ struct dateView: View {
                                                     .bold()
                                                     .foregroundColor(.black)
                                                 Spacer()
-                                                
-                                                
+
+
                                             }
                                             .frame(width: 173.5)
                                         }
@@ -227,11 +384,13 @@ struct dateView: View {
                                             
                                         }.frame(width: 173.5)
                                     }
-                                    
+
                                 }
                         })
+                        
+                        
                     }
-                    
+                
                 }
             } else {
                 if holiday == true {
@@ -279,8 +438,8 @@ struct dateView: View {
                                                     .bold()
                                                     .foregroundColor(.black)
                                                 Spacer()
-                                                
-                                                
+
+
                                             }
                                             VStack {
                                                 Text("今天")
@@ -292,7 +451,7 @@ struct dateView: View {
                                             }
                                         }
                                     }
-                                
+                                    
                             } else {
                                 HStack {
                                     Rectangle()
@@ -403,81 +562,10 @@ struct dateView: View {
                     
                 }
             }
-            
-        }
-        .sheet(isPresented: $add) {
-            NavigationView {
-                List {
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入要新增的活動", text: $itemeditdata)
-                    }
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入運動的卡路里消耗量", text: $itemeditcaldata)
-                    }
-                    Section {
-                        HStack {
-                            Button("新增", action: {
-                                if item1 == "" {
-                                    item1 = itemeditdata
-                                    cal1 = itemeditcaldata
-                                    alertdata = 1
-                                    add = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                        popover = true
-                                    }
-                                } else if item2 == "" {
-                                    item2 = itemeditdata
-                                    cal2 = itemeditcaldata
-                                    alertdata = 2
-                                    add = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                        popover = true
-                                    }
-                                } else if item3 == "" {
-                                    item3 = itemeditdata
-                                    cal3 = itemeditcaldata
-                                    alertdata = 3
-                                    add = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                        popover = true
-                                    }
-                                } else if item4 == "" {
-                                    item4 = itemeditdata
-                                    cal4 = itemeditcaldata
-                                    alertdata = 4
-                                    add = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                        popover = true
-                                    }
-                                } else if item4 != ""{
-                                    add = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                        adderror = true
-                                    }
-                                }
-                                savealldata()
-                            })
-                        }
-                        HStack {
-                            Button("取消", action: {
-                                add = false
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }).foregroundColor(.red)
-                        }
-                    }
-                    
-                    
-                    
-                }
-                .navigationTitle("請輸入要新增的活動:")
-                //                .interactiveDismissDisabled()
                 
-            }
-            
         }
-        //        (isPresented: $popover,attachmentAnchor: .point(.center), arrowEdge: .trailing) {
+        .preferredColorScheme(.light)
+//        (isPresented: $popover,attachmentAnchor: .point(.center), arrowEdge: .trailing) {
         .sheet(isPresented: $popover) {
             NavigationView {
                 ZStack {
@@ -676,18 +764,15 @@ struct dateView: View {
                                             }
                                         }
                                     }
-                                    
                                 }
-                            
                         }
                     }
-                    .allowsHitTesting(blocktouch)
                 }
                 .navigationTitle("已編排")
                 .navigationBarTitleDisplayMode(.inline)
                 .interactiveDismissDisabled()
                 .navigationBarItems(leading:
-                                        Button("完成") {
+                Button("完成") {
                     popover = false
                     savealldata()
                 },
@@ -695,316 +780,119 @@ struct dateView: View {
                     calmem = ""
                     popover = false
                     itemeditdata = ""
-                    itemeditcaldata = ""
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                         add = true
                     }
                 }, label: {
-                    if home != true {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding()
-                    }
-                })
-                )
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding()
+                }))
             }
-        }
-        .sheet(isPresented: $adderror) {
-            NavigationView {
-                List {
-                    Section {
-                        HStack {
-                            Button("取消") {
-                                adderror = false
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                                
-                            }
-                        }
-                    }
-                }
-                .navigationTitle("每天只能計劃四個活動")
-                .interactiveDismissDisabled()
-            }
-        }
-        .sheet(isPresented: $itemeditdata1) {
-            NavigationView {
-                List {
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入要新增的活動", text: $item1)
-                    }
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入運動的卡路里消耗量", text: $cal1)
-                    }
-                    Section {
-                        HStack {
-                            Button("完成") {
-                                itemeditdata1 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }
-                        }
-                        HStack {
-                            Button("刪除") {
-                                item1 = ""
-                                item1 = item2
-                                item2 = item3
-                                item3 = item4
-                                item4 = ""
-                                cal1 = ""
-                                cal1 = cal2
-                                cal2 = cal3
-                                cal3 = cal4
-                                cal4 = ""
-                                itemeditdata1 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }.foregroundColor(.red)
-                        }
-                    }
-                }
-                
-                .navigationTitle("更改已編排的活動")
-                .interactiveDismissDisabled()
-            }
-        }
-        .sheet(isPresented: $itemeditdata2) {
-            NavigationView {
-                List {
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入要新增的活動", text: $item2)
-                    }
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入運動的卡路里消耗量", text: $cal2)
-                    }
-                    Section {
-                        HStack {
-                            Button("完成") {
-                                itemeditdata2 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }
-                        }
-                        HStack {
-                            Button("刪除") {
-                                item2 = ""
-                                item2 = item3
-                                item3 = item4
-                                item4 = ""
-                                cal2 = ""
-                                cal2 = cal3
-                                cal3 = cal4
-                                cal4 = ""
-                                itemeditdata2 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }.foregroundColor(.red)
-                        }
-                    }
-                    
-                }
-                
-                .navigationTitle("更改已編排的活動")
-                .interactiveDismissDisabled()
-            }
-        }
-        .sheet(isPresented: $itemeditdata3) {
-            NavigationView {
-                List {
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入要新增的活動", text: $item3)
-                    }
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入運動的卡路里消耗量", text: $cal3)
-                    }
-                    Section {
-                        HStack {
-                            Button("完成") {
-                                itemeditdata3 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }
-                        }
-                        HStack {
-                            Button("刪除") {
-                                item3 = ""
-                                item3 = item4
-                                item4 = ""
-                                cal3 = ""
-                                cal3 = cal4
-                                cal4 = ""
-                                itemeditdata3 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }.foregroundColor(.red)
-                        }
-                    }
-                }
-                
-                .navigationTitle("更改已編排的活動")
-                .interactiveDismissDisabled()
-            }
-        }
-        .sheet(isPresented: $itemeditdata4) {
-            NavigationView {
-                List {
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入要新增的活動", text: $item4)
-                    }
-                    Section(header: Text("請輸入要新增的活動")) {
-                        TextField("請輸入運動的卡路里消耗量", text: $cal3)
-                    }
-                    Section {
-                        HStack {
-                            Button("完成") {
-                                itemeditdata4 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }
-                        }
-                        HStack {
-                            Button("刪除") {
-                                item4 = ""
-                                cal4 = ""
-                                itemeditdata4 = false
-                                savealldata()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    popover = true
-                                }
-                            }.foregroundColor(.red)
-                        }
-                    }
-                    
-                }
-                
-                .navigationTitle("更改已編排的活動")
-                .interactiveDismissDisabled()
-            }
-        }
-        
-        .onDisappear() {
-            savealldata()
         }
         .onAppear() {
             loadalldata()
-        }
-        .onAppear() {
-            loadalldata()
-            if home == true {
-                blocktouch = false
-                lognow(message: "Block touch done")
-            } else if home == false {
-                blocktouch = true
-                lognow(message: "Unblock touch done")
-            }
 
         }
         .onAppear() {
-            let lang = defaults.string(forKey: "AppleLanguages") ?? ""
-            if lang == "zh-HK"{
-                cn = true
-            } else if lang == "zh-Hant"{
-                cn = true
-            } else if lang == "zh-Hans"{
-                cn = true
-            } else {
-                cn = false
+            if let defaults = UserDefaults(suiteName: "hingtattsang.app.M3-UItra") {
+                let lang = defaults.string(forKey: "AppleLanguages") ?? ""
+                if lang == "zh-HK"{
+                    cn = true
+                } else if lang == "zh-Hant"{
+                    cn = true
+                } else if lang == "zh-Hans"{
+                    cn = true
+                } else {
+                    cn = false
+                }
             }
+            
         }
         
     }
     func loadalldata() -> Void {
-        let today = getrightdate()
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM/yyyy"
-        let datedatanow = "\(formatter1.string(from: today))"
-        let dataitem1 = defaults.string(forKey: "\(datedatanow)dataitem1")
-        let dataitem2 = defaults.string(forKey: "\(datedatanow)dataitem2")
-        let dataitem3 = defaults.string(forKey: "\(datedatanow)dataitem3")
-        let dataitem4 = defaults.string(forKey: "\(datedatanow)dataitem4")
-        let dataholiday = defaults.bool(forKey: "\(datedatanow)dataholiday")
-        let datacal1 = defaults.string(forKey: "\(datedatanow)datacal1")
-        let datacal2 = defaults.string(forKey: "\(datedatanow)datacal2")
-        let datacal3 = defaults.string(forKey: "\(datedatanow)datacal3")
-        let datacal4 = defaults.string(forKey: "\(datedatanow)datacal4")
-        item1 = dataitem1 ?? ""
-        item2 = dataitem2 ?? ""
-        item3 = dataitem3 ?? ""
-        item4 = dataitem4 ?? ""
-        holiday = dataholiday
-        cal1 = datacal1 ?? ""
-        cal2 = datacal2 ?? ""
-        cal3 = datacal3 ?? ""
-        cal4 = datacal4 ?? ""
-        lognow(message: "data loaded Cell:\(datedatanow)")
+        if let defaults = UserDefaults(suiteName: "hingtattsang.app.M3-UItra") {
+            let today = getrightdate()
+            let formatter1 = DateFormatter()
+            formatter1.dateFormat = "dd/MM/yyyy"
+            let datedatanow = "\(formatter1.string(from: today))"
+            let dataitem1 = defaults.string(forKey: "\(datedatanow)dataitem1")
+            let dataitem2 = defaults.string(forKey: "\(datedatanow)dataitem2")
+            let dataitem3 = defaults.string(forKey: "\(datedatanow)dataitem3")
+            let dataitem4 = defaults.string(forKey: "\(datedatanow)dataitem4")
+            let dataholiday = defaults.bool(forKey: "\(datedatanow)dataholiday")
+            let datacal1 = defaults.string(forKey: "\(datedatanow)datacal1")
+            let datacal2 = defaults.string(forKey: "\(datedatanow)datacal2")
+            let datacal3 = defaults.string(forKey: "\(datedatanow)datacal3")
+            let datacal4 = defaults.string(forKey: "\(datedatanow)datacal4")
+            item1 = dataitem1 ?? ""
+            item2 = dataitem2 ?? ""
+            item3 = dataitem3 ?? ""
+            item4 = dataitem4 ?? ""
+            holiday = dataholiday
+            cal1 = datacal1 ?? ""
+            cal2 = datacal2 ?? ""
+            cal3 = datacal3 ?? ""
+            cal4 = datacal4 ?? ""
+            lognow(message: "data loaded Cell:\(datedatanow)")
+        }
     }
     func savealldata() -> Void {
-        let today = getrightdate()
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM/yyyy"
-        let datedatanow = "\(formatter1.string(from: today))"
-        if item1 != "" {
-            defaults.set(item1, forKey: "\(datedatanow)dataitem1")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)dataitem1")
+        if let defaults = UserDefaults(suiteName: "hingtattsang.app.M3-UItra") {
+            let today = getrightdate()
+            let formatter1 = DateFormatter()
+            formatter1.dateFormat = "dd/MM/yyyy"
+            let datedatanow = "\(formatter1.string(from: today))"
+            if item1 != "" {
+                defaults.set(item1, forKey: "\(datedatanow)dataitem1")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)dataitem1")
+            }
+            if item2 != "" {
+                defaults.set(item2, forKey: "\(datedatanow)dataitem2")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)dataitem2")
+            }
+            if item3 != "" {
+                defaults.set(item3, forKey: "\(datedatanow)dataitem3")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)dataitem3")
+            }
+            if item4 != "" {
+                defaults.set(item4, forKey: "\(datedatanow)dataitem4")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)dataitem4")
+            }
+            if holiday != false {
+                defaults.set(holiday, forKey: "\(datedatanow)dataholiday")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)dataholiday")
+            }
+            if cal1 != "" {
+                defaults.set(cal1, forKey: "\(datedatanow)datacal1")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)datacal1")
+            }
+            if cal2 != "" {
+                defaults.set(cal2, forKey: "\(datedatanow)datacal2")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)datacal3")
+            }
+            if cal3 != "" {
+                defaults.set(cal3, forKey: "\(datedatanow)datacal3")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)datacal3")
+            }
+            if cal4 != "" {
+                defaults.set(cal4, forKey: "\(datedatanow)datacal4")
+            } else {
+                defaults.removeObject(forKey: "\(datedatanow)datacal4")
+            }
+            lognow(message: "data saved")
         }
-        if item2 != "" {
-            defaults.set(item2, forKey: "\(datedatanow)dataitem2")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)dataitem2")
-        }
-        if item3 != "" {
-            defaults.set(item3, forKey: "\(datedatanow)dataitem3")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)dataitem3")
-        }
-        if item4 != "" {
-            defaults.set(item4, forKey: "\(datedatanow)dataitem4")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)dataitem4")
-        }
-        if holiday != false {
-            defaults.set(holiday, forKey: "\(datedatanow)dataholiday")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)dataholiday")
-        }
-        if cal1 != "" {
-            defaults.set(cal1, forKey: "\(datedatanow)datacal1")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)datacal1")
-        }
-        if cal2 != "" {
-            defaults.set(cal2, forKey: "\(datedatanow)datacal2")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)datacal3")
-        }
-        if cal3 != "" {
-            defaults.set(cal3, forKey: "\(datedatanow)datacal3")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)datacal3")
-        }
-        if cal4 != "" {
-            defaults.set(cal4, forKey: "\(datedatanow)datacal4")
-        } else {
-            defaults.removeObject(forKey: "\(datedatanow)datacal4")
-        }
-        lognow(message: "data saved")
+        
     }
     
     func stringtofloat(string: String) -> Float {
@@ -1118,18 +1006,4 @@ struct dateView: View {
         
     }
     
-}
-
-
-
-struct dateView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            dateView(date: "2", month: "8", fullyear: "2022", today: true)
-            dateView(date: "3", month: "8", fullyear: "2022")
-            dateView(date: "10", month: "8", fullyear: "2022")
-            dateView(date: "12", month: "8", fullyear: "2022")
-            dateView(date: "20", month: "8", fullyear: "2022")
-        }
-    }
 }

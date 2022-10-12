@@ -13,44 +13,34 @@ struct langView: View {
     var body: some View {
         List {
             HStack {
-                Spacer()
                 Button("English") {
                     UserDefaults.standard.set(["en"], forKey: "AppleLanguages")
                     quit = true
                 }
-                Spacer()
             }
             HStack {
-                Spacer()
                 Button("中文(香港)") {
                     UserDefaults.standard.set(["zh-HK"], forKey: "AppleLanguages")
                     quit = true
                 }
-                Spacer()
             }
             HStack {
-                Spacer()
                 Button("中文(繁體)") {
                     UserDefaults.standard.set(["zh-Hant"], forKey: "AppleLanguages")
                     quit = true
                 }
-                Spacer()
             }
             HStack {
-                Spacer()
                 Button("中文(簡體)") {
                     UserDefaults.standard.set(["zh-Hans"], forKey: "AppleLanguages")
                     quit = true
                 }
-                Spacer()
             }
             HStack {
-                Spacer()
                 Button("한국인") {
                     UserDefaults.standard.set(["ko"], forKey: "AppleLanguages")
                     quit = true
                 }
-                Spacer()
             }
             
         }
