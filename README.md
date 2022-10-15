@@ -1,4 +1,4 @@
-# M3-UItra
+# Project moved to here: http://server.alwaysboringstudio.site:3000/tsanghingtat/M2-Ultra/
 
 # 此 App 會用到下列的功能：
 1. CoreML - Vision ✅
